@@ -3,8 +3,8 @@ import requests
 import re
 
 # Configuration
-INPUT_FILE = "partn.csv"
-OUTPUT_FILE = "final_part1.csv"
+INPUT_FILE = "partn_test.csv"
+OUTPUT_FILE = "part_test.csv"
 OLLAMA_MODEL = "herald/phi3-128k:latest"
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
