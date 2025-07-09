@@ -4,7 +4,6 @@ import csv
 # Increase max field size for abstract/full_text
 csv.field_size_limit(1_000_000_000)
 
-# === CONFIGURATION ===
 input_file = "D:\\ZYPTR_SCRPITS\\output_with_abstract.csv"
 output_file = "partn.csv"
 
