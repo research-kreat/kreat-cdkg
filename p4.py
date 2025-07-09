@@ -6,8 +6,8 @@ from collections import deque
 csv.field_size_limit(1_000_000_000)
 
 # File paths
-input_file = "D:\\ZYPTR_SCRPITS\\output_with_abstract.csv"
-output_file = "partn.csv"
+input_file = "partn.csv"
+output_file = "partn_test.csv"
 
 # Number of rows to extract from the end
 NUM_LAST_ROWS = 10
@@ -19,7 +19,7 @@ try:
     last_rows = deque(maxlen=NUM_LAST_ROWS)
 
     # Read in chunks and store rows in the buffer
-    for chunk in pd.read_csv(input_file, chunksize=1000, on_bad_lines='skip', engine='python'):
+    for chunk in pd.read_csv(input_file, chunksize=10, on_bad_lines='skip', engine='python'):
         for _, row in chunk.iterrows():
             last_rows.append(row)
 
