@@ -1,15 +1,11 @@
 from pymongo import MongoClient
 from neo4j import GraphDatabase
-
- # 🔐 Replace with your Neo4j password
-
 from dotenv import load_dotenv
 import os
 
 # Load .env file
 load_dotenv()
-
-# Access variables
+ # 🔐 Replace with your Neo4j password
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB = os.getenv("MONGO_DB")
 MONGO_COLLECTION = os.getenv("MONGO_COLLECTION")
@@ -90,7 +86,7 @@ def insert_patent(tx, doc):
 # === RUN THE MIGRATION ===
 with neo4j_driver.session() as session:
     count = 0
-    for record in mongo_collection.find():
+    for record in MONGO_COLLECTION.find():
         try:
             session.execute_write(insert_patent, record)
             count += 1
