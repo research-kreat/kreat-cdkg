@@ -2,13 +2,13 @@ from pymongo import MongoClient
 from neo4j import GraphDatabase
 
 # === CONFIGURATION ===
-MONGO_URI = "mongodb://localhost:27017/"
-MONGO_DB = "testdb1"
-MONGO_COLLECTION = "knowledge_base"
+MONGO_URI = "mongodb+srv://data:July2025@cluster0.peeh3.mongodb.net/"
+MONGO_DB = "KG"
+MONGO_COLLECTION = "cdkg"
 
-NEO4J_URI = "bolt://127.0.0.1:7687"
+NEO4J_URI = "neo4j+s://5c46741d.databases.neo4j.io"
 NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "1234567890"  # 🔐 Replace with your Neo4j password
+NEO4J_PASSWORD = "1NIHHaxYLJLRkfa8-Lw48haKxVZDUIaHMTo2Yt5wdvI"  # 🔐 Replace with your Neo4j password
 
 # === CONNECT TO DATABASES ===
 mongo_client = MongoClient(MONGO_URI)
@@ -30,10 +30,18 @@ def insert_patent(tx, doc):
     tech = doc.get("technology_stack", "")
     domain = doc.get("domain", "")
     subdomain = doc.get("sub_domain", "")
+    
+    embedding = doc.get("embedding", [])  # <-- ADD THIS LINE
+    # Ensure it’s a list of floats
+    if isinstance(embedding, list):
+        embedding = [float(x) for x in embedding if isinstance(x, (float, int))]
 
     tx.run("""
         MERGE (p:Patent {id: $patent_id})
-        SET p.title = $title, p.abstract = $abstract, p.pub_date = $pub_date
+        SET p.title = $title,
+            p.abstract = $abstract,
+            p.pub_date = $pub_date,
+            p.embedding = $embedding  // <-- SET embedding here
 
         FOREACH (name IN $inventors |
             MERGE (i:Inventor {name: name})
@@ -74,8 +82,10 @@ def insert_patent(tx, doc):
         "assignee": assignee,
         "tech": tech,
         "domain": domain,
-        "subdomain": subdomain
+        "subdomain": subdomain,
+        "embedding": embedding  # <-- PASS EMBEDDING HERE
     })
+
 
 
 # === RUN THE MIGRATION ===
