@@ -12,15 +12,25 @@ df = pd.read_csv('KG.cleanedData.csv')
 # Fill NaNs with empty string to avoid issues
 df.fillna('', inplace=True)
 
-# Combine relevant fields into one string per row
-def build_text(row):
+# Combine all fields into one string per row for full embedding
+def build_full_text(row):
     return f"{row['knowledge_type']}\n{row['keywords']}\n{row['domain']}\n{row['sub_domain']}\n{row['ai_generated_abstract']}\n{row['use_case_examples']}"
 
-# Generate embeddings
+# Combine only abstract and use-case fields
+def build_ai_text(row):
+    return f"{row['ai_generated_abstract']}\n{row['use_case_examples']}"
+
+# Enable progress bar
 tqdm.pandas(desc="Generating embeddings")
-df['embedding'] = df.progress_apply(lambda row: model.encode(build_text(row)).tolist(), axis=1)
 
-# Save to new CSV
-df.to_csv('CDKG_data_final.csv', index=False)
+# Generate full embedding (optional, keep or remove based on your needs)
+df['embedding'] = df.progress_apply(lambda row: model.encode(build_full_text(row)).tolist(), axis=1)
 
-print("✅ Embeddings generated and saved to CDKG_data_final.csv")
+# Generate embedding only for ai_generated_abstract and use_case_examples
+df['ai_embeddings'] = df.progress_apply(lambda row: model.encode(build_ai_text(row)).tolist(), axis=1)
+
+# Save to CSV
+df.to_csv('CDKG_final.csv', index=False)
+
+print("✅ Embeddings generated and saved to CDKG_final.csv")
+
