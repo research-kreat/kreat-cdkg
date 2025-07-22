@@ -14,13 +14,13 @@ df.fillna('', inplace=True)
 
 # Combine relevant fields into one string per row
 def build_text(row):
-    return f"{row['knowledge_type']}\n{row['keywords']}\n{row['domain']}\n{row['sub_domain']}"
+    return f"{row['knowledge_type']}\n{row['keywords']}\n{row['domain']}\n{row['sub_domain']}\n{row['ai_generated_abstract']}\n{row['use_case_examples']}"
 
 # Generate embeddings
 tqdm.pandas(desc="Generating embeddings")
 df['embedding'] = df.progress_apply(lambda row: model.encode(build_text(row)).tolist(), axis=1)
 
 # Save to new CSV
-df.to_csv('CDKG_data.csv', index=False)
+df.to_csv('CDKG_data_final.csv', index=False)
 
-print("✅ Embeddings generated and saved.csv")
+print("✅ Embeddings generated and saved to CDKG_data_final.csv")
