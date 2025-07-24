@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from neo4j import GraphDatabase
 
 # === CONFIGURATION ===
-MONGO_URI = "mongodb+srv://data:July2025@cluster0.peeh3.mongodb.net/"
+MONGO_URI = "mongodb+srv://kreat-admin:6qiv4xCjdm1ZUzKL@aikreat.rux6qx9.mongodb.net/"
 MONGO_DB = "KG"
 MONGO_COLLECTION = "cdkg"
 
@@ -23,67 +23,105 @@ def insert_patent(tx, doc):
     patent_id = str(doc.get("patent_id"))
     title = doc.get("title", "")
     abstract = doc.get("abstract", "")
+    full_text = doc.get("full_text", "")
     pub_date = doc.get("publication_date", "")
-    inventors = [i.strip() for i in doc.get("inventors", "").split(",") if i.strip()]
-    classifications = [c.strip() for c in doc.get("cpc_classifications", "").split(",") if c.strip()]
-    assignee = doc.get("assignee_org", "")
-    tech = doc.get("technology_stack", "")
+    num_claims = doc.get("num_claims", 0)
+    patent_type = doc.get("patent_type", "")
     domain = doc.get("domain", "")
     subdomain = doc.get("sub_domain", "")
-    
-    embedding = doc.get("embedding", [])  # <-- ADD THIS LINE
-    # Ensure it’s a list of floats
+    knowledge_type = doc.get("knowledge_type", "")
+    wipo_kind = doc.get("wipo_kind", "")
+    use_case = doc.get("use_case_examples", "").strip()
+
+    inventors = [i.strip() for i in doc.get("inventors", "").split(",") if i.strip()]
+    cpc_classifications = [c.strip() for c in doc.get("cpc_classifications", "").split(",") if c.strip()]
+    ipc_classifications = [i.strip() for i in doc.get("ipc_classifications", "").split(",") if i.strip()]
+    tech_stack = [t.strip() for t in doc.get("technology_stack", "").split(",") if t.strip()]
+    keywords = [k.strip() for k in doc.get("keywords", "").split(",") if k.strip()]
+
+    embedding = doc.get("embedding", [])
     if isinstance(embedding, list):
         embedding = [float(x) for x in embedding if isinstance(x, (float, int))]
 
     tx.run("""
         MERGE (p:Patent {id: $patent_id})
-        SET p.title = $title,
+        SET 
+            p.title = $title,
             p.abstract = $abstract,
+            p.full_text = $full_text,
             p.pub_date = $pub_date,
-            p.embedding = $embedding  // <-- SET embedding here
+            p.num_claims = $num_claims,
+            p.patent_type = $patent_type,
+            p.embedding = $embedding
 
         FOREACH (name IN $inventors |
             MERGE (i:Inventor {name: name})
             MERGE (p)-[:INVENTED_BY]->(i)
         )
 
-        FOREACH (code IN $classifications |
-            MERGE (c:Classification {code: code})
-            MERGE (p)-[:CLASSIFIED_AS]->(c)
+        FOREACH (code IN $cpc_classifications |
+            MERGE (c:CPCClassification {code: code})
+            MERGE (p)-[:HAS_CPC]->(c)
         )
 
-        WITH p
-        WHERE $assignee <> ""
-        MERGE (a:Assignee {name: $assignee})
-        MERGE (p)-[:ASSIGNED_TO]->(a)
+        FOREACH (code IN $ipc_classifications |
+            MERGE (i:IPCClassification {code: code})
+            MERGE (p)-[:HAS_IPC]->(i)
+        )
 
-        WITH p
-        WHERE $tech <> ""
-        MERGE (t:Technology {name: $tech})
-        MERGE (p)-[:USES_TECHNOLOGY]->(t)
+        FOREACH (tech IN $tech_stack |
+            MERGE (t:Technology {name: tech})
+            MERGE (p)-[:USES_TECH]->(t)
+        )
 
-        WITH p
-        WHERE $domain <> ""
-        MERGE (d:Domain {name: $domain})
-        MERGE (p)-[:HAS_DOMAIN]->(d)
+        FOREACH (_ IN CASE WHEN $domain <> "" THEN [1] ELSE [] END |
+            MERGE (d:Domain {name: $domain})
+            MERGE (p)-[:HAS_DOMAIN]->(d)
+        )
 
-        WITH p
-        WHERE $subdomain <> ""
-        MERGE (s:SubDomain {name: $subdomain})
-        MERGE (p)-[:HAS_SUBDOMAIN]->(s)
+        FOREACH (_ IN CASE WHEN $subdomain <> "" THEN [1] ELSE [] END |
+            MERGE (s:SubDomain {name: $subdomain})
+            MERGE (p)-[:HAS_SUBDOMAIN]->(s)
+        )
+
+        FOREACH (_ IN CASE WHEN $knowledge_type <> "" THEN [1] ELSE [] END |
+            MERGE (kt:KnowledgeType {name: $knowledge_type})
+            MERGE (p)-[:HAS_TYPE]->(kt)
+        )
+
+        FOREACH (kw IN $keywords |
+            MERGE (k:Keyword {word: kw})
+            MERGE (p)-[:HAS_KEYWORD]->(k)
+        )
+
+        FOREACH (_ IN CASE WHEN $use_case <> "" THEN [1] ELSE [] END |
+            MERGE (u:UseCase {description: $use_case})
+            MERGE (p)-[:HAS_USE_CASE]->(u)
+        )
+
+        FOREACH (_ IN CASE WHEN $wipo_kind <> "" THEN [1] ELSE [] END |
+            MERGE (w:PatentKind {type: $wipo_kind})
+            MERGE (p)-[:HAS_KIND]->(w)
+        )
     """, {
         "patent_id": patent_id,
         "title": title,
         "abstract": abstract,
+        "full_text": full_text,
         "pub_date": pub_date,
+        "num_claims": num_claims,
+        "patent_type": patent_type,
+        "embedding": embedding,
         "inventors": inventors,
-        "classifications": classifications,
-        "assignee": assignee,
-        "tech": tech,
+        "cpc_classifications": cpc_classifications,
+        "ipc_classifications": ipc_classifications,
+        "tech_stack": tech_stack,
         "domain": domain,
         "subdomain": subdomain,
-        "embedding": embedding  # <-- PASS EMBEDDING HERE
+        "knowledge_type": knowledge_type,
+        "keywords": keywords,
+        "use_case": use_case,
+        "wipo_kind": wipo_kind
     })
 
 

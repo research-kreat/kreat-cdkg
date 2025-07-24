@@ -29,9 +29,10 @@ driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 with driver.session() as session:
     result = session.run("""
-        MATCH (p:Patent)
-        WHERE p.embedding IS NOT NULL
-        RETURN p.title AS title, p.abstract AS abstract, p.embedding AS embedding
+        MATCH (p:Patent)-[:HAS_DOMAIN]->(d:Domain)
+WHERE p.embedding IS NOT NULL
+RETURN p.title AS title, p.abstract AS abstract, p.embedding AS embedding, d.name AS Domain
+
     """)
 
     matches = []
@@ -40,17 +41,30 @@ with driver.session() as session:
         if embedding and len(embedding) == len(embedded_query):
             score = cosine_similarity(embedded_query, embedding)
             if score > 0.4:  # Adjust similarity threshold as needed
-                matches.append((record["title"], record["abstract"], score))
+                matches.append((record["title"], record["abstract"], score,record["Domain"]))
 
     # Sort and display top 10 results
     matches.sort(key=lambda x: x[2], reverse=True)
 
     print("\n🔎 Top Matching Patents:")
-    for i, (title, abstract, score) in enumerate(matches[:10]):
+    for i, (title, abstract, score,domain) in enumerate(matches[:10]):
         print(f"\n#{i+1} — Score: {score:.4f}")
         print(f"Title   : {title}")
-        print(f"Abstract: {abstract[:300]}{'...' if len(abstract) > 300 else ''}")
+        print(f"Abstract: {abstract}")
+        print(f"Domain: {domain}")
 
 
 
+prompt=f"""
+User Problem: {query}
+
+Here are 10 relevant patents based on semantic similarity:
+
+{chr(10).join([
+    f"Title: {m['title']}\nScore: {m['score']:.4f}\nAI Abstract: {m['ai_generated_abstract']}\nUse Case: {m['use_case_examples']}" for m in matches
+])}
+
+Can you explain how these relate to the user’s problem?
+What are the solutions, gaps, or novel ideas?
+"""
 
