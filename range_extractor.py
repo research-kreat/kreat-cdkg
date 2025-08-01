@@ -20,9 +20,9 @@ def extract_row_range(input_file, output_file, start_row, end_row):
                 break
         print(f"✅ Extracted rows {start_row} to {end_row} from {input_file} to {output_file}")
 
-input_csv = 'strict_aerospace_filtered.csv'
-output_csv = 'aerospace2.csv'
-start = 0  # inclusive
+input_csv = 'aerospace2.csv'
+output_csv = 'aerospace3.csv'
+start = 75  # inclusive
 end = 517    # inclusive
 
 extract_row_range(input_csv, output_csv, start, end)
