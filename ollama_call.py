@@ -3,8 +3,8 @@ import requests
 import re
 
 # Configuration
-INPUT_FILE = "partn_test.csv"
-OUTPUT_FILE = "part_test.csv"
+INPUT_FILE = "aerospace3.csv"
+OUTPUT_FILE = "output4.csv"
 OLLAMA_MODEL = "herald/phi3-128k:latest"
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
@@ -67,7 +67,7 @@ def query_ollama(prompt: str) -> str:
             "model": OLLAMA_MODEL,
             "prompt": prompt,
             "stream": False
-        }, timeout=90)
+        }, timeout=300)
 
         if response.status_code != 200:
             raise RuntimeError(f"HTTP {response.status_code}: {response.text}")
