@@ -4,6 +4,9 @@ from neo4j import GraphDatabase
 from pymongo import MongoClient
 from datetime import datetime
 from tqdm import tqdm
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
 
 # Set a high limit for CSV field size in case of very large text fields
 # This is kept in case you ever need to revert to a CSV source.
@@ -12,9 +15,9 @@ csv.field_size_limit(1_000_000_000)
 # === CONFIGURATION ===
 # It's best practice to use environment variables for credentials
 # Neo4j Credentials
-NEO4J_URI = os.getenv("NEO4J_URI", "neo4j+s://5c46741d.databases.neo4j.io")
-NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
-NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "1NIHHaxYLJLRkfa8-Lw48haKxVZDUIaHMTo2Yt5wdvI")
+NEO4J_URI = "neo4j://127.0.0.1:7687"
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "August2025&@#"
 
 # MongoDB Credentials
 MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://kreat-admin:6qiv4xCjdm1ZUzKL@aikreat.rux6qx9.mongodb.net")
@@ -43,6 +46,53 @@ except Exception as e:
     print(f"❌ Failed to connect to MongoDB: {e}")
     exit()
 
+def find_functional_equivalents(threshold=0.85, batch_size=100):
+    print("🔄 Finding cross-domain functionally equivalent documents...")
+    
+    # Step 1: Pull all documents with embeddings and domains
+    all_docs = list(collection.find({
+        "embedding": {"$exists": True, "$ne": []},
+        "domain": {"$exists": True, "$ne": ""}
+    }))
+
+    domain_groups = {}
+    for doc in all_docs:
+        domain = doc["domain"]
+        domain_groups.setdefault(domain, []).append(doc)
+
+    for dom_a, docs_a in domain_groups.items():
+        for dom_b, docs_b in domain_groups.items():
+            if dom_a == dom_b:
+                continue  # skip same domain
+
+            print(f"🔍 Comparing {dom_a} ↔ {dom_b}")
+
+            for doc_a in docs_a:
+                vec_a = np.array(doc_a["embedding"]).reshape(1, -1)
+                best_match = None
+                best_score = 0
+
+                for doc_b in docs_b:
+                    vec_b = np.array(doc_b["embedding"]).reshape(1, -1)
+                    score = cosine_similarity(vec_a, vec_b)[0][0]
+
+                    if score > best_score and score >= threshold:
+                        best_score = score
+                        best_match = doc_b
+
+                if best_match:
+                    with neo4j_driver.session(database="neo4j") as session:
+                        session.execute_write(create_functional_equivalence,
+                                              doc_a.get("id") or doc_a.get("patent_id"),
+                                              best_match.get("id") or best_match.get("patent_id"),
+                                              best_score)
+
+def create_functional_equivalence(tx, id1, id2, score):
+    tx.run("""
+    MATCH (a:Document {id: $id1}), (b:Document {id: $id2})
+    MERGE (a)-[r:FUNCTIONALLY_EQUIVALENT_TO]->(b)
+    SET r.similarity = $score
+    """, id1=id1, id2=id2, score=score)
 
 # === FUNCTION TO CREATE NODES & RELATIONSHIPS (REVISED FOR DETAILED SCHEMA) ===
 def insert_document(tx, doc):
@@ -244,6 +294,10 @@ def run_migration():
         neo4j_driver.close()
         mongo_client.close()
         print("✅ Database connections closed.")
+        #find_functional_equivalents()
+
+        
+
 
 if __name__ == "__main__":
     run_migration()
