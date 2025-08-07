@@ -19,9 +19,9 @@ logger = logging.getLogger(__name__)
 # ----------------------------
 # CONFIG
 # ----------------------------
-NEO4J_URI = "neo4j://localhost:7687"
+NEO4J_URI = "bolt://135.235.170.159:7687"
 NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "Quartz@987"
+NEO4J_PASSWORD = "cHRE3FjhhxvkGNH"
 
 # ----------------------------
 # CONNECT
@@ -306,11 +306,15 @@ def create_multi_level_relationships(tx):
         {
             'name': 'Problem-Solution Clustering',
             'query': """
-            MATCH (p1:Patent)-[:ADDRESSES_PROBLEM]->(pr:Problem)<-[:ADDRESSES_PROBLEM]-(p2:Patent)
-            WHERE p1.id < p2.id
-            MERGE (p1)-[:ADDRESSES_SAME_PROBLEM {problem: pr.name}]->(p2)
-            RETURN count(*) as created
-            """
+                CALL apoc.periodic.iterate(
+                'MATCH (pr:Problem) RETURN pr',
+                'MATCH (p1:Patent)-[:ADDRESSES_PROBLEM]->(pr)
+                MATCH (p2:Patent)-[:ADDRESSES_PROBLEM]->(pr)
+                WHERE id(p1) < id(p2)
+                MERGE (p1)-[:ADDRESSES_SAME_PROBLEM {problem: pr.name}]->(p2)',
+                {batchSize: 500}
+        )
+        """
         },
         
         {
@@ -487,13 +491,13 @@ def create_indexes(tx):
 if __name__ == "__main__":
     try:
         logger.info("📖 Reading CSV file...")
-        df = pd.read_csv("mongo_random_sample.csv")
+        df = pd.read_csv("mongo_full_export.csv")
         logger.info(f"Loaded {len(df)} records")
 
         logger.info("🧮 Processing embeddings...")
         embeddings_list = []
         for _, row in df.iterrows():
-            patent_id = str(row['_id'])
+            patent_id = str(row['patent_id'])
             embedding = parse_embedding(row.get('embedding') or row.get('ai_embeddings'))
             embeddings_list.append((patent_id, embedding))
         
