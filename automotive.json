@@ -1,0 +1,680 @@
+{
+    "MANUFACTURING & PRODUCTION FUNCTIONS": {
+      "Vehicle Assembly Line": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Aircraft Assembly",
+        "Equivalence Layer": "Structural & Process",
+        "Strength Score": 0.82,
+        "Constraint Boundaries": "Safety standards (automotive VS. aviation), Scale differences (thousands vs. dozens)",
+        "Transfer Evidence": "Toyota Production System → Boeing 787 assembly, Lean principles transferred",
+        "Key Stakeholders": "Boeing, Toyota, Assembly automation companies"
+      },
+      "Quality Control Systems": {
+        "Equivalent Domain": "Semiconductors",
+        "Equivalent Function": "Chip Testing Validation",
+        "Equivalence Layer": "Structural & Process",
+        "Strength Score": 0.76,
+        "Constraint Boundaries": "Defect tolerance (automotive graceful degradation VS. semiconductor zero-defect), Cost per defect",
+        "Transfer Evidence": "Six Sigma automotive → Semiconductor yield optimization",
+        "Key Stakeholders": "TSMC, Automotive suppliers, Quality software vendors"
+      },
+      "Supply Chain Management": {
+        "Equivalent Domain": "Healthcare",
+        "Equivalent Function": "Pharmaceutical Supply Chain",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.73,
+        "Constraint Boundaries": "Regulatory complexity (FDA vs. DOT), Shelf life vs. just-in-time automotive",
+        "Transfer Evidence": "automotive → Pharma cold chain logistics",
+        "Key Stakeholders": "Pharmaceutical companies, Logistics providers"
+      },
+      "Component Testing": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Stress Testing & Certification",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Test duration (years vs. months), Life-critical vs. safety-critical differences",
+        "Transfer Evidence": "Automotive crash testing → Aerospace model year cycles",
+        "Key Stakeholders": "Regulatory bodies, NASA, NHTSA, Testing equipment manufacturers"
+      },
+      "Lean Manufacturing": {
+        "Equivalent Domain": "Technology",
+        "Equivalent Function": "Software Development (Agile)",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.68,
+        "Constraint Boundaries": "Physical constraints vs. digital flexibility, Inventory vs. code repositories",
+        "Transfer Evidence": "Toyota Lean → Agile software methodologies",
+        "Key Stakeholders": "Software development teams, Manufacturing engineers"
+      }
+    },
+    "VEHICLE SYSTEMS & CONTROL": {
+      "Advanced Driver Assistance (ADAS) Systems": {
+        "Equivalent Domain": "Defense",
+        "Equivalent Function": "Military Autonomous Systems",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.84,
+        "Constraint Boundaries": "Mission objectives (civilian safety vs. military effectiveness), Ethical constraints",
+        "Transfer Evidence": "Military autonomous vehicles",
+        "Key Stakeholders": "DARPA, Tesla, Waymo, Defense contractors",
+        "Temporal Evolution": "Civilian-military technology transfer accelerating"
+      },
+      "Vehicle Diagnostics": {
+        "Equivalent Domain": "Healthcare",
+        "Equivalent Function": "Patient Monitoring Systems",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.89,
+        "Constraint Boundaries": "Failure consequences (inconvenience vs. life-threatening), Data privacy regulations",
+        "Transfer Evidence": "Civilian OBD automotive diagnostics → Remote patient monitoring",
+        "Key Stakeholders": "Healthcare IoT companies, Automotive service providers",
+        "Temporal Evolution": "Remote diagnostics adoption growing rapidly"
+      },
+      "Infotainment Systems": {
+        "Equivalent Domain": "Consumer Electronics",
+        "Equivalent Function": "Smart Home Integration",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.71,
+        "Constraint Boundaries": "Distraction safety vs. engagement optimization, Automotive environment constraints",
+        "Transfer Evidence": "Automotive infotainment → Smart home voice assistants",
+        "Key Stakeholders": "Amazon, Apple, Google, OEMS",
+        "Temporal Evolution": "Voice interface integration standard by 2025"
+      },
+      "Electric Powertrain Control": {
+        "Equivalent Domain": "Energy",
+        "Equivalent Function": "Grid Power Management",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.91,
+        "Constraint Boundaries": "Mobile vs. stationary systems, Real-time response requirements",
+        "Transfer Evidence": "EV battery management → Grid energy storage systems",
+        "Key Stakeholders": "Utility companies, EV manufacturers, Grid operators",
+        "Temporal Evolution": "Vehicle-to-grid integration emerging"
+      },
+      "Predictive Maintenance": {
+        "Equivalent Domain": "Industrial Equipment",
+        "Equivalent Function": "Factory Equipment Monitoring",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.79,
+        "Constraint Boundaries": "Mobility vs. stationary operation, Environmental variations",
+        "Transfer Evidence": "Automotive telematics → Industrial IoT monitoring",
+        "Key Stakeholders": "Industrial IoT providers, Fleet operators",
+        "Temporal Evolution": "AI-driven predictive analytics becoming standard"
+      }
+    },
+    "DESIGN & ENGINEERING FUNCTIONS": {
+      "Aerodynamic Design": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Aircraft Aerodynamics",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.93,
+        "Constraint Boundaries": "Speed ranges (subsonic vs. hypersonic), Regulatory requirements",
+        "Transfer Evidence": "Wind tunnel testing & CFD from aerospace to automotive design",
+        "Key Stakeholders": "NASA, Aerospace engineers, CFD software vendors, OEMs",
+        "Temporal Evolution": "CFD simulation accuracy improving rapidly"
+      },
+      "Material Selection": {
+        "Equivalent Domain": "Construction",
+        "Equivalent Function": "Building Material Engineering",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.67,
+        "Constraint Boundaries": "Load types (dynamic vs. static), Environmental exposure duration",
+        "Transfer Evidence": "Steel automotive frames → structural adoption",
+        "Key Stakeholders": "Material suppliers, Building engineers, Construction designers",
+        "Temporal Evolution": "Advanced materials adoption accelerating"
+      },
+      "Crash Safety Design": {
+        "Equivalent Domain": "Defense",
+        "Equivalent Function": "Armor Protection Systems",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Threat types (collision vs. ballistic), Protection objectives",
+        "Transfer Evidence": "Automotive crumple zones → Military vehicle protection design",
+        "Key Stakeholders": "DARPA, Defense contractors, Safety designers, NHTSA",
+        "Temporal Evolution": "Simulation-based safety design becoming standard"
+      },
+      "Thermal Management": {
+        "Equivalent Domain": "Data Centers",
+        "Equivalent Function": "Server Cooling Systems",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.85,
+        "Constraint Boundaries": "Heat sources (combustion vs. electronic), Space constraints",
+        "Transfer Evidence": "Data center thermal design → Automotive cooling",
+        "Key Stakeholders": "Data center operators, Cooling system manufacturers, Thermal engineers",
+        "Temporal Evolution": "Efficient thermal management increasingly critical"
+      },
+      "Noise Vibration Harshness (NVH)": {
+        "Equivalent Domain": "Architecture",
+        "Equivalent Function": "Building Acoustics",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.64,
+        "Constraint Boundaries": "Source types (mechanical vs. environmental), Occupancy patterns",
+        "Transfer Evidence": "Automotive NVH → Building sound isolation",
+        "Key Stakeholders": "Acoustic engineers, Architecture firms, Material specialists",
+        "Temporal Evolution": "Active noise control technologies emerging"
+      }
+    },
+    "CONNECTIVITY & AI FUNCTIONS": {
+      "Vehicle-to-Everything (V2X)": {
+        "Equivalent Domain": "Telecommunications",
+        "Equivalent Function": "5G Network Management",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.87,
+        "Constraint Boundaries": "Mobility vs. fixed infrastructure, Latency requirements",
+        "Transfer Evidence": "Telecom protocols → Automotive communication standards",
+        "Key Stakeholders": "Qualcomm, Telecom providers, Infrastructure vendors"
+      },
+      "Autonomous Driving AI": {
+        "Equivalent Domain": "Robotics",
+        "Equivalent Function": "Industrial Robot Control",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.89,
+        "Constraint Boundaries": "Environment complexity (structured vs. unstructured), Human interaction",
+        "Transfer Evidence": "Industrial robotics → Autonomous vehicle navigation",
+        "Key Stakeholders": "Waymo, Robotics firms, AI researchers, Sensor manufacturers"
+      },
+      "Machine Learning for Personalization": {
+        "Equivalent Domain": "Technology",
+        "Equivalent Function": "Recommendation Systems",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.74,
+        "Constraint Boundaries": "Real-time vs. batch processing, Privacy regulations",
+        "Transfer Evidence": "Netflix algorithms → Automotive personalization",
+        "Key Stakeholders": "Netflix, Google, Data analytics firms, Privacy regulators"
+      },
+      "Computer Vision": {
+        "Equivalent Domain": "Healthcare",
+        "Equivalent Function": "Medical Imaging Analysis",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.86,
+        "Constraint Boundaries": "Image types (road scenes vs. medical scans), Accuracy requirements",
+        "Transfer Evidence": "Medical image recognition → Automotive object detection",
+        "Key Stakeholders": "Medical imaging companies, Computer vision firms, Hospitals"
+      },
+      "Edge Computing": {
+        "Equivalent Domain": "Industrial IoT",
+        "Equivalent Function": "Distributed Processing",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.83,
+        "Constraint Boundaries": "Power constraints vs. processing requirements, Network reliability",
+        "Transfer Evidence": "Industrial edge computing → Automotive edge processing",
+        "Key Stakeholders": "Cisco, Edge computing providers, Industrial firms"
+      }
+    },
+    "ENERGY & PROPULSION FUNCTIONS": {
+      "Battery Management Systems": {
+        "Equivalent Domain": "Energy Storage",
+        "Equivalent Function": "Grid-Scale Battery Control",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.92,
+        "Constraint Boundaries": "Scale differences (kWh vs. MWh), Duty cycles",
+        "Transfer Evidence": "Grid storage BMS → Automotive optimization",
+        "Key Stakeholders": "Tesla, Utility companies, Battery manufacturers"
+      },
+      "Regenerative Braking": {
+        "Equivalent Domain": "Industrial Equipment",
+        "Equivalent Function": "Energy Recovery Systems",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.78,
+        "Constraint Boundaries": "Energy scale and timing, System integration complexity",
+        "Transfer Evidence": "Industrial waste heat recovery → Automotive regeneration",
+        "Key Stakeholders": "Industrial equipment manufacturers, OEMS"
+      },
+      "Electric Motor Control": {
+        "Equivalent Domain": "Industrial Automation",
+        "Equivalent Function": "Servo Motor Systems",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.85,
+        "Constraint Boundaries": "Power density requirements, Environmental conditions",
+        "Transfer Evidence": "Industrial motor control → Automotive propulsion",
+        "Key Stakeholders": "Siemens, Industrial automation companies"
+      },
+      "Charging Infrastructure": {
+        "Equivalent Domain": "Telecommunications",
+        "Equivalent Function": "Network Infrastructure Deployment",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.79,
+        "Constraint Boundaries": "Service delivery (data vs. energy), Infrastructure standards",
+        "Transfer Evidence": "Telecom network rollout → EV charging deployment",
+        "Key Stakeholders": "Utility providers, EV charging companies, Governments"
+      },
+      "Fuel Cell Systems": {
+        "Equivalent Domain": "Energy",
+        "Equivalent Function": "Hydrogen Power Generation",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.94,
+        "Constraint Boundaries": "Mobile vs. stationary application, Size and weight constraints",
+        "Transfer Evidence": "Stationary fuel cells → Automotive fuel cell systems",
+        "Key Stakeholders": "Energy companies, Automotive manufacturers"
+      }
+    },
+    "COMMERCIAL & SERVICE FUNCTIONS": {
+      "Customer Experience Management": {
+        "Equivalent Domain": "Retail",
+        "Equivalent Function": "Omnichannel Customer Journey",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.72,
+        "Constraint Boundaries": "Purchase frequency (major vs. frequent purchases), Decision complexity",
+        "Transfer Evidence": "Retail CX → Automotive dealership experience platforms",
+        "Key Stakeholders": "Amazon, Retail consultants, Dealership networks",
+        "Temporal Evolution": "Digital-first customer experience becoming standard"
+      },
+      "Fleet Management": {
+        "Equivalent Domain": "Logistics",
+        "Equivalent Function": "Transportation Asset Management",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Asset types (vehicles vs. cargo), Optimization objectives",
+        "Transfer Evidence": "Logistics fleet optimization → Automotive fleet solutions",
+        "Key Stakeholders": "UPS, Fleet management companies, Telematics providers",
+        "Temporal Evolution": "AI-driven fleet optimization becoming standard"
+      },
+      "Predictive Analytics": {
+        "Equivalent Domain": "Finance",
+        "Equivalent Function": "Risk Assessment Models",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.76,
+        "Constraint Boundaries": "Data types (behavioral vs. technical), Prediction horizons",
+        "Transfer Evidence": "Financial risk models → Automotive predictive CX analytics",
+        "Key Stakeholders": "Financial analysts, Data analytics firms, Insurance companies",
+        "Temporal Evolution": "Predictive maintenance analytics maturing rapidly"
+      },
+      "After-Sales Service": {
+        "Equivalent Domain": "Technology",
+        "Equivalent Function": "Software Support & Maintenance",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.69,
+        "Constraint Boundaries": "Product lifecycle (physical vs. digital), Service delivery methods",
+        "Transfer Evidence": "Software support → Automotive maintenance services",
+        "Key Stakeholders": "Microsoft, Service management platforms, Dealership service centers",
+        "Temporal Evolution": "Remote diagnostics and service becoming standard"
+      },
+      "Mobility-as-a-Service": {
+        "Equivalent Domain": "Technology",
+        "Equivalent Function": "Software-as-a-Service",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Asset intensity (physical vs. digital), Operational complexity",
+        "Transfer Evidence": "SaaS business models → Automotive subscription services",
+        "Key Stakeholders": "Uber, Subscription platform providers, Mobility service operators",
+        "Temporal Evolution": "Subscription-based mobility models growing rapidly"
+      }
+    },
+    "REGULATORY & COMPLIANCE FUNCTIONS": {
+      "Safety Certification & Testing": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Aircraft Certification (FAA)",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.93,
+        "Constraint Boundaries": "Life-critical vs. safety-critical standards, Test duration (months vs. years)",
+        "Transfer Evidence": "Automotive crash testing protocols → Aircraft structural testing methods",
+        "Key Stakeholders": "FAA, NHTSA, Testing laboratories, OEMS"
+      },
+      "Emissions Testing & Compliance": {
+        "Equivalent Domain": "Energy",
+        "Equivalent Function": "Power Plant Emissions Control",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.89,
+        "Constraint Boundaries": "Mobile vs. stationary sources, Real-time vs. continuous monitoring",
+        "Transfer Evidence": "Automotive emissions standards → Power plant monitoring systems",
+        "Key Stakeholders": "EPA, Energy regulators, Environmental testing firms"
+      },
+      "Type Approval Processes": {
+        "Equivalent Domain": "Pharmaceuticals",
+        "Equivalent Function": "Drug Regulatory Approval",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Product complexity (mechanical vs. chemical), Timeline differences",
+        "Transfer Evidence": "Automotive regulatory submission → FDA approval processes",
+        "Key Stakeholders": "FDA, EMA, Automotive regulatory teams"
+      },
+      "Environmental Impact Assessment": {
+        "Equivalent Domain": "Construction",
+        "Equivalent Function": "Environmental Impact Studies",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.82,
+        "Constraint Boundaries": "Temporary vs. permanent impact, Scale differences (local vs. regional)",
+        "Transfer Evidence": "Automotive lifecycle assessment → Construction environmental review",
+        "Key Stakeholders": "Environmental consultants, Construction firms, OEMS"
+      },
+      "International Standards Compliance": {
+        "Equivalent Domain": "Telecommunications",
+        "Equivalent Function": "Equipment Certification (FCC)",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Physical vs. electromagnetic standards, Testing methodologies",
+        "Transfer Evidence": "Automotive international standards → Telecom equipment certification",
+        "Key Stakeholders": "FCC, International standards bodies, Global OEMS"
+      }
+    },
+    "FINANCIAL & BUSINESS MODEL FUNCTIONS": {
+      "Vehicle Financing & Leasing": {
+        "Equivalent Domain": "Equipment Finance",
+        "Equivalent Function": "Heavy Equipment Leasing",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.91,
+        "Constraint Boundaries": "Asset mobility vs. stationary use, Depreciation patterns",
+        "Transfer Evidence": "Automotive leasing models → Construction equipment financing",
+        "Key Stakeholders": "Banks, Equipment finance companies, Leasing providers",
+        "Temporal Evolution": "Subscription-based models emerging in automotive"
+      },
+      "Automotive Insurance Models": {
+        "Equivalent Domain": "Aviation",
+        "Equivalent Function": "Aircraft Insurance",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Risk frequency (high vs. low), Claim amounts (thousands vs. millions)",
+        "Transfer Evidence": "Automotive risk assessment → Aviation insurance underwriting",
+        "Key Stakeholders": "Insurance companies, Actuaries, Risk assessors",
+        "Temporal Evolution": "Usage-based insurance models growing rapidly"
+      },
+      "Warranty Cost Prediction": {
+        "Equivalent Domain": "Electronics",
+        "Equivalent Function": "Consumer Electronics Warranties",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.83,
+        "Constraint Boundaries": "Usage patterns (continuous vs. intermittent), Failure modes",
+        "Transfer Evidence": "Automotive warranty analytics → Electronics reliability prediction",
+        "Key Stakeholders": "Warranty providers, Data analytics firms, OEMs",
+        "Temporal Evolution": "Predictive analytics improving warranty accuracy"
+      },
+      "Residual Value Forecasting": {
+        "Equivalent Domain": "Real Estate",
+        "Equivalent Function": "Property Valuation",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Asset liquidity differences, Market dynamics (local vs. global)",
+        "Transfer Evidence": "Automotive residual models → Real estate appraisal methods",
+        "Key Stakeholders": "Appraisers, Financial analysts, Auction companies",
+        "Temporal Evolution": "AI-driven valuation models becoming standard"
+      },
+      "Total Cost of Ownership Analysis": {
+        "Equivalent Domain": "Industrial Equipment",
+        "Equivalent Function": "Lifecycle Costing",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.87,
+        "Constraint Boundaries": "Usage intensity differences, Maintenance complexity",
+        "Transfer Evidence": "Automotive TCO models → Industrial equipment cost analysis",
+        "Key Stakeholders": "Fleet operators, Industrial equipment firms, Consultants",
+        "Temporal Evolution": "Holistic cost modeling adoption increasing"
+      }
+    },
+    "INFORMATION TECHNOLOGY & DATA FUNCTIONS": {
+      "Enterprise Resource Planning (ERP)": {
+        "Equivalent Domain": "Manufacturing",
+        "Equivalent Function": "Production Management Systems",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.92,
+        "Constraint Boundaries": "Industry-specific requirements, Integration complexity",
+        "Transfer Evidence": "Automotive ERP → General manufacturing systems",
+        "Key Stakeholders": "SAP, Oracle, Manufacturing IT teams"
+      },
+      "Product Lifecycle Management (PLM)": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Engineering Data Management",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.91,
+        "Constraint Boundaries": "Product complexity (thousands vs. millions of parts), Certification requirements",
+        "Transfer Evidence": "Automotive PLM → Aerospace engineering systems",
+        "Key Stakeholders": "Siemens, Dassault Systèmes, Engineering teams"
+      },
+      "Automotive Cybersecurity": {
+        "Equivalent Domain": "Financial Services",
+        "Equivalent Function": "Banking Security Systems",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.83,
+        "Constraint Boundaries": "Physical vs. digital assets, Attack vectors (remote vs. physical access)",
+        "Transfer Evidence": "Automotive security protocols → Financial cybersecurity frameworks",
+        "Key Stakeholders": "Cybersecurity firms, Banks, Automotive IT teams"
+      },
+      "Vehicle Data Analytics": {
+        "Equivalent Domain": "Telecommunications",
+        "Equivalent Function": "Network Performance Analytics",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.86,
+        "Constraint Boundaries": "Data volume scale, Real-time processing requirements",
+        "Transfer Evidence": "Automotive telematics → Telecom network monitoring",
+        "Key Stakeholders": "Data analytics companies, Telecom providers"
+      },
+      "Software Over-the-Air Updates": {
+        "Equivalent Domain": "Consumer Electronics",
+        "Equivalent Function": "Device Firmware Updates",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.94,
+        "Constraint Boundaries": "Update criticality (safety vs. feature), Rollback complexity",
+        "Transfer Evidence": "Automotive OTA → Smartphone software updates",
+        "Key Stakeholders": "Software companies, OEMS, Update infrastructure providers"
+      }
+    },
+    "HUMAN RESOURCES & WORKFORCE FUNCTIONS": {
+      "Union Relations & Negotiations": {
+        "Equivalent Domain": "Manufacturing",
+        "Equivalent Function": "Labor Relations Management",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.93,
+        "Constraint Boundaries": "Industry traditions, Bargaining power dynamics",
+        "Transfer Evidence": "Automotive labor negotiations → Steel industry unions",
+        "Key Stakeholders": "UAW, Manufacturing unions, Labor relations specialists"
+      },
+      "Technical Skills Training": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Technician Certification Programs",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Technology complexity levels, Safety requirements",
+        "Transfer Evidence": "Automotive technician training → Aircraft maintenance training",
+        "Key Stakeholders": "Training providers, Technical schools, Certification bodies"
+      },
+      "Workplace Safety Programs": {
+        "Equivalent Domain": "Construction",
+        "Equivalent Function": "Occupational Safety Management",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.87,
+        "Constraint Boundaries": "Hazard types (mechanical vs. environmental), Injury severity",
+        "Transfer Evidence": "Automotive safety protocols → Construction site safety",
+        "Key Stakeholders": "OSHA, Safety consultants, Insurance companies"
+      },
+      "Workforce Planning & Analytics": {
+        "Equivalent Domain": "Technology",
+        "Equivalent Function": "Technical Talent Management",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.79,
+        "Constraint Boundaries": "Skill evolution speed, Geographic distribution",
+        "Transfer Evidence": "Automotive workforce planning → Tech talent analytics",
+        "Key Stakeholders": "HR analytics firms, Recruitment companies, Training providers"
+      },
+      "Knowledge Management Systems": {
+        "Equivalent Domain": "Pharmaceuticals",
+        "Equivalent Function": "Knowledge Research Platforms",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Knowledge complexity, Regulatory requirements",
+        "Transfer Evidence": "Automotive best practices → Pharma R&D knowledge systems",
+        "Key Stakeholders": "R&D teams, Consultants, Knowledge management vendors"
+      }
+    },
+    "INTERNATIONAL & GLOBAL FUNCTIONS": {
+      "Product Localization": {
+        "Equivalent Domain": "Consumer Electronics",
+        "Equivalent Function": "Regional Product Adaptation",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.82,
+        "Constraint Boundaries": "Physical vs. software modifications, Regulatory differences",
+        "Transfer Evidence": "Automotive market adaptation → Electronics regional variants",
+        "Key Stakeholders": "Localization firms, Regional engineering teams, Regulatory consultants"
+      },
+      "Cross-Cultural Team Management": {
+        "Equivalent Domain": "Consulting",
+        "Equivalent Function": "Global Project Delivery",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.84,
+        "Constraint Boundaries": "Industry culture differences, Communication complexity",
+        "Transfer Evidence": "Automotive global teams → Consulting international projects",
+        "Key Stakeholders": "Management consultants, Cultural training providers, Global OEMS"
+      },
+      "International Trade Compliance": {
+        "Equivalent Domain": "Electronics",
+        "Equivalent Function": "Global Trade Management",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.89,
+        "Constraint Boundaries": "Product classification complexity, Documentation requirements",
+        "Transfer Evidence": "Automotive trade compliance → Electronics import/export",
+        "Key Stakeholders": "Trade compliance firms, Customs brokers, Global logistics providers"
+      },
+      "Currency Risk Management": {
+        "Equivalent Domain": "Commodities",
+        "Equivalent Function": "Commodity Price Hedging",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.93,
+        "Constraint Boundaries": "Risk timeframes, Hedging instruments availability",
+        "Transfer Evidence": "Automotive FX hedging → Commodity price risk management",
+        "Key Stakeholders": "Financial institutions, Risk management firms, Treasury departments"
+      },
+      "Global Supply Chain Coordination": {
+        "Equivalent Domain": "Pharmaceuticals",
+        "Equivalent Function": "International Manufacturing",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.85,
+        "Constraint Boundaries": "Quality standards differences, Regulatory complexity",
+        "Transfer Evidence": "Automotive global sourcing → Pharma global production",
+        "Key Stakeholders": "Supply chain consultants, Logistics providers, Quality assurance firms"
+      }
+    },
+    "SUSTAINABILITY & ENVIRONMENTAL FUNCTIONS": {
+      "Lifecycle Assessment (LCA)": {
+        "Equivalent Domain": "Electronics",
+        "Equivalent Function": "Product Environmental Impact",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.87,
+        "Constraint Boundaries": "Product lifespan differences, Use phase impact",
+        "Transfer Evidence": "Automotive LCA → Electronics environmental assessment",
+        "Key Stakeholders": "Environmental consultants, LCA software providers, Sustainability teams"
+      },
+      "End-of-Life Vehicle Management": {
+        "Equivalent Domain": "Electronics",
+        "Equivalent Function": "E-Waste Recycling Programs",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.88,
+        "Constraint Boundaries": "Material complexity, Recovery economics",
+        "Transfer Evidence": "Automotive recycling → Electronics waste management",
+        "Key Stakeholders": "Recycling companies, Material recovery firms, Regulatory bodies"
+      },
+      "Carbon Footprint Tracking": {
+        "Equivalent Domain": "Energy",
+        "Equivalent Function": "Emissions Monitoring Systems",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.92,
+        "Constraint Boundaries": "Source types (mobile vs. stationary), Measurement accuracy",
+        "Transfer Evidence": "Automotive carbon tracking → Power plant emissions monitoring",
+        "Key Stakeholders": "Carbon accounting firms, Environmental monitoring companies"
+      },
+      "Sustainable Materials Sourcing": {
+        "Equivalent Domain": "Fashion",
+        "Equivalent Function": "Ethical Supply Chain Management",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.81,
+        "Constraint Boundaries": "Material types, Certification standards",
+        "Transfer Evidence": "Automotive sustainable sourcing → Fashion ethical procurement",
+        "Key Stakeholders": "Sustainable materials suppliers, Certification bodies, NGOs"
+      },
+      "Circular Economy Implementation": {
+        "Equivalent Domain": "Packaging",
+        "Equivalent Function": "Closed-Loop Material Systems",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.83,
+        "Constraint Boundaries": "Material durability, Design complexity",
+        "Transfer Evidence": "Automotive circular design → Packaging circular economy",
+        "Key Stakeholders": "Circular economy consultants, Material scientists, Design firms"
+      }
+    },
+    "BEHAVIORAL & PSYCHOLOGICAL FUNCTIONS": {
+      "User Trust in Autonomous Systems": {
+        "Equivalent Domain": "Healthcare",
+        "Equivalent Function": "Patient Trust in Medical AΙ",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.75,
+        "Constraint Boundaries": "Technical vs. life-critical trust, Liability differences",
+        "Transfer Evidence": "Medical AI trust studies → Autonomous vehicle acceptance",
+        "Key Stakeholders": "Behavioral psychologists, Medical AI developers, OEMS"
+      },
+      "Driver Behavior Adaptation": {
+        "Equivalent Domain": "Aviation",
+        "Equivalent Function": "Pilot Automation Interaction",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.82,
+        "Constraint Boundaries": "Professional vs. consumer context, Training requirements",
+        "Transfer Evidence": "Aviation automation psychology → Driver assistance systems",
+        "Key Stakeholders": "Aviation psychologists, Pilot training institutes, ADAS developers"
+      },
+      "Consumer Adoption Resistance": {
+        "Equivalent Domain": "Energy",
+        "Equivalent Function": "Smart Grid Consumer Adoption",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.78,
+        "Constraint Boundaries": "Infrastructure vs. product adoption, Investment scale",
+        "Transfer Evidence": "Smart meter adoption challenges → EV resistance patterns",
+        "Key Stakeholders": "Behavioral economists, Utility companies, EV manufacturers"
+      },
+      "Risk Perception vs. Reality": {
+        "Equivalent Domain": "Nuclear Energy",
+        "Equivalent Function": "Nuclear Safety Perception",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.83,
+        "Constraint Boundaries": "Media influence patterns, Statistical vs. emotional risk",
+        "Transfer Evidence": "Nuclear safety communication → EV safety messaging",
+        "Key Stakeholders": "Risk communication specialists, Media analysts, Safety engineers"
+      },
+      "Social Proof in Technology Adoption": {
+        "Equivalent Domain": "Telecommunications",
+        "Equivalent Function": "Mobile Phone Social Adoption",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.85,
+        "Constraint Boundaries": "Network effects strength, Cultural factors",
+        "Transfer Evidence": "Mobile adoption patterns → Connected vehicle adoption",
+        "Key Stakeholders": "Sociologists, Telecom marketers, Connected car developers"
+      }
+    },
+    "EMERGING TECHNOLOGY FUNCTIONS": {
+      "Quantum-Enhanced Vehicle Sensors": {
+        "Equivalent Domain": "Defense",
+        "Equivalent Function": "Quantum Radar Systems",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.8,
+        "Constraint Boundaries": "Maturity level (research vs. production), Cost scalability",
+        "Transfer Evidence": "Quantum sensing research → Automotive diagnostics",
+        "Key Stakeholders": "Quantum research labs, Defense contractors, Sensor manufacturers"
+      },
+      "Bio-Inspired Material Systems": {
+        "Equivalent Domain": "Aerospace",
+        "Equivalent Function": "Biomimetic Aircraft Materials",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.72,
+        "Constraint Boundaries": "Biological vs. engineered constraints, Manufacturing complexity",
+        "Transfer Evidence": "Biomimetic aerospace materials → Automotive lightweighting",
+        "Key Stakeholders": "Biomaterials researchers, Aerospace engineers, Material suppliers"
+      },
+      "AI-Human Collaborative Control": {
+        "Equivalent Domain": "Robotics",
+        "Equivalent Function": "Human-Robot Collaboration",
+        "Equivalence Layer": "Structural",
+        "Strength Score": 0.86,
+        "Constraint Boundaries": "Safety protocols, Trust calibration requirements",
+        "Transfer Evidence": "Industrial robot collaboration → Driver-AI partnership",
+        "Key Stakeholders": "ΑΙ researchers, Human factors engineers, Robotics companies"
+      },
+      "Synthetic Biology Energy Storage": {
+        "Equivalent Domain": "Biotechnology",
+        "Equivalent Function": "Engineered Biological Batteries",
+        "Equivalence Layer": "Causal",
+        "Strength Score": 0.68,
+        "Constraint Boundaries": "Regulatory uncertainty, Biological vs. chemical stability",
+        "Transfer Evidence": "Bioengineered energy research → Automotive power systems",
+        "Key Stakeholders": "Synthetic biology labs, Biotech companies, Energy researchers"
+      },
+      "Neuromorphic Computing Integration": {
+        "Equivalent Domain": "Computing",
+        "Equivalent Function": "Brain-Inspired Processing",
+        "Equivalence Layer": "Process",
+        "Strength Score": 0.74,
+        "Constraint Boundaries": "Power efficiency vs. performance, Integration complexity",
+        "Transfer Evidence": "Neuromorphic chip development → Automotive edge computing",
+        "Key Stakeholders": "Neuromorphic researchers, Chip manufacturers, Computing architects"
+      }
+    }
+  }

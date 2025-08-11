@@ -1,0 +1,730 @@
+{
+    "Software Development & Platforms": {
+        "API Architecture & Integration": {    
+            "equivalent_domain": "Aerospace Systems",
+            "equivalent_function": "Avionics Bus Architecture",
+            "equivalence_layer": "System Integration",
+            "strength_score": 0.89,
+            "constraint_boundaries": "Protocol compatibility, latency, security standards",
+            "transfer_evidence": "Modern API gateways mirror aircraft system buses",
+            "key_stakeholders": "Software Architects, System Engineers",
+            "temporal_evolution": "API-first \u2192 Microservices \u2192 Event-driven"
+        },
+      "Agile Development Methodology": {
+        "equivalent_domain": "Automotive Manufacturing",
+        "equivalent_function": "Lean Production Systems",
+        "equivalence_layer": "Process Optimization",
+        "strength_score": 0.84,
+        "constraint_boundaries": "Sprint cycles, team coordination, scope changes",
+        "transfer_evidence": "Toyota Production System principles in software",
+        "key_stakeholders": "DevOps Teams, Product Managers",
+        "temporal_evolution": "Waterfall → Agile → DevOps → Platform Engineering"
+      },
+      "Cloud Platform Architecture": {
+        "equivalent_domain": "Energy Grid Systems",
+        "equivalent_function": "Distributed Power Generation",
+        "equivalence_layer": "Infrastructure Design",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Latency, scalability, regional compliance",
+        "transfer_evidence": "AWS/Azure regions mirror grid distribution",
+        "key_stakeholders": "Cloud Architects, Infrastructure Teams",
+        "temporal_evolution": "Monolith → SOA → Microservices → Serverless"
+      },
+      "Software Testing Automation": {
+        "equivalent_domain": "Pharmaceutical Manufacturing",
+        "equivalent_function": "Quality Assurance Protocols",
+        "equivalence_layer": "Quality Control",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Test coverage, regression risk, validation depth",
+        "transfer_evidence": "FDA-style validation for mission-critical software",
+        "key_stakeholders": "QA Engineers, Test Automation Teams",
+        "temporal_evolution": "Manual → Automated → AI-driven → Continuous"
+      },
+      "DevOps Pipeline Management": {
+        "equivalent_domain": "Aerospace Manufacturing",
+        "equivalent_function": "Assembly Line Coordination",
+        "equivalence_layer": "Production Control",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Deployment risk, rollback capability, environment consistency",
+        "transfer_evidence": "Aircraft assembly coordination in CI/CD",
+        "key_stakeholders": "DevOps Engineers, Release Managers",
+        "temporal_evolution": "Manual deployment → CI/CD → GitOps → MLOps"
+      }
+    },
+    "Semiconductor Design & Manufacturing": {
+      "Chip Architecture Design": {
+        "equivalent_domain": "Automotive Engine Design",
+        "equivalent_function": "Powertrain Architecture",
+        "equivalence_layer": "System Design",
+        "strength_score": 0.85,
+        "constraint_boundaries": "Performance targets, power efficiency, thermal limits",
+        "transfer_evidence": "Both optimize complex subsystem interactions",
+        "key_stakeholders": "Chip Architects, Systems Engineers",
+        "temporal_evolution": "Custom → Standard → ASIC → Chiplet"
+      },
+      "Wafer Fabrication Process": {
+        "equivalent_domain": "Aerospace Precision Manufacturing",
+        "equivalent_function": "Turbine Blade Manufacturing",
+        "equivalence_layer": "Manufacturing Control",
+        "strength_score": 0.92,
+        "constraint_boundaries": "Yield optimization, defect minimization, process variation",
+        "transfer_evidence": "Both require atomic-level precision control",
+        "key_stakeholders": "Fab Engineers, Process Engineers",
+        "temporal_evolution": "Larger nodes → Advanced nodes → EUV → 3D"
+      },
+      "Electronic Design Automation": {
+        "equivalent_domain": "Healthcare Drug Discovery",
+        "equivalent_function": "Computational Biology",
+        "equivalence_layer": "Design Optimization",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Design complexity, simulation accuracy, convergence time",
+        "transfer_evidence": "Both use advanced simulation for complex optimization",
+        "key_stakeholders": "EDA Engineers, Design Engineers",
+        "temporal_evolution": "Manual → CAD → AI-assisted → Autonomous"
+      },
+      "Supply Chain Management": {
+        "equivalent_domain": "Automotive Supply Networks",
+        "equivalent_function": "Tier 1/2/3 Supplier Networks",
+        "equivalence_layer": "Supply Chain",
+        "strength_score": 0.94,
+        "constraint_boundaries": "Geographic risk, inventory, quality control",
+        "transfer_evidence": "Both manage complex multi-tier global networks",
+        "key_stakeholders": "Supply Chain Managers, Procurement",
+        "temporal_evolution": "Just-in-time → Risk-diversified → AI-optimized"
+      },
+      "Yield Optimization": {
+        "equivalent_domain": "Energy Plant Operations",
+        "equivalent_function": "Power Plant Efficiency",
+        "equivalence_layer": "Process Optimization",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Statistical control, root cause analysis, continuous improvement",
+        "transfer_evidence": "Both use statistical process control for optimization",
+        "key_stakeholders": "Yield Engineers, Process Engineers",
+        "temporal_evolution": "Rule-based → Statistical → AI-driven → Predictive"
+      }
+    },
+    "AI/ML & Computing Systems": {
+      "Machine Learning Model Development": {
+        "equivalent_domain": "Healthcare Clinical Trials",
+        "equivalent_function": "Drug Efficacy Research",
+        "equivalence_layer": "Experimental Design",
+        "strength_score": 0.89,
+        "constraint_boundaries": "Data quality, bias, generalizability",
+        "transfer_evidence": "Both require rigorous experimental methodology",
+        "key_stakeholders": "Data Scientists, ML Engineers",
+        "temporal_evolution": "Rule-based → ML → Deep Learning → Foundation Models"
+      },
+      "Computer Vision Systems": {
+        "equivalent_domain": "Aerospace Navigation",
+        "equivalent_function": "Satellite Imaging Systems",
+        "equivalence_layer": "Pattern Recognition",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Real-time processing, accuracy, environmental robustness",
+        "transfer_evidence": "Both process visual data for navigation/detection",
+        "key_stakeholders": "Computer Vision Engineers, AI Researchers",
+        "temporal_evolution": "Template matching → CNN → Transformers → Multimodal"
+      },
+      "Natural Language Processing": {
+        "equivalent_domain": "Healthcare Medical Records",
+        "equivalent_function": "Clinical Documentation",
+        "equivalence_layer": "Information Extraction",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Language ambiguity, domain knowledge, privacy",
+        "transfer_evidence": "Both extract insights from complex text data",
+        "key_stakeholders": "NLP Engineers, Data Scientists",
+        "temporal_evolution": "Rule-based → Statistical → Neural → Large Language Models"
+      },
+      "Data Pipeline Architecture": {
+        "equivalent_domain": "Energy Grid Monitoring",
+        "equivalent_function": "SCADA Data Systems",
+        "equivalence_layer": "Data Processing",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Real-time requirements, data quality, system reliability",
+        "transfer_evidence": "Both handle continuous data streams for monitoring",
+        "key_stakeholders": "Data Engineers, Platform Engineers",
+        "temporal_evolution": "Batch → Streaming → Real-time → Edge"
+      },
+      "Model Deployment & MLOps": {
+        "equivalent_domain": "Automotive Software Updates",
+        "equivalent_function": "Over-the-Air Updates",
+        "equivalence_layer": "System Deployment",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Version control, rollback capability, performance monitoring",
+        "transfer_evidence": "Both deploy complex software to distributed systems",
+        "key_stakeholders": "MLOps Engineers, DevOps Teams",
+        "temporal_evolution": "Manual → Automated → Continuous → Self-healing"
+      }
+    },
+    "Hardware-Software Integration": {
+      "Embedded Systems Design": {
+        "equivalent_domain": "Aerospace Avionics",
+        "equivalent_function": "Flight Control Systems",
+        "equivalence_layer": "Real-time Control",
+        "strength_score": 0.93,
+        "constraint_boundaries": "Real-time constraints, reliability, power consumption",
+        "transfer_evidence": "Both require deterministic real-time behavior",
+        "key_stakeholders": "Embedded Engineers, Systems Engineers",
+        "temporal_evolution": "Microcontrollers → SoC → Edge AI → Neuromorphic"
+      },
+      "IoT Device Architecture": {
+        "equivalent_domain": "Energy Smart Meters",
+        "equivalent_function": "Grid Monitoring Devices",
+        "equivalence_layer": "Distributed Sensing",
+        "strength_score": 0.89,
+        "constraint_boundaries": "Battery life, connectivity, security",
+        "transfer_evidence": "Both deploy sensors across distributed infrastructure",
+        "key_stakeholders": "IoT Architects, Hardware Engineers",
+        "temporal_evolution": "Isolated → Connected → Edge Intelligence → Autonomous"
+      },
+      "Edge Computing Optimization": {
+        "equivalent_domain": "Automotive ADAS",
+        "equivalent_function": "Real-time Vehicle Processing",
+        "equivalence_layer": "Edge Processing",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Latency requirements, processing power, thermal management",
+        "transfer_evidence": "Both require local processing for real-time decisions",
+        "key_stakeholders": "Edge Computing Engineers, Systems Architects",
+        "temporal_evolution": "Cloud → Edge → Far Edge → Autonomous"
+      },
+      "Hardware Abstraction Layers": {
+        "equivalent_domain": "Aerospace Modular Avionics",
+        "equivalent_function": "Standardized Interfaces",
+        "equivalence_layer": "System Abstraction",
+        "strength_score": 0.85,
+        "constraint_boundaries": "Interface compatibility, performance overhead, maintainability",
+        "transfer_evidence": "Both abstract hardware complexity for software",
+        "key_stakeholders": "Systems Engineers, Software Architects",
+        "temporal_evolution": "Monolithic → Modular → Virtualized → Containerized"
+      },
+      "System-on-Chip Integration": {
+        "equivalent_domain": "Healthcare Medical Devices",
+        "equivalent_function": "Integrated Diagnostic Systems",
+        "equivalence_layer": "System Integration",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Size constraints, power efficiency, regulatory compliance",
+        "transfer_evidence": "Both integrate multiple functions in compact systems",
+        "key_stakeholders": "SoC Designers, Systems Engineers",
+        "temporal_evolution": "Discrete → Integrated → SoC → Chiplet-based"
+      }
+    },
+    "Digital Transformation Services": {
+      "Enterprise Software Implementation": {
+        "equivalent_domain": "Healthcare Hospital Systems",
+        "equivalent_function": "Electronic Health Records",
+        "equivalence_layer": "System Integration",
+        "strength_score": 0.84,
+        "constraint_boundaries": "User adoption, data migration, workflow disruption",
+        "transfer_evidence": "Both require complex organizational change management",
+        "key_stakeholders": "Enterprise Architects, Change Managers",
+        "temporal_evolution": "Custom → COTS → SaaS → Low-code"
+      },
+      "Digital Consulting Strategy": {
+        "equivalent_domain": "Energy Grid Modernization",
+        "equivalent_function": "Smart Grid Transformation",
+        "equivalence_layer": "Strategic Planning",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Stakeholder alignment, technology roadmap, ROI justification",
+        "transfer_evidence": "Both guide complex technology transformation",
+        "key_stakeholders": "Strategy Consultants, Digital Architects",
+        "temporal_evolution": "Ad-hoc → Structured → Agile → Continuous"
+      },
+      "Business Process Automation": {
+        "equivalent_domain": "Automotive Production",
+        "equivalent_function": "Manufacturing Automation",
+        "equivalence_layer": "Process Optimization",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Process complexity, human-machine interface, error handling",
+        "transfer_evidence": "Both automate complex multi-step processes",
+        "key_stakeholders": "Process Engineers, Automation Specialists",
+        "temporal_evolution": "Manual → Semi-automated → Automated → Autonomous"
+      },
+      "Data Analytics Platforms": {
+        "equivalent_domain": "Healthcare Population Health",
+        "equivalent_function": "Epidemiological Analysis",
+        "equivalence_layer": "Data Analysis",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Data privacy, analytical complexity, actionable insights",
+        "transfer_evidence": "Both analyze large datasets for population insights",
+        "key_stakeholders": "Data Analysts, Business Intelligence",
+        "temporal_evolution": "Reports → Dashboards → Self-service → AI-driven"
+      },
+      "Customer Experience Platforms": {
+        "equivalent_domain": "Automotive Dealership",
+        "equivalent_function": "Customer Relationship Management",
+        "equivalence_layer": "Customer Engagement",
+        "strength_score": 0.82,
+        "constraint_boundaries": "Channel integration, personalization, customer journey mapping",
+        "transfer_evidence": "Both manage complex customer touchpoints",
+        "key_stakeholders": "CX Designers, Customer Success",
+        "temporal_evolution": "Call centers → CRM → Omnichannel → AI-personalized"
+      }
+    },
+    "Cybersecurity & Information Protection": {
+      "Zero Trust Architecture": {
+        "equivalent_domain": "Aerospace Secure Communications",
+        "equivalent_function": "Classified Network Security",
+        "equivalence_layer": "Security Architecture",
+        "strength_score": 0.92,
+        "constraint_boundaries": "Trust boundaries, access control, identity verification",
+        "transfer_evidence": "Both assume breach and verify all access",
+        "key_stakeholders": "Security Architects, Network Engineers",
+        "temporal_evolution": "Perimeter → Defense-in-depth → Zero Trust → Continuous Verification"
+      },
+      "Threat Detection & Response": {
+        "equivalent_domain": "Healthcare Patient Monitoring",
+        "equivalent_function": "Critical Care Alert Systems",
+        "equivalence_layer": "Anomaly Detection",
+        "strength_score": 0.89,
+        "constraint_boundaries": "False positive rates, response time, escalation protocols",
+        "transfer_evidence": "Both detect anomalies requiring immediate response",
+        "key_stakeholders": "Security Analysts, SOC Teams",
+        "temporal_evolution": "Signature-based → Behavioral → AI-driven → Predictive"
+      },
+      "Data Privacy & Compliance": {
+        "equivalent_domain": "Energy Customer Data",
+        "equivalent_function": "Utility Privacy Regulations",
+        "equivalence_layer": "Regulatory Compliance",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Regulatory requirements, data sovereignty, consent management",
+        "transfer_evidence": "Both handle sensitive data with strict compliance",
+        "key_stakeholders": "Privacy Officers, Compliance Teams",
+        "temporal_evolution": "Basic protection → GDPR → Industry-specific → Dynamic consent"
+      },
+      "Incident Response Management": {
+        "equivalent_domain": "Aerospace Emergency Procedures",
+        "equivalent_function": "Aircraft Emergency Response",
+        "equivalence_layer": "Crisis Management",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Response time, coordination, communication protocols",
+        "transfer_evidence": "Both require structured response to critical incidents",
+        "key_stakeholders": "Incident Commanders, Emergency Response",
+        "temporal_evolution": "Manual → Automated → Orchestrated → AI-assisted"
+      },
+      "Security Architecture Design": {
+        "equivalent_domain": "Automotive Cybersecurity",
+        "equivalent_function": "Vehicle Security Systems",
+        "equivalence_layer": "Security Design",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Attack vectors, security layers, system integration",
+        "transfer_evidence": "Both design security into complex distributed systems",
+        "key_stakeholders": "Security Engineers, Systems Architects",
+        "temporal_evolution": "Reactive → Proactive → Integrated → Adaptive"
+      }
+    },
+    "Regulatory & Standards Compliance": {
+      "Software Certification": {
+        "equivalent_domain": "Aerospace Aircraft Certification",
+        "equivalent_function": "DO-178C Compliance",
+        "equivalence_layer": "Safety Certification",
+        "strength_score": 0.94,
+        "constraint_boundaries": "Evidence requirements, traceability, validation depth",
+        "transfer_evidence": "Both require rigorous evidence-based certification",
+        "key_stakeholders": "Certification Engineers, Compliance Teams",
+        "temporal_evolution": "Ad-hoc → Structured → Risk-based → Continuous"
+      },
+      "Data Protection Compliance": {
+        "equivalent_domain": "Healthcare HIPAA Compliance",
+        "equivalent_function": "Patient Data Protection",
+        "equivalence_layer": "Privacy Regulation",
+        "strength_score": 0.89,
+        "constraint_boundaries": "Data handling, access controls, audit trails",
+        "transfer_evidence": "Both protect sensitive personal information",
+        "key_stakeholders": "Privacy Officers, Data Protection Officers",
+        "temporal_evolution": "Basic → GDPR → Industry-specific → Dynamic"
+      },
+      "International Standards": {
+        "equivalent_domain": "Automotive ISO Standards",
+        "equivalent_function": "Vehicle Safety Standards",
+        "equivalence_layer": "Standards Compliance",
+        "strength_score": 0.87,
+        "constraint_boundaries": "Multi-jurisdictional, harmonization, mutual recognition",
+        "transfer_evidence": "Both navigate complex international standards",
+        "key_stakeholders": "Standards Engineers, Regulatory Affairs",
+        "temporal_evolution": "National → Regional → Global → Harmonized"
+      },
+      "Audit & Documentation": {
+        "equivalent_domain": "Energy Regulatory Reporting",
+        "equivalent_function": "Utility Compliance Reporting",
+        "equivalence_layer": "Regulatory Documentation",
+        "strength_score": 0.85,
+        "constraint_boundaries": "Documentation requirements, audit trails, periodic reporting",
+        "transfer_evidence": "Both maintain detailed compliance documentation",
+        "key_stakeholders": "Audit Managers, Documentation Teams",
+        "temporal_evolution": "Paper-based → Digital → Automated → Real-time"
+      },
+      "Risk Assessment & Management": {
+        "equivalent_domain": "Healthcare Clinical Risk",
+        "equivalent_function": "Patient Safety Risk Management",
+        "equivalence_layer": "Risk Management",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Risk identification, mitigation strategies, monitoring",
+        "transfer_evidence": "Both assess and manage complex system risks",
+        "key_stakeholders": "Risk Managers, Safety Engineers",
+        "temporal_evolution": "Qualitative → Quantitative → Predictive → Dynamic"
+      }
+    },
+    "Financial & Business Models": {
+      "SaaS Revenue Models": {
+        "equivalent_domain": "Energy Utility Billing",
+        "equivalent_function": "Subscription Service Models",
+        "equivalence_layer": "Revenue Management",
+        "strength_score": 0.84,
+        "constraint_boundaries": "Pricing complexity, customer churn, revenue recognition",
+        "transfer_evidence": "Both manage recurring revenue with usage-based components",
+        "key_stakeholders": "Revenue Operations, Finance Teams",
+        "temporal_evolution": "One-time → Subscription → Usage-based → Value-based"
+      },
+      "Technology Investment": {
+        "equivalent_domain": "Aerospace R&D Funding",
+        "equivalent_function": "Advanced Technology Programs",
+        "equivalence_layer": "Investment Strategy",
+        "strength_score": 0.87,
+        "constraint_boundaries": "ROI uncertainty, long development cycles, portfolio management",
+        "transfer_evidence": "Both invest in high-risk, high-reward technology development",
+        "key_stakeholders": "Investment Managers, Technology Strategy",
+        "temporal_evolution": "Internal → Venture → Strategic → Ecosystem"
+      },
+      "Intellectual Property Management": {
+        "equivalent_domain": "Healthcare Patent Portfolios",
+        "equivalent_function": "Drug Patent Strategy",
+        "equivalence_layer": "IP Strategy",
+        "strength_score": 0.89,
+        "constraint_boundaries": "Patent landscape, licensing, defensive strategies",
+        "transfer_evidence": "Both manage complex IP portfolios for competitive advantage",
+        "key_stakeholders": "IP Lawyers, Technology Transfer",
+        "temporal_evolution": "Defensive → Offensive → Strategic → Ecosystem"
+      },
+      "Technology Valuation": {
+        "equivalent_domain": "Energy Infrastructure Assets",
+        "equivalent_function": "Grid Technology Valuation",
+        "equivalence_layer": "Asset Valuation",
+        "strength_score": 0.82,
+        "constraint_boundaries": "Technology obsolescence, market adoption, competitive dynamics",
+        "transfer_evidence": "Both value complex technology with uncertain futures",
+        "key_stakeholders": "Valuation Specialists, Technology Assessors",
+        "temporal_evolution": "Cost-based → Market-based → Income-based → Real options"
+      },
+      "Partnership & Ecosystem": {
+        "equivalent_domain": "Automotive Supplier Networks",
+        "equivalent_function": "Technology Partnerships",
+        "equivalence_layer": "Ecosystem Strategy",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Partner alignment, technology integration, competitive dynamics",
+        "transfer_evidence": "Both manage complex technology ecosystems",
+        "key_stakeholders": "Partnership Managers, Ecosystem Strategy",
+        "temporal_evolution": "Bilateral → Multilateral → Platform → Ecosystem"
+      }
+    },
+    "Human Resources & Talent": {
+      "Technical Talent Acquisition": {
+        "equivalent_domain": "Aerospace Specialized Recruitment",
+        "equivalent_function": "Defense Contractor Hiring",
+        "equivalence_layer": "Talent Acquisition",
+        "strength_score": 0.88,
+        "constraint_boundaries": "Security clearances, specialized skills, competitive market",
+        "transfer_evidence": "Both compete for highly specialized technical talent",
+        "key_stakeholders": "Technical Recruiters, Hiring Managers",
+        "temporal_evolution": "Reactive → Proactive → Predictive → Ecosystem-based"
+      },
+      "Skills Development & Training": {
+        "equivalent_domain": "Healthcare Continuous Education",
+        "equivalent_function": "Medical Professional Development",
+        "equivalence_layer": "Professional Development",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Rapid technology change, certification requirements, knowledge transfer",
+        "transfer_evidence": "Both require continuous learning for evolving technologies",
+        "key_stakeholders": "Learning & Development, Technical Managers",
+        "temporal_evolution": "Classroom → Online → Microlearning → AI-personalized"
+      },
+      "Remote Work Management": {
+        "equivalent_domain": "Energy Field Operations",
+        "equivalent_function": "Distributed Workforce",
+        "equivalence_layer": "Workforce Management",
+        "strength_score": 0.83,
+        "constraint_boundaries": "Collaboration tools, productivity monitoring, culture maintenance",
+        "transfer_evidence": "Both manage geographically distributed technical teams",
+        "key_stakeholders": "HR Operations, Remote Work Specialists",
+        "temporal_evolution": "Office-based → Hybrid → Remote → Distributed"
+      },
+      "Performance Management": {
+        "equivalent_domain": "Automotive Engineering Teams",
+        "equivalent_function": "Project-based Performance",
+        "equivalence_layer": "Performance Systems",
+        "strength_score": 0.81,
+        "constraint_boundaries": "Objective measurement, career progression, team dynamics",
+        "transfer_evidence": "Both evaluate performance in complex technical projects",
+        "key_stakeholders": "HR Business Partners, Engineering Managers",
+        "temporal_evolution": "Annual → Continuous → Real-time → AI-assisted"
+      },
+      "Technology Culture": {
+        "equivalent_domain": "Healthcare Innovation Culture",
+        "equivalent_function": "Research & Development Culture",
+        "equivalence_layer": "Cultural Development",
+        "strength_score": 0.84,
+        "constraint_boundaries": "Innovation mindset, risk tolerance, collaboration",
+        "transfer_evidence": "Both foster cultures of continuous innovation",
+        "key_stakeholders": "Culture Champions, Leadership Teams",
+        "temporal_evolution": "Traditional → Innovative → Agile → Learning"
+      }
+    },
+    "International & Global Operations": {
+      "Global Software Deployment": {
+        "equivalent_domain": "Automotive Global Production",
+        "equivalent_function": "Multi-market Vehicle Deployment",
+        "equivalence_layer": "Global Operations",
+        "strength_score": 0.85,
+        "constraint_boundaries": "Localization, regulatory differences, infrastructure variations",
+        "transfer_evidence": "Both deploy complex products across diverse global markets",
+        "key_stakeholders": "Global Operations, Product Managers",
+        "temporal_evolution": "Single-market → Multi-market → Global → Localized-global"
+      },
+      "Cross-Cultural Technology Teams": {
+        "equivalent_domain": "Aerospace International Programs",
+        "equivalent_function": "Multinational Aerospace Projects",
+        "equivalence_layer": "Team Management",
+        "strength_score": 0.82,
+        "constraint_boundaries": "Cultural differences, time zones, communication protocols",
+        "transfer_evidence": "Both coordinate complex technical projects across cultures",
+        "key_stakeholders": "International Program Managers, Team Leaders",
+        "temporal_evolution": "Co-located → Distributed → Virtual → Hybrid-global"
+      },
+      "Data Sovereignty & Localization": {
+        "equivalent_domain": "Energy Cross-border Infrastructure",
+        "equivalent_function": "International Grid Connections",
+        "equivalence_layer": "Regulatory Compliance",
+        "strength_score": 0.87,
+        "constraint_boundaries": "National regulations, data residency, sovereignty requirements",
+        "transfer_evidence": "Both navigate complex cross-border regulatory requirements",
+        "key_stakeholders": "Legal Affairs, Compliance Officers",
+        "temporal_evolution": "Centralized → Distributed → Sovereign → Federated"
+      },
+      "Technology Transfer": {
+        "equivalent_domain": "Healthcare Global Health",
+        "equivalent_function": "Medical Technology Distribution",
+        "equivalence_layer": "Technology Distribution",
+        "strength_score": 0.86,
+        "constraint_boundaries": "IP protection, local adaptation, knowledge transfer",
+        "transfer_evidence": "Both transfer complex technology to diverse global markets",
+        "key_stakeholders": "Technology Transfer, International Business",
+        "temporal_evolution": "Licensing → Joint ventures → Direct → Ecosystem"
+      },
+      "Global Supply Chain": {
+        "equivalent_domain": "Automotive Global Supply Networks",
+        "equivalent_function": "International Supplier Management",
+        "equivalence_layer": "Supply Chain",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Geographic risk, quality control, logistics coordination",
+        "transfer_evidence": "Both manage complex global supply networks",
+        "key_stakeholders": "Supply Chain Managers, Global Sourcing",
+        "temporal_evolution": "Regional → Global → Risk-diversified → Resilient"
+      }
+    },
+    "Sustainability & Environmental": {
+      "Green Computing & Energy Efficiency": {
+        "equivalent_domain": "Energy Grid Efficiency",
+        "equivalent_function": "Power System Optimization",
+        "equivalence_layer": "Energy Optimization",
+        "strength_score": 0.91,
+        "constraint_boundaries": "Power consumption, cooling requirements, performance trade-offs",
+        "transfer_evidence": "Both optimize energy consumption in complex systems",
+        "key_stakeholders": "Sustainability Engineers, Data Center Operations",
+        "temporal_evolution": "Basic efficiency → Advanced optimization → AI-driven → Carbon-negative"
+      },
+      "Circular Economy in Tech": {
+        "equivalent_domain": "Automotive End-of-Life",
+        "equivalent_function": "Vehicle Recycling Programs",
+        "equivalence_layer": "Circular Design",
+        "strength_score": 0.86,
+        "constraint_boundaries": "Material recovery, design for disassembly, economic viability",
+        "transfer_evidence": "Both design products for end-of-life material recovery",
+        "key_stakeholders": "Circular Economy Specialists, Product Designers",
+        "temporal_evolution": "Linear → Recycling → Circular → Regenerative"
+      },
+      "Carbon Footprint Tracking": {
+        "equivalent_domain": "Energy Carbon Accounting",
+        "equivalent_function": "Grid Emissions Tracking",
+        "equivalence_layer": "Environmental Monitoring",
+        "strength_score": 0.89,
+        "constraint_boundaries": "Measurement accuracy, scope definition, reporting standards",
+        "transfer_evidence": "Both track and report complex carbon emissions",
+        "key_stakeholders": "Carbon Accountants, Environmental Managers",
+        "temporal_evolution": "Manual → Automated → Real-time → AI-optimized"
+      },
+      "Sustainable Software Development": {
+        "equivalent_domain": "Healthcare Green Pharmaceuticals",
+        "equivalent_function": "Sustainable Drug Development",
+        "equivalence_layer": "Sustainable Design",
+        "strength_score": 0.83,
+        "constraint_boundaries": "Development efficiency, resource optimization, lifecycle impact",
+        "transfer_evidence": "Both consider environmental impact in complex development",
+        "key_stakeholders": "Sustainable Development Teams, Green IT",
+        "temporal_evolution": "Traditional → Efficient → Sustainable → Regenerative"
+      },
+      "E-waste Management": {
+        "equivalent_domain": "Aerospace Component Lifecycle",
+        "equivalent_function": "Aircraft Component Recycling",
+        "equivalence_layer": "Waste Management",
+        "strength_score": 0.84,
+        "constraint_boundaries": "Material composition, hazardous materials, recovery economics",
+        "transfer_evidence": "Both manage complex component lifecycle and recycling",
+        "key_stakeholders": "Waste Management, Product Lifecycle",
+        "temporal_evolution": "Disposal → Recycling → Remanufacturing → Design for circularity"
+      }
+    },
+  "Behavioral & User Experience": {
+    "User Interface Design": {
+      "equivalent_domain": "Healthcare Medical Device UI",
+      "equivalent_function": "Patient Interface Design",
+      "equivalence_layer": "Human-Computer Interaction",
+      "strength_score": 0.87,
+      "constraint_boundaries": "Usability requirements, error prevention, accessibility",
+      "transfer_evidence": "Both design interfaces for complex, critical tasks",
+      "key_stakeholders": "UX Designers, Human Factors Engineers",
+      "temporal_evolution": "Functional → Usable → Delightful → Predictive"
+    },
+    "Technology Adoption Psychology": {
+      "equivalent_domain": "Energy Smart Grid Adoption",
+      "equivalent_function": "Consumer Technology Acceptance",
+      "equivalence_layer": "Behavioral Change",
+      "strength_score": 0.85,
+      "constraint_boundaries": "User resistance, change management, adoption barriers",
+      "transfer_evidence": "Both address human resistance to new technology",
+      "key_stakeholders": "Behavioral Scientists, Change Management",
+      "temporal_evolution": "Forced → Incentivized → Natural → Desired"
+    },
+    "Digital Trust & Security": {
+      "equivalent_domain": "Healthcare Patient Trust",
+      "equivalent_function": "Medical Data Confidence",
+      "equivalence_layer": "Trust Building",
+      "strength_score": 0.88,
+      "constraint_boundaries": "Privacy concerns, security perception, transparency",
+      "transfer_evidence": "Both build trust in handling sensitive personal information",
+      "key_stakeholders": "Trust & Safety, Privacy Officers",
+      "temporal_evolution": "Basic security → Transparency → Proactive → Empowering"
+    },
+    "Accessibility & Inclusion": {
+      "equivalent_domain": "Automotive Universal Design",
+      "equivalent_function": "Vehicle Accessibility",
+      "equivalence_layer": "Inclusive Design",
+      "strength_score": 0.84,
+      "constraint_boundaries": "Diverse abilities, assistive technology, regulatory compliance",
+      "transfer_evidence": "Both design for diverse user capabilities",
+      "key_stakeholders": "Accessibility Specialists, Inclusive Designers",
+      "temporal_evolution": "Compliance → Universal → Inclusive → Adaptive"
+    },
+    "Gamification & Engagement": {
+      "equivalent_domain": "Healthcare Patient Engagement",
+      "equivalent_function": "Behavior Change Programs",
+      "equivalence_layer": "Engagement Strategy",
+      "strength_score": 0.82,
+      "constraint_boundaries": "Motivation systems, long-term engagement, behavior change",
+      "transfer_evidence": "Both use game mechanics to drive positive behaviors",
+      "key_stakeholders": "UX Designers, Behavioral Economists",
+      "temporal_evolution": "Basic rewards → Gamification → Behavioral design → Intrinsic motivation"
+    }
+  },
+  "Emerging Technology & Innovation": {
+    "Quantum Computing Development": {
+      "equivalent_domain": "Aerospace Advanced Propulsion",
+      "equivalent_function": "Rocket Propulsion Research",
+      "equivalence_layer": "Breakthrough Technology",
+      "strength_score": 0.79,
+      "constraint_boundaries": "Technical maturity, practical applications, investment risk",
+      "transfer_evidence": "Both develop fundamentally new technologies with uncertain timelines",
+      "key_stakeholders": "Quantum Researchers, Advanced Technology Teams",
+      "temporal_evolution": "Research → Prototype → Limited application → Mainstream"
+    },
+    "Neuromorphic Computing": {
+      "equivalent_domain": "Healthcare Brain-Computer Interfaces",
+      "equivalent_function": "Neural Signal Processing",
+      "equivalence_layer": "Bio-inspired Technology",
+      "strength_score": 0.81,
+      "constraint_boundaries": "Biological complexity, manufacturing scalability, application domains",
+      "transfer_evidence": "Both mimic biological neural systems for computation",
+      "key_stakeholders": "Neuromorphic Engineers, AI Researchers",
+      "temporal_evolution": "Academic → Prototype → Specialized → General purpose"
+    },
+    "Synthetic Biology in Computing": {
+      "equivalent_domain": "Healthcare Genetic Engineering",
+      "equivalent_function": "Biological System Design",
+      "equivalence_layer": "Bio-digital Convergence",
+      "strength_score": 0.77,
+      "constraint_boundaries": "Biological constraints, ethical considerations, regulatory frameworks",
+      "transfer_evidence": "Both engineer biological systems for specific functions",
+      "key_stakeholders": "Synthetic Biology Engineers, Biocomputing Researchers",
+      "temporal_evolution": "Concept → Laboratory → Pilot → Commercial"
+    },
+    "Extended Reality (AR/VR/MR)": {
+      "equivalent_domain": "Aerospace Flight Simulation",
+      "equivalent_function": "Pilot Training Systems",
+      "equivalence_layer": "Immersive Training",
+      "strength_score": 0.86,
+      "constraint_boundaries": "Hardware limitations, user comfort, content development",
+      "transfer_evidence": "Both create immersive environments for training and operations",
+      "key_stakeholders": "XR Developers, Training Specialists",
+      "temporal_evolution": "Basic VR → Mixed reality → Metaverse → Brain-computer interface"
+    },
+    "Blockchain & Distributed Ledgers": {
+      "equivalent_domain": "Energy Grid Trading",
+      "equivalent_function": "Peer-to-peer Energy Trading",
+      "equivalence_layer": "Decentralized Systems",
+      "strength_score": 0.83,
+      "constraint_boundaries": "Scalability, energy consumption, regulatory acceptance",
+      "transfer_evidence": "Both enable decentralized transaction systems",
+      "key_stakeholders": "Blockchain Engineers, Distributed Systems Architects",
+      "temporal_evolution": "Cryptocurrency → Smart contracts → DeFi → Web3"
+    }
+  },
+  "Commercial & Service Delivery": {
+    "Platform Ecosystem Management": {
+      "equivalent_domain": "Automotive Mobility Platforms",
+      "equivalent_function": "Transportation as a Service",
+      "equivalence_layer": "Platform Strategy",
+      "strength_score": 0.84,
+      "constraint_boundaries": "Network effects, multi-sided markets, ecosystem governance",
+      "transfer_evidence": "Both orchestrate complex multi-participant ecosystems",
+      "key_stakeholders": "Platform Managers, Ecosystem Strategy",
+      "temporal_evolution": "Products → Platforms → Ecosystems → Networks"
+    },
+    "API Economy & Monetization": {
+      "equivalent_domain": "Energy Data Services",
+      "equivalent_function": "Grid Data Monetization",
+      "equivalence_layer": "Data Monetization",
+      "strength_score": 0.87,
+      "constraint_boundaries": "Data value, privacy regulations, ecosystem participation",
+      "transfer_evidence": "Both monetize data and services through API ecosystems",
+      "key_stakeholders": "API Product Managers, Data Strategy",
+      "temporal_evolution": "Internal → Partner → Public → Ecosystem"
+    },
+    "Customer Success Management": {
+      "equivalent_domain": "Healthcare Patient Outcomes",
+      "equivalent_function": "Treatment Success Management",
+      "equivalence_layer": "Outcome Management",
+      "strength_score": 0.86,
+      "constraint_boundaries": "Success metrics, intervention strategies, long-term relationships",
+      "transfer_evidence": "Both focus on long-term customer/patient success outcomes",
+      "key_stakeholders": "Customer Success Managers, Account Managers",
+      "temporal_evolution": "Support → Success → Outcome → Value realization"
+    },
+    "Technology Services Delivery": {
+      "equivalent_domain": "Aerospace Maintenance Services",
+      "equivalent_function": "Aircraft Service Operations",
+      "equivalence_layer": "Service Delivery",
+      "strength_score": 0.88,
+      "constraint_boundaries": "Service quality, technical complexity, global delivery",
+      "transfer_evidence": "Both deliver complex technical services globally",
+      "key_stakeholders": "Service Delivery Managers, Technical Account Managers",
+      "temporal_evolution": "Break-fix → Proactive → Predictive → Outcome-based"
+    },
+    "Digital Product Management": {
+      "equivalent_domain": "Automotive Software Products",
+      "equivalent_function": "Vehicle Software Features",
+      "equivalence_layer": "Product Strategy",
+      "strength_score": 0.85,
+      "constraint_boundaries": "Feature prioritization, user feedback, development cycles",
+      "transfer_evidence": "Both manage complex software products with diverse stakeholders",
+      "key_stakeholders": "Product Managers, Product Owners",
+      "temporal_evolution": "Feature-driven → User-driven → Data-driven → AI-assisted"
+    }
+  }
+}
