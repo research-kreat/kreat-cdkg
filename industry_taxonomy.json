@@ -1,0 +1,4050 @@
+{
+  "Aerospace & Defense": [
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Aircraft Manufacturing",
+      "adjacent_domain": "Airlines",
+      "adjacent_sub_industry": "Passenger Airlines",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Airline Software"
+    },
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Aircraft Manufacturing",
+      "adjacent_domain": "Automotive & Assembly",
+      "adjacent_sub_industry": "Vehicle Manufacturing",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Power Generation Equipment"
+    },
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Satellite Technology",
+      "adjacent_domain": "Aerospace",
+      "adjacent_sub_industry": "Space Exploration",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Data Analytics"
+    },
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Satellite Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Data Centers"
+    },
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Space Exploration",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Satellite Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Data Analytics"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Passenger Airlines",
+      "adjacent_domain": "Aerospace & Defense",
+      "adjacent_sub_industry": "Aircraft Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Airline Software"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Cyber Defense Systems",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Security Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Risk Management"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Defense Contracting",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Government Services",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Government Finance"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Military Equipment",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cybersecurity Solutions",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Defense Chips"
+    }
+  ],
+  "Agriculture": [
+    {
+      "domain": "Agriculture",
+      "sub_industry": "Biofuel Crops",
+      "adjacent_domain": "Coal & Consumable Fuels",
+      "adjacent_sub_industry": "Biofuel Production",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Renewable Energy"
+    },
+    {
+      "domain": "Agriculture",
+      "sub_industry": "Forestry",
+      "adjacent_domain": "Forest Products",
+      "adjacent_sub_industry": "Pulp & Paper Manufacturing",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Paper Chemicals"
+    },
+    {
+      "domain": "Agriculture",
+      "sub_industry": "Gardening Supplies",
+      "adjacent_domain": "Home Improvement",
+      "adjacent_sub_industry": "Garden Centers",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Garden Products"
+    },
+    {
+      "domain": "Coal & Consumable Fuels",
+      "sub_industry": "Biofuel Production",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Biofuel Crops",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Renewable Energy"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Crop Monitoring",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Remote Sensing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Imaging Sensors"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Farm Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Robotics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Automation Software"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Precision Agriculture",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "lot Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sensor Chips"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Pulp & Paper Manufacturing",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Forestry",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Paper Chemicals"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Garden Centers",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Gardening Supplies",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Garden Products"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Automated Feeding Systems",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Automation",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Control Systems"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Livestock Monitoring",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Veterinary Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Remote Monitoring"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Veterinary Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Services",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Animal Health"
+    }
+  ],
+  "Automotive & Assembly": [
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Aircraft Manufacturing",
+      "adjacent_domain": "Automotive & Assembly",
+      "adjacent_sub_industry": "Vehicle Manufacturing",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Power Generation Equipment"
+    },
+    {
+      "domain": "Automotive & Assembly",
+      "sub_industry": "Contract Manufacturing",
+      "adjacent_domain": "Industrial Conglomerates",
+      "adjacent_sub_industry": "Manufacturing Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Manufacturing Software"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Electronic Components",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Automotive Chips",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Embedded Systems"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Engine Components",
+      "adjacent_domain": "Metals & Mining",
+      "adjacent_sub_industry": "Metal Production",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Manufacturing Equipment"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Tire Manufacturing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Rubber Materials",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Automotive Retail"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Manufacturing Services",
+      "adjacent_domain": "Automotive & Assembly",
+      "adjacent_sub_industry": "Contract Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Manufacturing Software"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "AI/ML Platforms",
+      "adjacent_domain": "Vehicle Manufacturing",
+      "adjacent_sub_industry": "Autonomous Vehicles",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Units"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Al Integration",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Machine Learning",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Al Processors"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Autonomous Vehicles",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "AI/ML Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Units"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Product Manufacturing",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Assembly Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Units"
+    }
+  ],
+  "Chemicals": [
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Tire Manufacturing",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Automotive Retail",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Rubber Materials"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Roofing Materials",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Commercial Construction"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Basic Chemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Process Equipment"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Industrial Gases",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Petrochemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Refining",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Chemical Logistics"
+    },
+    {
+      "domain": "Consumer Packaged Goods",
+      "sub_industry": "Cleaning Products.",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Chemical Additives",
+      "complementary_domain": "Packaging & Paper",
+      "complementary_sub_industry": "Consumer Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Plastic Packaging",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Polymer Materials",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Product Packaging"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Pulp & Paper Manufacturing",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Forestry",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Paper Chemicals"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Research Reagents",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Research Chemicals",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Research Institutions"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Ore Processing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Processing Chemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Processing Equipment"
+    },
+    {
+      "domain": "Oil & Gas",
+      "sub_industry": "Petrochemicals",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Equipment",
+      "complementary_domain": "Commodity Chemicals",
+      "complementary_sub_industry": "Basic Chemicals"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Manufacturing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Pharmaceutical Chemicals",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Clinical Research"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Refinery Operations",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Refining Equipment"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Semiconductor Fabrication",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing Equipment",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Semiconductor Materials"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Advanced Materials",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Semiconductor Materials",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Research Materials"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Chemical Additives",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Enhancement",
+      "complementary_domain": "Oil & Gas",
+      "complementary_sub_industry": "Refining Additives"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Specialty Polymers",
+      "adjacent_domain": "Packaging & Paper",
+      "adjacent_sub_industry": "Advanced Packaging",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Medical Materials"
+    }
+  ],
+  "Consumer Packaged Goods": [
+    {
+      "domain": "Apparel",
+      "sub_industry": "Fashion Retail",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Fashion Products",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Fashion Technology"
+    },
+    {
+      "domain": "Apparel",
+      "sub_industry": "Sports Apparel",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Athletic Products",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Sports Medicine"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Glass Containers",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Glass Manufacturing",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Beverage Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Plastic Packaging",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Polymer Materials",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Product Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Sustainable Packaging",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Package Innovation",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Eco-Friendly Products"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Supermarkets",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Food Products",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Point-of-Sale Systems"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Home Health Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Remote Monitoring",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Health Products"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Garden Centers",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Gardening Supplies",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Garden Products"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Home Furnishing Stores",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Intenor Design",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Home Products"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Cleaning Products.",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Chemical Additives",
+      "complementary_domain": "Packaging & Paper",
+      "complementary_sub_industry": "Consumer Packaging"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Household Appliances",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Chips"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Personal Care Products",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Consumer Health",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Beauty Retail"
+    }
+  ],
+  "Education": [
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "HR & Staffing Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "HR Software",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Training Services"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Higher Education Institutions",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Campus Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Education Finance"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Online Universities",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Distance Learning",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Learning infrastructure"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Research Institutions",
+      "adjacent_domain": "Life Sciences",
+      "adjacent_sub_industry": "Biotechnology R&D",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Curriculum Development",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Educational Software",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Educational Content"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Educational Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Learning Management",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Educational Networks"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Online Learning Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Research Reagents",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Research Chemicals",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Research Institutions"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Social Entrepreneurship.",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Social Innovation",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Social Education"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Employment Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Job Platforms",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Workforce Development"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Software Development",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Application Processors",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Software Training"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Early-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Startup Ecosystem",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Innovation Programs"
+    }
+  ],
+  "Electric Power & Natural Gas": [
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Grid Infrastructure",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Infrastructure",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Power Generation",
+      "adjacent_domain": "Renewable Energy",
+      "adjacent_sub_industry": "Solar Power",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Smart Grid Technology"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Transmission & Distribution",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grid Management"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Distribution",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Pipeline Operations",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Flow Control"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Storage",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Storage Systems",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Storage Infrastructure"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Pipeline Transportation",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Transportation",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Pipeline Construction"
+    },
+    {
+      "domain": "Multi-Utilities",
+      "sub_industry": "Integrated Utility Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Energy Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Utility Finance"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Energy Storage",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Battery Management",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Management"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Smart Grid Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Grid Controllers"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Solar Power",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Solar Cell Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Energy Management"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Wind Power",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Grid Integration"
+    }
+  ],
+  "Energy": [
+    {
+      "domain": "Coal & Consumable Fuels",
+      "sub_industry": "Biofuel Production",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Biofuel Crops",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Renewable Energy"
+    },
+    {
+      "domain": "Coal & Consumable Fuels",
+      "sub_industry": "Coal Mining",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Extraction",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Power Generation"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Industrial Gases",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Power Generation Equipment",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Natural Gas Exploration",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Gas Processing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Exploration Software"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Heavy Machinery",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mining Equipment",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Aluminum Production",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Metal Processing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Extraction",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Power Generation",
+      "complementary_domain": "Coal & Consumable Fuels",
+      "complementary_sub_industry": "Coal Mining"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Renewable Energy",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Biofuel Crops",
+      "complementary_domain": "Coal & Consumable Fuels",
+      "complementary_sub_industry": "Biofuel Production"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Wind Power",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Grid Integration"
+    }
+  ],
+  "Engineering & Construction": [
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Cement Manufacturing",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mineral Extraction",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Construction Logistics"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Construction Materials Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Logistics",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Material Handling"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Transmission & Distribution",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grid Management"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Commercial Construction",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Commercial Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Construction Finance"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Engineering Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Engineering Software",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Technical Services"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Infrastructure Development",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Urban Planning",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Project Management Software"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Offshore Drilling",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Marine Engineering",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Drilling Equipment"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Wood Product Manufacturing",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Building Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Construction Materials"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Storage",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Storage Systems",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Storage Infrastructure"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Pipeline Transportation",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Transportation",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Pipeline Construction"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Hardware Stores",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Home Improvement"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Port Management",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Port Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Port Management"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Railroads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Rail Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Rail Technology"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Toll Roads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Transportation Infrastructure:",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Traffic Management"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Steel Production",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Steel Logistics"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mineral Extraction",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Mining Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Software"
+    },
+    {
+      "domain": "Public Sector",
+      "sub_industry": "Infrastructure Projects",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Public Infrastructure",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Municipal Finance"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Infrastructure Investments",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure Development",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Infrastructure Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Commercial Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Commercial Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Residential Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Residential REITS",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Oil & Gas Storage",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Storage Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Storage Management"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Pipeline Operations",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Pipeline Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Pipeline Monitoring"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Fiber Optics",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Fiber Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Network Equipment"
+    }
+  ],
+  "Financial Services": [
+    {
+      "domain": "Apparel",
+      "sub_industry": "Luxury Brands",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Luxury Finance",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Luxury Retail"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Corporate Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Commercial Real Estate"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Investment Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Trading Platforms",
+      "complementary_domain": "Private Capital",
+      "complementary_sub_industry": "Investment Management"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Retail Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Fintech",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Security Chips"
+    },
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "HR & Staffing Services",
+      "adjacent_domain": "Education",
+      "adjacent_sub_industry": "Training Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "HR Software"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Credit Card Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Paymerit Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Payment Processors"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Fintech Lending Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Underwriting",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Personal Loaris",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Digital Lending",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Credit Assessment"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Cyber Defense Systems",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Security Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Risk Management"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Defense Contracting",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Government Services",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Government Finance"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Commercial Construction",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Commercial Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Construction Finance"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Private Equity Fund of Funds",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Fund Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Investment Analytics"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Venture Capital Fund of Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fund Operations"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Medical Billing & Coding",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Healthcare Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Healthcare Finance"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Higher Education Institutions",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Campus Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Education Finance"
+    },
+    {
+      "domain": "Internet & Direct Marketing",
+      "sub_industry": "Subscription Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Subscription Platforms",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Payment Processing"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Asset Management Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Investment Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Financial Processors"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Hedge Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Algorithmic Trading",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "High-Performance Computing."
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Private Equity",
+      "adjacent_domain": "Private Capital",
+      "adjacent_sub_industry": "Buyout Funds",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Wealth Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Investment Properties"
+    },
+    {
+      "domain": "Multi-Utilities",
+      "sub_industry": "Integrated Utility Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Energy Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Utility Finance"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Charitable Organizations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Impact Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Donation Platforms"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Philanthropic Foundations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Foundation Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grant Management"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Direct Lending",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Alternative Lending",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Lending Platforms"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Mezzanine Financing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Credit Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Distressed Investments",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Restructuring",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Turnaround Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Growth Equity",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Growth Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Finance"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Leveraged Buyouts",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Public Sector",
+      "sub_industry": "Infrastructure Projects",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Public Infrastructure",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Municipal Finance"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Real Estate Private Equity",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Commercial Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Commercial Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Real Estate Leasing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Property Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Property Management"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Residential Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Residential REITS",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Retail REITs",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Commercial Real Estate",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "REIT Management"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Impact Investing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "ESG Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Impact Measurement"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Nonprofit Consulting",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Nonprofit Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Nonprofit Finance"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Cybersecurity Solutions",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Security Processors",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fraud Prevention"
+    },
+    {
+      "domain": "Travel & Logistics",
+      "sub_industry": "Low-Cost Carriers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Airline Operations",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Travel Finance"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Growth-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Scale-up Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Capital"
+    }
+  ],
+  "Financial Services:": [
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Office REITS",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Office Technology",
+      "complementary_domain": "Financial Services:",
+      "complementary_sub_industry": "Commercial Finance"
+    }
+  ],
+  "Healthcare": [
+    {
+      "domain": "Apparel",
+      "sub_industry": "Sports Apparel",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Athletic Products",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Sports Medicine"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Biologics",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Pharmaceutical Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Bioprocessing"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Gene Therapy",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Treatments",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Therapeutic Software"
+    },
+    {
+      "domain": "Hardware",
+      "sub_industry": "Wearables",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Health Monitoring",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Wearable Processors"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Telemedicine",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Telemedicine Platforms",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Healthcare Connectivity"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Personal Care Products",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Consumer Health",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Beauty Retail"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Health Insurance",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Claims Processing"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Life Insurance",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Health Insurance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Insurance Software"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Diagnostic Tools",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Clinical Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Diagnostic Software"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Livestock Monitoring",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Veterinary Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Remote Monitoring"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Veterinary Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Services",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Animal Health"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Diagnostic Equipment",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Medical Semiconductors",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Health Software"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Medical Devices",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Connected Health",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Biomedical Chips"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Surgical Instruments",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Precision Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Medical Robotics"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Manufacturing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Pharmaceutical Chemicals",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Clinical Research"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Pharmaceutical Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Cold Chain Logistics",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Pharmacy Services"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Health & Human Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Public Health",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Services Software"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Specialty Polymers",
+      "adjacent_domain": "Packaging & Paper",
+      "adjacent_sub_industry": "Advanced Packaging",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Medical Materials"
+    }
+  ],
+  "Industrials & Electronics": [
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Aircraft Manufacturing",
+      "adjacent_domain": "Automotive & Assembly",
+      "adjacent_sub_industry": "Vehicle Manufacturing",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Power Generation Equipment"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Engine Components",
+      "adjacent_domain": "Metals & Mining",
+      "adjacent_sub_industry": "Metal Production",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Manufacturing Equipment"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Construction Materials Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Logistics",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Material Handling"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Basic Chemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Process Equipment"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Industrial Gases",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Glass Containers",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Glass Manufacturing",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Beverage Packaging"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Farm Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Robotics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Automation Software"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Industrial Automation",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Industrial IoT",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Industrial Controllers"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Power Generation Equipment",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Robotics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Robot Controllers"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Engineering Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Engineering Software",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Technical Services"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Offshore Drilling",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Marine Engineering",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Drilling Equipment"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Shale Extraction",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Geological Analysis",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Extraction Equipment"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Distribution",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Pipeline Operations",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Flow Control"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Heavy Machinery",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mining Equipment",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Industrial Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Supply Chain",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Distribution Software"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Automated Feeding Systems",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Automation",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Control Systems"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Surgical Instruments",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Precision Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Medical Robotics"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Aluminum Production",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Metal Processing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Metal Recycling",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Recycling Equipment",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Environmental Services"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mining Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Heavy Equipment",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Analytics"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Ore Processing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Processing Chemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Processing Equipment"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Industrial REITS",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Real Estate"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Refinery Operations",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Refining Equipment"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Wind Power",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Grid Integration"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Semiconductor Fabrication",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing Equipment",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Semiconductor Materials"
+    },
+    {
+      "domain": "Serniconductor. Manufacturing",
+      "sub_industry": "Chip Design",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Electronic Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Design Software"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Integrated Circuits",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Circuit Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Testing Equipment"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Chemical Additives",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Enhancement",
+      "complementary_domain": "Oil & Gas",
+      "complementary_sub_industry": "Refining Additives"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Product Manufacturing",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Assembly Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Units"
+    }
+  ],
+  "Life Sciences": [
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Biologics",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Pharmaceutical Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Bioprocessing"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Gene Therapy",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Treatments",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Therapeutic Software"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Genomics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Bioinformatics",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sequencing Chips"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Research Institutions",
+      "adjacent_domain": "Life Sciences",
+      "adjacent_sub_industry": "Biotechnology R&D",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Diagnostic Tools",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Clinical Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Diagnostic Software"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Laboratory Instruments",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Lab Autornation",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Laboratory Chips"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Research Reagents",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Research Chemicals",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Research Institutions"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Veterinary Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Services",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Animal Health"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Discovery",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Drug Discovery",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Manufacturing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Pharmaceutical Chemicals",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Clinical Research"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Pharmaceutical Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Cold Chain Logistics",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Pharmacy Services"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Advanced Materials",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Semiconductor Materials",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Research Materials"
+    }
+  ],
+  "Media": [
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Curriculum Development",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Educational Software",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Educational Content"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Content Production",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Content Delivery",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Streaming Services"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Digital Advertising",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Marketing Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Ad Technology"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Streaming Services",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Content Delivery",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Content Production"
+    }
+  ],
+  "Metals & Mining": [
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Satellite Technology",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Data Centers",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Cloud Computing"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Engine Components",
+      "adjacent_domain": "Metals & Mining",
+      "adjacent_sub_industry": "Metal Production",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Manufacturing Equipment"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Aluminum Production",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Metal Processing",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Metal Recycling",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Recycling Equipment",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Environmental Services"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Steel Production",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Steel Logistics"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mineral Extraction",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Mining Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Software"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mining Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Heavy Equipment",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Analytics"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Ore Processing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Processing Chemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Processing Equipment"
+    }
+  ],
+  "Mining": [
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Cement Manufacturing",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mineral Extraction",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Construction Logistics"
+    },
+    {
+      "domain": "Coal & Consumable Fuels",
+      "sub_industry": "Coal Mining",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Extraction",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Power Generation"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Heavy Machinery",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mining Equipment",
+      "complementary_domain": "Energy",
+      "complementary_sub_industry": "Industrial Power"
+    }
+  ],
+  "Oil & Gas": [
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Basic Chemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Process Equipment"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Petrochemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Refining",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Chemical Logistics"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Natural Gas Exploration",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Gas Processing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Exploration Software"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Offshore Drilling",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Marine Engineering",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Drilling Equipment"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Shale Extraction",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Geological Analysis",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Extraction Equipment"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Distribution",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Pipeline Operations",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Flow Control"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Gas Storage",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Storage Systems",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Storage Infrastructure"
+    },
+    {
+      "domain": "Gas Utilities",
+      "sub_industry": "Pipeline Transportation",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Transportation",
+      "complementary_domain": "Engineering & Construction",
+      "complementary_sub_industry": "Pipeline Construction"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Fuel Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Fuel Logistics",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Gas Stations"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Gas Stations",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Convenience Retail",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Point-of-Sale Systems"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Refinery Operations",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Petrochemicals",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Refining Equipment"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Chemical Additives",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Enhancement",
+      "complementary_domain": "Oil & Gas",
+      "complementary_sub_industry": "Refining Additives"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Fuel Transportation",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Logistics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Fleet Management"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Oil & Gas Storage",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Storage Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Storage Management"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Pipeline Operations",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Pipeline Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Pipeline Monitoring"
+    }
+  ],
+  "Packaging & Paper": [
+    {
+      "domain": "Consumer Packaged Goods",
+      "sub_industry": "Cleaning Products.",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Chemical Additives",
+      "complementary_domain": "Packaging & Paper",
+      "complementary_sub_industry": "Consumer Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Glass Containers",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Glass Manufacturing",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Beverage Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Plastic Packaging",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Polymer Materials",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Product Packaging"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Sustainable Packaging",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Package Innovation",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Eco-Friendly Products"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Pulp & Paper Manufacturing",
+      "adjacent_domain": "Agriculture",
+      "adjacent_sub_industry": "Forestry",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Paper Chemicals"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Wood Product Manufacturing",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Building Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Construction Materials"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Specialty Polymers",
+      "adjacent_domain": "Packaging & Paper",
+      "adjacent_sub_industry": "Advanced Packaging",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Medical Materials"
+    }
+  ],
+  "Private Capital": [
+    {
+      "domain": "Banking",
+      "sub_industry": "Investment Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Trading Platforms",
+      "complementary_domain": "Private Capital",
+      "complementary_sub_industry": "Investment Management"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Private Equity Fund of Funds",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Fund Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Investment Analytics"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Venture Capital Fund of Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fund Operations"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Private Equity",
+      "adjacent_domain": "Private Capital",
+      "adjacent_sub_industry": "Buyout Funds",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Direct Lending",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Alternative Lending",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Lending Platforms"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Mezzanine Financing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Credit Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Distressed Investments",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Restructuring",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Turnaround Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Growth Equity",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Growth Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Finance"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Leveraged Buyouts",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Infrastructure Investments",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure Development",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Infrastructure Finance"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Real Estate Private Equity",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Early-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Startup Ecosystem",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Innovation Programs"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Growth-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Scale-up Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Capital"
+    }
+  ],
+  "Public Sector": [
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "Waste Management",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Municipal Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Waste Analytics"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Defense Contracting",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Government Services",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Government Finance"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Infrastructure Development",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Urban Planning",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Project Management Software"
+    },
+    {
+      "domain": "Government",
+      "sub_industry": "E-Government Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Government Software",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Government Networks"
+    },
+    {
+      "domain": "Government",
+      "sub_industry": "Infrastructure Projects",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Public Infrastructure",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Municipal Finance"
+    },
+    {
+      "domain": "Government",
+      "sub_industry": "Public Safety",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Security Systems",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Emergency Networks"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Metal Recycling",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Recycling Equipment",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Environmental Services"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "NGOS",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "International Development",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Impact Software"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Infrastructure Investments",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure Development",
+      "complementary_domain": "Public Sector",
+      "complementary_sub_industry": "Infrastructure Finance"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Employment Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Job Platforms",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Workforce Development"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Health & Human Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Public Health",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Services Software"
+    }
+  ],
+  "Real Estate": [
+    {
+      "domain": "Apparel",
+      "sub_industry": "Luxury Brands",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Luxury Finance",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Luxury Retail"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Corporate Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Commercial Real Estate"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Roofing Materials",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Commercial Construction"
+    },
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "Facility Maintenance",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Facility Management"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Commercial Construction",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Commercial Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Construction Finance"
+    },
+    {
+      "domain": "Forest Products",
+      "sub_industry": "Wood Product Manufacturing",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Building Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Construction Materials"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Warehousing",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Warehouse Management"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Department Stores",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Retail Real Estate",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Retail Technology"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Higher Education Institutions",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Campus Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Education Finance"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Hardware Stores",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Home Improvement"
+    },
+    {
+      "domain": "Home Improvement",
+      "sub_industry": "Home Furnishing Stores",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Intenor Design",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Home Products"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Property & Casualty Insurance",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Risk Assessment"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Wealth Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Investment Properties"
+    },
+    {
+      "domain": "Real Assets",
+      "sub_industry": "Real Estate Private Equity",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Development",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Commercial Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Commercial Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Real Estate Finance"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Real Estate Leasing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Property Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Property Management"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Residential Real Estate",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Industrial REITS",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Real Estate"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Office REITS",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Office Technology",
+      "complementary_domain": "Financial Services:",
+      "complementary_sub_industry": "Commercial Finance"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Residential REITS",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Residential Construction",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Mortgage Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Retail REITs",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Commercial Real Estate",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "REIT Management"
+    }
+  ],
+  "Retail": [
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Tire Manufacturing",
+      "adjacent_domain": "Chemicals",
+      "adjacent_sub_industry": "Rubber Materials",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Automotive Retail"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Computer Retail",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Personal Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "PC Processors"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Consumer Electronics",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Consumer Chips",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Consumer Software"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Mobile Devices",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Wireless Services",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Mobile Processors"
+    },
+    {
+      "domain": "Hardware",
+      "sub_industry": "Consumer Electronics Manufacturing",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Consumer Chips",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Electronics Retail"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Personal Care Products",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Consumer Health",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Beauty Retail"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Social Media Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Content Platforms",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Social Commerce"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Digital Advertising",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Marketing Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Ad Technology"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Retail REITs",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Commercial Real Estate",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "REIT Management"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Fuel Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Fuel Logistics",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Gas Stations"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Gas Stations",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Convenience Retail",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Point-of-Sale Systems"
+    }
+  ],
+  "Semiconductors": [
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Electronic Components",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Automotive Chips",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Embedded Systems"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Retail Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Fintech",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Security Chips"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Genomics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Bioinformatics",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sequencing Chips"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Credit Card Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Paymerit Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Payment Processors"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Fintech Lending Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Underwriting",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Crop Monitoring",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Remote Sensing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Imaging Sensors"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Precision Agriculture",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "lot Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sensor Chips"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Military Equipment",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cybersecurity Solutions",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Defense Chips"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Industrial Automation",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Industrial IoT",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Industrial Controllers"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Power Generation Equipment",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Power Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Robotics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Robot Controllers"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Grid Infrastructure",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Infrastructure",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Computer Retail",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Personal Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "PC Processors"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Consumer Electronics",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Consumer Chips",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Consumer Software"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Mobile Devices",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Wireless Services",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Mobile Processors"
+    },
+    {
+      "domain": "Hardware",
+      "sub_industry": "Consumer Electronics Manufacturing",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Consumer Chips",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Electronics Retail"
+    },
+    {
+      "domain": "Hardware",
+      "sub_industry": "Data Storage",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Memory Solutions",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Data Centers"
+    },
+    {
+      "domain": "Hardware",
+      "sub_industry": "Wearables",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Health Monitoring",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Wearable Processors"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Household Appliances",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Chips"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Gaming & Esports",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Gaming Software",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Gaming Processors"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Virtual Reality",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "VR Software",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "VR Processors"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Asset Management Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Investment Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Financial Processors"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Hedge Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Algorithmic Trading",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "High-Performance Computing."
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Online Learning Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Laboratory Instruments",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Lab Autornation",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Laboratory Chips"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Diagnostic Equipment",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Medical Semiconductors",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Health Software"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Medical Devices",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Connected Health",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Biomedical Chips"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Discovery",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Drug Discovery",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Energy Storage",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Battery Management",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Management"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Smart Grid Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Grid Controllers"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Solar Power",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Solar Cell Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Energy Management"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Integrated Circuits",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Circuit Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Testing Equipment"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Semiconductor Fabrication",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Manufacturing Equipment",
+      "complementary_domain": "Chemicals",
+      "complementary_sub_industry": "Semiconductor Materials"
+    },
+    {
+      "domain": "Serniconductor. Manufacturing",
+      "sub_industry": "Chip Design",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Electronic Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Design Software"
+    },
+    {
+      "domain": "Specialty Chemicals",
+      "sub_industry": "Advanced Materials",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Semiconductor Materials",
+      "complementary_domain": "Life Sciences",
+      "complementary_sub_industry": "Research Materials"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Cloud Computing",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Server Processors",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Data Center Networks"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Cybersecurity Solutions",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Security Processors",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fraud Prevention"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Software Development",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Application Processors",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Software Training"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Internet Service Providers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Network Infrastructure",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Network Processors"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Mobile Carriers",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "RF Semiconductors",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mobile Software"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Al Integration",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Machine Learning",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Al Processors"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Autonomous Vehicles",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "AI/ML Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Units"
+    },
+    {
+      "domain": "Vehicle Manufacturing",
+      "sub_industry": "Product Manufacturing",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Assembly Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Units"
+    }
+  ],
+  "Social Sector": [
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Charitable Organizations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Impact Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Donation Platforms"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "NGOS",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "International Development",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Impact Software"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Philanthropic Foundations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Foundation Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grant Management"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Impact Investing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "ESG Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Impact Measurement"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Nonprofit Consulting",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Nonprofit Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Nonprofit Finance"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Social Entrepreneurship.",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Social Innovation",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Social Education"
+    }
+  ],
+  "Technology": [
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Satellite Technology",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Data Centers",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Cloud Computing"
+    },
+    {
+      "domain": "Aerospace",
+      "sub_industry": "Space Exploration",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Satellite Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Data Analytics"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Cargo Airlines",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Freight Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Cargo Management"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Low-Cost Carriers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Airline Operations",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Travel Finance"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Passenger Airlines",
+      "adjacent_domain": "Aerospace & Defense",
+      "adjacent_sub_industry": "Aircraft Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Airline Software"
+    },
+    {
+      "domain": "Apparel",
+      "sub_industry": "Fashion Retail",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Fashion Products",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Fashion Technology"
+    },
+    {
+      "domain": "Automotive Parts",
+      "sub_industry": "Electronic Components",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Automotive Chips",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Embedded Systems"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Corporate Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Commercial Real Estate"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Investment Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Trading Platforms",
+      "complementary_domain": "Private Capital",
+      "complementary_sub_industry": "Investment Management"
+    },
+    {
+      "domain": "Banking",
+      "sub_industry": "Retail Banking",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Fintech",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Security Chips"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Biologics",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Pharmaceutical Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Bioprocessing"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Gene Therapy",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Treatments",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Therapeutic Software"
+    },
+    {
+      "domain": "Biotechnology",
+      "sub_industry": "Genomics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Bioinformatics",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sequencing Chips"
+    },
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "Facility Maintenance",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Facility Management"
+    },
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "HR & Staffing Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "HR Software",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Training Services"
+    },
+    {
+      "domain": "Commercial Services",
+      "sub_industry": "Waste Management",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Municipal Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Waste Analytics"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Credit Card Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Paymerit Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Payment Processors"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Fintech Lending Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Underwriting",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Consumer Finance",
+      "sub_industry": "Personal Loaris",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Digital Lending",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Credit Assessment"
+    },
+    {
+      "domain": "Containers & Packaging",
+      "sub_industry": "Sustainable Packaging",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Package Innovation",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Eco-Friendly Products"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Crop Monitoring",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Remote Sensing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Imaging Sensors"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Farm Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Robotics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Automation Software"
+    },
+    {
+      "domain": "Crop Farming",
+      "sub_industry": "Precision Agriculture",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "lot Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Sensor Chips"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Cyber Defense Systems",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Security Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Risk Management"
+    },
+    {
+      "domain": "Defense",
+      "sub_industry": "Military Equipment",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cybersecurity Solutions",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Defense Chips"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Industrial Automation",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Industrial IoT",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Industrial Controllers"
+    },
+    {
+      "domain": "Electrical Equipment",
+      "sub_industry": "Robotics",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Robot Controllers"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Grid Infrastructure",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Infrastructure",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Electronics"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Power Generation",
+      "adjacent_domain": "Renewable Energy",
+      "adjacent_sub_industry": "Solar Power",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Smart Grid Technology"
+    },
+    {
+      "domain": "Electric Utilities",
+      "sub_industry": "Transmission & Distribution",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grid Management"
+    },
+    {
+      "domain": "Electronics",
+      "sub_industry": "Computer Retail",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Personal Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "PC Processors"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Engineering Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Engineering Software",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Technical Services"
+    },
+    {
+      "domain": "Engineering & Construction",
+      "sub_industry": "Infrastructure Development",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "Urban Planning",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Project Management Software"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Natural Gas Exploration",
+      "adjacent_domain": "Energy",
+      "adjacent_sub_industry": "Gas Processing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Exploration Software"
+    },
+    {
+      "domain": "Exploration & Production",
+      "sub_industry": "Shale Extraction",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Geological Analysis",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Extraction Equipment"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Logistics Software",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Fleet Management"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Supply Chain Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Supply Chain Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Services"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Warehousing",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Warehouse Management"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Private Equity Fund of Funds",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Fund Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Investment Analytics"
+    },
+    {
+      "domain": "Fund of Funds",
+      "sub_industry": "Venture Capital Fund of Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fund Operations"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Department Stores",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Retail Real Estate",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Retail Technology"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Discount Stores",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Retail Logistics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Inventory Management"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Supermarkets",
+      "adjacent_domain": "Consumer Packaged Goods",
+      "adjacent_sub_industry": "Food Products",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Point-of-Sale Systems"
+    },
+    {
+      "domain": "Government",
+      "sub_industry": "E-Government Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Government Software",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Government Networks"
+    },
+    {
+      "domain": "Government",
+      "sub_industry": "Public Safety",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Security Systems",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Emergency Networks"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Home Health Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Remote Monitoring",
+      "complementary_domain": "Consumer Packaged Goods",
+      "complementary_sub_industry": "Health Products"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Medical Billing & Coding",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Healthcare Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Healthcare Finance"
+    },
+    {
+      "domain": "Healthcare Services",
+      "sub_industry": "Telemedicine",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Telemedicine Platforms",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Healthcare Connectivity"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Online Universities",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Distance Learning",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Learning infrastructure"
+    },
+    {
+      "domain": "Higher Education",
+      "sub_industry": "Research Institutions",
+      "adjacent_domain": "Life Sciences",
+      "adjacent_sub_industry": "Biotechnology R&D",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "Household Products",
+      "sub_industry": "Household Appliances",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Control Chips"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Industrial Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Supply Chain",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Distribution Software"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Manufacturing Services",
+      "adjacent_domain": "Automotive & Assembly",
+      "adjacent_sub_industry": "Contract Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Manufacturing Software"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Port Management",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Port Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Port Management"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Railroads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Rail Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Rail Technology"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Toll Roads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Transportation Infrastructure:",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Traffic Management"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Health Insurance",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Medical Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Claims Processing"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Life Insurance",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Health Insurance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Insurance Software"
+    },
+    {
+      "domain": "Insurance",
+      "sub_industry": "Property & Casualty Insurance",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Property Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Risk Assessment"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Gaming & Esports",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Gaming Software",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Gaming Processors"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Social Media Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Content Platforms",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Social Commerce"
+    },
+    {
+      "domain": "Interactive Media & Services",
+      "sub_industry": "Virtual Reality",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "VR Software",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "VR Processors"
+    },
+    {
+      "domain": "Internet & Direct Marketing",
+      "sub_industry": "E-commerce Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "E-commerce Logistics"
+    },
+    {
+      "domain": "Internet & Direct Marketing",
+      "sub_industry": "Subscription Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Subscription Platforms",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Payment Processing"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Asset Management Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Investment Platforms",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Financial Processors"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Hedge Funds",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Algorithmic Trading",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "High-Performance Computing."
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Private Equity",
+      "adjacent_domain": "Private Capital",
+      "adjacent_sub_industry": "Buyout Funds",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Investment Management",
+      "sub_industry": "Wealth Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Portfolio Management",
+      "complementary_domain": "Real Estate",
+      "complementary_sub_industry": "Investment Properties"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Curriculum Development",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Educational Software",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Educational Content"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Educational Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Learning Management",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Educational Networks"
+    },
+    {
+      "domain": "K-12 Education",
+      "sub_industry": "Online Learning Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Processing Hardware"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Diagnostic Tools",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Clinical Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Diagnostic Software"
+    },
+    {
+      "domain": "Life Sciences Tools",
+      "sub_industry": "Laboratory Instruments",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Lab Autornation",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Laboratory Chips"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Automated Feeding Systems",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Process Automation",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Control Systems"
+    },
+    {
+      "domain": "Livestock Farming",
+      "sub_industry": "Livestock Monitoring",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Veterinary Diagnostics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Remote Monitoring"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Digital Advertising",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Marketing Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Ad Technology"
+    },
+    {
+      "domain": "Media",
+      "sub_industry": "Streaming Services",
+      "adjacent_domain": "Telecommunications",
+      "adjacent_sub_industry": "Content Delivery",
+      "complementary_domain": "Media",
+      "complementary_sub_industry": "Content Production"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Diagnostic Equipment",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Medical Semiconductors",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Health Software"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Medical Devices",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Connected Health",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Biomedical Chips"
+    },
+    {
+      "domain": "Medical Equipment",
+      "sub_industry": "Surgical Instruments",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Precision Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Medical Robotics"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mineral Extraction",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Mining Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Software"
+    },
+    {
+      "domain": "Mining",
+      "sub_industry": "Mining Equipment",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Heavy Equipment",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mining Analytics"
+    },
+    {
+      "domain": "Multi-Utilities",
+      "sub_industry": "Integrated Utility Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Energy Management",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Utility Finance"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Charitable Organizations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Impact Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Donation Platforms"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "NGOS",
+      "adjacent_domain": "Public Sector",
+      "adjacent_sub_industry": "International Development",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Impact Software"
+    },
+    {
+      "domain": "Nonprofit",
+      "sub_industry": "Philanthropic Foundations",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Foundation Management",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Grant Management"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Drug Discovery",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Al Drug Discovery",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Research Computing"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Direct Lending",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Alternative Lending",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Lending Platforms"
+    },
+    {
+      "domain": "Private Debt",
+      "sub_industry": "Mezzanine Financing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Credit Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Distressed Investments",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Restructuring",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Turnaround Analytics"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Growth Equity",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Growth Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Finance"
+    },
+    {
+      "domain": "Private Equity",
+      "sub_industry": "Leveraged Buyouts",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Corporate Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Deal Analytics"
+    },
+    {
+      "domain": "Real Estate Development",
+      "sub_industry": "Real Estate Leasing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "Property Finance",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Property Management"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Office REITS",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Office Technology",
+      "complementary_domain": "Financial Services:",
+      "complementary_sub_industry": "Commercial Finance"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Gas Stations",
+      "adjacent_domain": "Retail",
+      "adjacent_sub_industry": "Convenience Retail",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Point-of-Sale Systems"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Energy Storage",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Battery Management",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Power Management"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Smart Grid Technology",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "IoT Systems",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Grid Controllers"
+    },
+    {
+      "domain": "Renewable Energy",
+      "sub_industry": "Solar Power",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Solar Cell Technology",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Energy Management"
+    },
+    {
+      "domain": "Serniconductor. Manufacturing",
+      "sub_industry": "Chip Design",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Electronic Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Design Software"
+    },
+    {
+      "domain": "Semiconductor Manufacturing",
+      "sub_industry": "Integrated Circuits",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Circuit Design",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Testing Equipment"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Impact Investing",
+      "adjacent_domain": "Financial Services",
+      "adjacent_sub_industry": "ESG Investing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Impact Measurement"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Nonprofit Consulting",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Nonprofit Software",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Nonprofit Finance"
+    },
+    {
+      "domain": "Social Enterprises",
+      "sub_industry": "Social Entrepreneurship.",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Social Innovation",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Social Education"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Employment Services",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Job Platforms",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Workforce Development"
+    },
+    {
+      "domain": "Social Services",
+      "sub_industry": "Health & Human Services",
+      "adjacent_domain": "Healthcare",
+      "adjacent_sub_industry": "Public Health",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Social Services Software"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Oil & Gas Storage",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Storage Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Storage Management"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Pipeline Operations",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Pipeline Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Pipeline Monitoring"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Cloud Computing",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Server Processors",
+      "complementary_domain": "Telecommunications",
+      "complementary_sub_industry": "Data Center Networks"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Cybersecurity Solutions",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Security Processors",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Fraud Prevention"
+    },
+    {
+      "domain": "Technology",
+      "sub_industry": "Software Development",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "Application Processors",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Software Training"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Fiber Optics",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Fiber Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Network Equipment"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Internet Service Providers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Network Infrastructure",
+      "complementary_domain": "Semiconductors",
+      "complementary_sub_industry": "Network Processors"
+    },
+    {
+      "domain": "Telecommunications",
+      "sub_industry": "Mobile Carriers",
+      "adjacent_domain": "Semiconductors",
+      "adjacent_sub_industry": "RF Semiconductors",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Mobile Software"
+    },
+    {
+      "domain": "Travel & Logistics",
+      "sub_industry": "Low-Cost Carriers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Airline Operations",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Travel Finance"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Early-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Startup Ecosystem",
+      "complementary_domain": "Education",
+      "complementary_sub_industry": "Innovation Programs"
+    },
+    {
+      "domain": "Venture Capital",
+      "sub_industry": "Growth-Stage Investing",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Scale-up Technology",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Growth Capital"
+    }
+  ],
+  "Travel & Logistics": [
+    {
+      "domain": "Airlines",
+      "sub_industry": "Cargo Airlines",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Freight Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Cargo Management"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Low-Cost Carriers",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Airline Operations",
+      "complementary_domain": "Financial Services",
+      "complementary_sub_industry": "Travel Finance"
+    },
+    {
+      "domain": "Airlines",
+      "sub_industry": "Passenger Airlines",
+      "adjacent_domain": "Aerospace & Defense",
+      "adjacent_sub_industry": "Aircraft Manufacturing",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Airline Software"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Logistics Software",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Fleet Management"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Supply Chain Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Supply Chain Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Services"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Warehousing",
+      "adjacent_domain": "Real Estate",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Warehouse Management"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Port Management",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Port Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Port Management"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Railroads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Rail Infrastructure",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Rail Technology"
+    },
+    {
+      "domain": "Infrastructure",
+      "sub_industry": "Toll Roads",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Transportation Infrastructure:",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Traffic Management"
+    }
+  ],
+  "Transportation": [
+    {
+      "domain": "Airlines",
+      "sub_industry": "Cargo Airlines",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Freight Services",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Cargo Management"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Cement Manufacturing",
+      "adjacent_domain": "Mining",
+      "adjacent_sub_industry": "Mineral Extraction",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Construction Logistics"
+    },
+    {
+      "domain": "Building Materials",
+      "sub_industry": "Construction Materials Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Logistics",
+      "complementary_domain": "Industrial & Electronics",
+      "complementary_sub_industry": "Material Handling"
+    },
+    {
+      "domain": "Commodity Chemicals",
+      "sub_industry": "Petrochemicals",
+      "adjacent_domain": "Oil & Gas",
+      "adjacent_sub_industry": "Refining",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Chemical Logistics"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Logistics Software",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Enterprise Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Fleet Management"
+    },
+    {
+      "domain": "Freight & Logistics",
+      "sub_industry": "Supply Chain Management",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Supply Chain Software",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Services"
+    },
+    {
+      "domain": "General Merchandise",
+      "sub_industry": "Discount Stores",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Retail Logistics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Inventory Management"
+    },
+    {
+      "domain": "Industrial Conglomerates",
+      "sub_industry": "Industrial Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Supply Chain",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Distribution Software"
+    },
+    {
+      "domain": "Internet & Direct Marketing",
+      "sub_industry": "E-commerce Platforms",
+      "adjacent_domain": "Technology",
+      "adjacent_sub_industry": "Cloud Computing",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "E-commerce Logistics"
+    },
+    {
+      "domain": "Metals",
+      "sub_industry": "Steel Production",
+      "adjacent_domain": "Engineering & Construction",
+      "adjacent_sub_industry": "Construction Materials",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Steel Logistics"
+    },
+    {
+      "domain": "Pharmaceuticals",
+      "sub_industry": "Pharmaceutical Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Cold Chain Logistics",
+      "complementary_domain": "Healthcare",
+      "complementary_sub_industry": "Pharmacy Services"
+    },
+    {
+      "domain": "Real Estate Investment Trusts",
+      "sub_industry": "Industrial REITS",
+      "adjacent_domain": "Industrial & Electronics",
+      "adjacent_sub_industry": "Industrial Real Estate",
+      "complementary_domain": "Transportation",
+      "complementary_sub_industry": "Logistics Real Estate"
+    },
+    {
+      "domain": "Refining & Marketing",
+      "sub_industry": "Fuel Distribution",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Fuel Logistics",
+      "complementary_domain": "Retail",
+      "complementary_sub_industry": "Gas Stations"
+    },
+    {
+      "domain": "Storage & Transportation",
+      "sub_industry": "Fuel Transportation",
+      "adjacent_domain": "Transportation",
+      "adjacent_sub_industry": "Logistics",
+      "complementary_domain": "Technology",
+      "complementary_sub_industry": "Fleet Management"
+    }
+  ]
+}
