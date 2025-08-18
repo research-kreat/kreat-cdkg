@@ -6,11 +6,11 @@ from collections import deque
 csv.field_size_limit(1_000_000_000)
 
 # File paths
-input_file = "partn.csv"
-output_file = "partn_test.csv"
+input_file = "../output_with_abstract.csv"
+output_file = "august_push.csv"
 
 # Number of rows to extract from the end
-NUM_LAST_ROWS = 10
+NUM_LAST_ROWS = 4714
 
 try:
     print(f"🔄 Reading the last {NUM_LAST_ROWS} valid rows using a rolling buffer...")
