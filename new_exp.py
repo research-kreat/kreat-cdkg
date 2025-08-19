@@ -19,9 +19,9 @@ logger = logging.getLogger(__name__)
 # ----------------------------
 # CONFIG
 # ----------------------------
-NEO4J_URI = "neo4j://127.0.0.1:7687"
+NEO4J_URI = "bolt://135.235.170.159:7687"
 NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "12345678"
+NEO4J_PASSWORD = "cHRE3FjhhxvkGNH"
 BATCH_SIZE = 1000
 
 # ----------------------------
@@ -232,7 +232,7 @@ def create_indexes(tx):
 # ----------------------------
 if __name__ == "__main__":
     try:
-        csv_file = "mongo_full_export_v2.csv"
+        csv_file = "cdkg.csv"
         logger.info(f"📖 Reading CSV file: {csv_file}...")
         df = pd.read_csv(csv_file, dtype={'patent_id': str})
         
