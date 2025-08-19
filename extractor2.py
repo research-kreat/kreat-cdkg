@@ -10,7 +10,7 @@ input_file = "../output_with_abstract.csv"
 output_file = "august_push.csv"
 
 # Number of rows to extract from the end
-NUM_LAST_ROWS = 4714
+NUM_LAST_ROWS = 4725
 
 try:
     print(f"🔄 Reading the last {NUM_LAST_ROWS} valid rows using a rolling buffer...")

@@ -24,20 +24,20 @@ def enrich_patent_with_functions(client, db_name='your_db_name'):
     and updates the patent document with functional data.
     """
     db = client[db_name]
-    patents_collection = db['cdkg']
+    patents_collection = db['temp']
     function_taxonomy_collection = db['function_taxonomy']
 
     # --- Step 1: Get the total count for the progress bar ---
     try:
         total_docs = patents_collection.count_documents({})
         if total_docs == 0:
-            print("The 'cdkg' collection is empty. No documents to process.")
+            print("The 'temp' collection is empty. No documents to process.")
             return
     except Exception as e:
-        print(f"Error counting documents in 'cdkg' collection: {e}")
+        print(f"Error counting documents in 'temp' collection: {e}")
         return
 
-    print(f"Found {total_docs} documents to process in the 'cdkg' collection.")
+    print(f"Found {total_docs} documents to process in the 'temp' collection.")
 
     # --- Step 2: Iterate through each patent with a progress bar ---
     patent_cursor = patents_collection.find({})
