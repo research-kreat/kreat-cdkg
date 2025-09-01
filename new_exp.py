@@ -23,6 +23,9 @@ NEO4J_URI = "bolt://135.235.170.159:7687"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "cHRE3FjhhxvkGNH"
 BATCH_SIZE = 1000
+# Define the dimensionality of your embeddings.
+# Common models: all-MiniLM-L6-v2 is 384, OpenAI text-embedding-ada-002 is 1536.
+VECTOR_DIMENSIONS = 384
 
 # ----------------------------
 # CONNECT
@@ -113,7 +116,8 @@ def batch_create_patents(tx, patents_batch):
     query = """
     UNWIND $patents as data
     MERGE (p:Patent {patent_id: data.patent_id}) 
-    SET p.id = data.id, 
+    SET 
+        p.id = data.patent_id, // Explicitly set patent_id
         p.title = data.title, 
         p.knowledge_type = data.knowledge_type, 
         p.publication_date = data.publication_date, 
@@ -152,44 +156,16 @@ def batch_create_patents(tx, patents_batch):
     """
     tx.run(query, patents=patents_batch)
 
-### ENHANCED: This function now adds a 'weight' to relationships to quantify their strength.
 def create_multi_level_relationships(tx):
     """Create dense, inferred, and weighted relationships across the graph."""
     relationship_queries = [
         {'name': 'Inventor Collaboration Network', 'query': "MATCH (i1:Inventor)<-[:INVENTED_BY]-(p:Patent)-[:INVENTED_BY]->(i2:Inventor) WHERE elementId(i1) < elementId(i2) MERGE (i1)-[r:COLLABORATED_WITH]-(i2) ON CREATE SET r.count = 1 ON MATCH SET r.count = r.count + 1"},
         {'name': 'Technology-Problem Solution', 'query': "MATCH (t:Technology)<-[:USES_TECHNOLOGY|:MENTIONS_TECHNOLOGY]-(p:Patent)-[:ADDRESSES_PROBLEM]->(pr:Problem) MERGE (t)-[r:SOLVES]->(pr) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"},
-        {'name': 'Function Equivalence (Weighted)', 'query': """
-            MATCH (f1:Function)<-[:HAS_FUNCTION]-(p:Patent)-[:HAS_EQUIVALENT_FUNCTION]->(f2:Function) 
-            WHERE elementId(f1) <> elementId(f2) 
-            MERGE (f1)-[r:IS_EQUIVALENT_TO]-(f2)
-            ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1
-        """},
-        {'name': 'Domain Complementarity (Weighted)', 'query': """
-            MATCH (p:Patent)-[:HAS_COMPLEMENTARY_DOMAIN]->(cd:Domain) 
-            WHERE p.domain IS NOT NULL AND p.domain <> '' AND p.domain <> cd.name
-            MERGE (d:Domain {name: p.domain}) 
-            MERGE (d)-[r:IS_COMPLEMENTARY_TO]-(cd)
-            ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1
-        """},
-        {'name': 'Sub-Industry Complementarity (Weighted)', 'query': """
-            MATCH (si1:SubIndustry)<-[:IN_SUB_INDUSTRY]-(p:Patent)-[:HAS_COMPLEMENTARY_SUB_INDUSTRY]->(si2:SubIndustry) 
-            WHERE elementId(si1) <> elementId(si2) 
-            MERGE (si1)-[r:IS_COMPLEMENTARY_TO]-(si2)
-            ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1
-        """},
-        {'name': 'Domain Adjacency (Weighted)', 'query': """
-            MATCH (p:Patent)-[:HAS_ADJACENT_DOMAIN]->(ad:Domain) 
-            WHERE p.domain IS NOT NULL AND p.domain <> '' AND p.domain <> ad.name
-            MERGE (d:Domain {name: p.domain}) 
-            MERGE (d)-[r:IS_ADJACENT_TO]-(ad)
-            ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1
-        """},
-        {'name': 'Sub-Industry Adjacency (Weighted)', 'query': """
-            MATCH (si1:SubIndustry)<-[:IN_SUB_INDUSTRY]-(p:Patent)-[:HAS_ADJACENT_SUB_INDUSTRY]->(si2:SubIndustry) 
-            WHERE elementId(si1) <> elementId(si2) 
-            MERGE (si1)-[r:IS_ADJACENT_TO]-(si2)
-            ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1
-        """}
+        {'name': 'Function Equivalence (Weighted)', 'query': "MATCH (f1:Function)<-[:HAS_FUNCTION]-(p:Patent)-[:HAS_EQUIVALENT_FUNCTION]->(f2:Function) WHERE elementId(f1) <> elementId(f2) MERGE (f1)-[r:IS_EQUIVALENT_TO]-(f2) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"},
+        {'name': 'Domain Complementarity (Weighted)', 'query': "MATCH (p:Patent)-[:HAS_COMPLEMENTARY_DOMAIN]->(cd:Domain) WHERE p.domain IS NOT NULL AND p.domain <> '' AND p.domain <> cd.name MERGE (d:Domain {name: p.domain}) MERGE (d)-[r:IS_COMPLEMENTARY_TO]-(cd) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"},
+        {'name': 'Sub-Industry Complementarity (Weighted)', 'query': "MATCH (si1:SubIndustry)<-[:IN_SUB_INDUSTRY]-(p:Patent)-[:HAS_COMPLEMENTARY_SUB_INDUSTRY]->(si2:SubIndustry) WHERE elementId(si1) <> elementId(si2) MERGE (si1)-[r:IS_COMPLEMENTARY_TO]-(si2) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"},
+        {'name': 'Domain Adjacency (Weighted)', 'query': "MATCH (p:Patent)-[:HAS_ADJACENT_DOMAIN]->(ad:Domain) WHERE p.domain IS NOT NULL AND p.domain <> '' AND p.domain <> ad.name MERGE (d:Domain {name: p.domain}) MERGE (d)-[r:IS_ADJACENT_TO]-(ad) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"},
+        {'name': 'Sub-Industry Adjacency (Weighted)', 'query': "MATCH (si1:SubIndustry)<-[:IN_SUB_INDUSTRY]-(p:Patent)-[:HAS_ADJACENT_SUB_INDUSTRY]->(si2:SubIndustry) WHERE elementId(si1) <> elementId(si2) MERGE (si1)-[r:IS_ADJACENT_TO]-(si2) ON CREATE SET r.weight = 1 ON MATCH SET r.weight = r.weight + 1"}
     ]
     
     logger.info("🕸️ Creating multi-level inferred and weighted relationships...")
@@ -204,10 +180,33 @@ def create_embedding_based_relationships(tx, similar_pairs_batch):
     query = "UNWIND $pairs as pair MATCH (p1:Patent {patent_id: pair.patent_1}) MATCH (p2:Patent {patent_id: pair.patent_2}) MERGE (p1)-[r:SEMANTICALLY_SIMILAR]-(p2) SET r.similarity = pair.similarity, r.method = 'embedding_cosine'"
     tx.run(query, pairs=similar_pairs_batch)
 
-def create_indexes(tx):
-    indexes_and_constraints = [
-        "CREATE CONSTRAINT patent_id_unique IF NOT EXISTS FOR (n:Patent) REQUIRE n.id IS UNIQUE",
-        "CREATE CONSTRAINT patent_patent_id_unique IF NOT EXISTS FOR (n:Patent) REQUIRE n.patent_id IS UNIQUE",
+# --- NEW: Function to create a vector index ---
+def create_vector_index(tx):
+    """Creates a vector index on the 'embedding' property of Patent nodes."""
+    logger.info("🏗️ Creating vector index for patent embeddings...")
+    vector_index_query = f"""
+    CREATE VECTOR INDEX `patent_embeddings` IF NOT EXISTS
+    FOR (p:Patent) ON (p.embedding) 
+    OPTIONS {{
+        indexConfig: {{
+            `vector.dimensions`: {VECTOR_DIMENSIONS},
+            `vector.similarity_function`: 'cosine'
+        }}
+    }}
+    """
+    try:
+        tx.run(vector_index_query)
+        logger.info("✅ Vector index 'patent_embeddings' is being created (or already exists).")
+    except Exception as e:
+        logger.error(f"❌ Could not create vector index. Error: {e}")
+
+def create_standard_indexes_and_constraints(tx):
+    """Creates standard indexes and constraints for faster lookups."""
+    # This is the primary key for a Patent
+    tx.run("CREATE CONSTRAINT patent_patent_id_unique IF NOT EXISTS FOR (n:Patent) REQUIRE n.patent_id IS UNIQUE")
+    
+    # Standard indexes for other commonly queried nodes
+    standard_indexes = [
         "CREATE INDEX technology_name_idx IF NOT EXISTS FOR (n:Technology) ON (n.name)",
         "CREATE INDEX keyword_name_idx IF NOT EXISTS FOR (n:Keyword) ON (n.name)",
         "CREATE INDEX inventor_name_idx IF NOT EXISTS FOR (n:Inventor) ON (n.name)",
@@ -223,9 +222,10 @@ def create_indexes(tx):
         "CREATE INDEX cpc_code_idx IF NOT EXISTS FOR (n:CPCClass) ON (n.code)",
         "CREATE INDEX ipc_code_idx IF NOT EXISTS FOR (n:IPCClass) ON (n.code)"
     ]
-    logger.info("🏗️ Creating indexes and constraints...")
-    for query in indexes_and_constraints: tx.run(query)
-    logger.info("✅ Indexes and constraints created.")
+    logger.info("🏗️ Creating standard indexes and constraints...")
+    for query in standard_indexes:
+        tx.run(query)
+    logger.info("✅ Standard indexes and constraints created.")
 
 # ----------------------------
 # MAIN PROCESSING
@@ -248,17 +248,56 @@ if __name__ == "__main__":
 
         patents_data, embeddings_list = [], []
         for _, row in tqdm(df.iterrows(), total=total_records, desc="🧮 Processing CSV rows"):
-            patent_unique_id = str(row.get('_id'))
+            mongo_id_str = str(row.get('_id'))
             patent_id_str = str(row.get('patent_id', ''))
             if not patent_id_str: continue
 
             full_text = str(row.get('full_text', '')) + ' ' + str(row.get('abstract', ''))
-            embedding = parse_embedding(row.get('ai_embeddings'))
+            embedding_np = parse_embedding(row.get('ai_embeddings'))
             
-            patents_data.append({'id': patent_unique_id, 'patent_id': patent_id_str, 'title': row.get('title'), 'abstract': row.get('abstract'), 'ai_generated_abstract': row.get('ai_generated_abstract'), 'summary': row.get('summary'), 'publication_date': str(row.get('publication_date', '')), 'knowledge_type': row.get('knowledge_type'), 'domain': row.get('domain'), 'patent_type': row.get('patent_type'), 'num_claims': int(row.get('num_claims', 0)) if row.get('num_claims') is not None else 0, 'wipo_kind': row.get('wipo_kind'), 'foreign_citation_count': int(row.get('foreign_citation_count', 0)) if row.get('foreign_citation_count') is not None else 0, 'local_citation_count': int(row.get('local_citation_count', 0)) if row.get('local_citation_count') is not None else 0, 'has_embedding': embedding is not None, 'embedding': embedding, 'technology_stack': parse_list_field(row.get('technology_stack')), 'keywords': parse_list_field(row.get('keywords')), 'inventors': parse_list_field(row.get('inventors')), 'assignee_names': parse_list_field(row.get('assignee_names')), 'ipc_classifications': parse_list_field(row.get('ipc_classifications')), 'cpc_classifications': parse_list_field(row.get('cpc_classifications')), 'use_cases': parse_list_field(row.get('use_case_examples')), 'sector': row.get('sector'), 'sub_industry': row.get('sub_industry'), 'function': row.get('function'), 'taxonomy_domain': row.get('taxonomy_domain'), 'equivalent_function': row.get('equivalent_function'), 'complementary_domain': row.get('complementary_domain'), 'complementary_sub_industry': row.get('complementary_sub_industry'), 'adjacent_domain': row.get('adjacent_domain'), 'adjacent_sub_industry': row.get('adjacent_sub_industry'), 'extracted_technologies': extract_technologies_from_text(full_text), 'application_domains': extract_domains_from_text(full_text), 'problems': extract_problems_from_text(full_text)})
+            # Convert numpy array to list for JSON serialization
+            embedding_list = embedding_np.tolist() if embedding_np is not None else None
             
-            if embedding is not None:
-                embeddings_list.append((patent_id_str, embedding))
+            patents_data.append({
+                'mongo_id': mongo_id_str, 
+                'patent_id': patent_id_str, 
+                'title': row.get('title'), 
+                'abstract': row.get('abstract'), 
+                'ai_generated_abstract': row.get('ai_generated_abstract'), 
+                'summary': row.get('summary'), 
+                'publication_date': str(row.get('publication_date', '')), 
+                'knowledge_type': row.get('knowledge_type'), 
+                'domain': row.get('domain'), 
+                'patent_type': row.get('patent_type'), 
+                'num_claims': int(row.get('num_claims', 0)) if row.get('num_claims') is not None else 0, 
+                'wipo_kind': row.get('wipo_kind'), 
+                'foreign_citation_count': int(row.get('foreign_citation_count', 0)) if row.get('foreign_citation_count') is not None else 0, 
+                'local_citation_count': int(row.get('local_citation_count', 0)) if row.get('local_citation_count') is not None else 0, 
+                'has_embedding': embedding_list is not None, 
+                'embedding': embedding_list, 
+                'technology_stack': parse_list_field(row.get('technology_stack')), 
+                'keywords': parse_list_field(row.get('keywords')), 
+                'inventors': parse_list_field(row.get('inventors')), 
+                'assignee_names': parse_list_field(row.get('assignee_names')), 
+                'ipc_classifications': parse_list_field(row.get('ipc_classifications')), 
+                'cpc_classifications': parse_list_field(row.get('cpc_classifications')), 
+                'use_cases': parse_list_field(row.get('use_case_examples')), 
+                'sector': row.get('sector'), 
+                'sub_industry': row.get('sub_industry'), 
+                'function': row.get('function'), 
+                'taxonomy_domain': row.get('taxonomy_domain'), 
+                'equivalent_function': row.get('equivalent_function'), 
+                'complementary_domain': row.get('complementary_domain'), 
+                'complementary_sub_industry': row.get('complementary_sub_industry'), 
+                'adjacent_domain': row.get('adjacent_domain'), 
+                'adjacent_sub_industry': row.get('adjacent_sub_industry'), 
+                'extracted_technologies': extract_technologies_from_text(full_text), 
+                'application_domains': extract_domains_from_text(full_text), 
+                'problems': extract_problems_from_text(full_text)
+            })
+            
+            if embedding_np is not None:
+                embeddings_list.append((patent_id_str, embedding_np))
         
         similar_pairs = calculate_embedding_similarity(embeddings_list, similarity_threshold=0.85)
 
@@ -266,14 +305,15 @@ if __name__ == "__main__":
             logger.warning("Clearing existing database...")
             session.run("MATCH (n) DETACH DELETE n")
             
-            session.execute_write(create_indexes)
+            # --- MODIFIED: Call the new index creation functions ---
+            session.execute_write(create_standard_indexes_and_constraints)
+            session.execute_write(create_vector_index)
             
             logger.info(f"🏗️ Creating {total_records} patent nodes in batches of {BATCH_SIZE}...")
             for i in tqdm(range(0, total_records, BATCH_SIZE), desc="🏗️ Creating patent nodes"):
                 batch = patents_data[i:i + BATCH_SIZE]
                 session.execute_write(batch_create_patents, batch)
             
-            # This now creates the weighted relationships
             session.execute_write(create_multi_level_relationships)
             
             if similar_pairs:
