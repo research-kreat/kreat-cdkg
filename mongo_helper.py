@@ -102,14 +102,14 @@ if __name__ == "__main__":
     if mongo_client:
         # --- HELPER FUNCTION 1: Delete fields from a collection ---
         # To use this, uncomment the lines below and fill in the details.
-        fields_to_remove = ["function_match_score", "equivalent_domain", "taxonomy_match_score"]
-        delete_fields(mongo_client, DB_NAME, 'temp', fields_to_remove)
+        #fields_to_remove = ["function_match_score", "equivalent_domain", "taxonomy_match_score"]
+        #delete_fields(mongo_client, DB_NAME, 'temp', fields_to_remove)
 
         # --- HELPER FUNCTION 2: Rename a field in a collection ---
         # To use this, uncomment the lines below and fill in the details.
-        #old_field_name = "function_sector"
-        #new_field_name = "sector"
-        #rename_field(mongo_client, DB_NAME, 'temp', old_field_name, new_field_name)
+        old_field_name = "function_sector"
+        new_field_name = "sector"
+        rename_field(mongo_client, DB_NAME, 'temp', old_field_name, new_field_name)
 
         mongo_client.close()
         print("MongoDB connection closed.")

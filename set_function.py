@@ -18,7 +18,7 @@ def get_mongo_client(uri):
         sys.exit(1)
 
 
-def enrich_patent_with_functions(client, db_name='your_db_name'):
+def enrich_patent_with_functions(client, db_name='KG'):
     """
     Iterates through patents, finds the best functional taxonomy match via vector search,
     and updates the patent document with functional data.

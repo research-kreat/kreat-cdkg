@@ -28,7 +28,7 @@ def validate_csv_against_mongo():
     collection_name = os.getenv("MONGO_COLLECTION")
 
     # This should be the path to your NEWLY FILTERED CSV file
-    filtered_csv_path = "../patents_final_2024.csv"
+    filtered_csv_path = "f2000_output.csv"
 
     if not os.path.exists(filtered_csv_path):
         print(f"Error: Filtered CSV file '{filtered_csv_path}' not found.")
