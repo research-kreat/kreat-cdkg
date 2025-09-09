@@ -7,7 +7,7 @@ import ast
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Load CSV
-df = pd.read_csv('f2000_output.csv')
+df = pd.read_csv('../f5001_output.csv')
 
 # Fill NaNs with empty string to avoid issues
 df.fillna('', inplace=True)
@@ -30,7 +30,7 @@ df['embedding'] = df.progress_apply(lambda row: model.encode(build_full_text(row
 df['ai_embeddings'] = df.progress_apply(lambda row: model.encode(build_ai_text(row)).tolist(), axis=1)
 
 # Save to CSV
-df.to_csv('f2000_output2.csv', index=False)
+df.to_csv('f5k8k.csv', index=False)
 
-print("✅ Embeddings generated and saved to f2000_output2.csv")
+print("✅ Embeddings generated and saved to f5k8k.csv")
 

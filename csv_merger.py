@@ -4,16 +4,16 @@ import os
 # 🔧 Replace with your actual file paths
 csv_files = [
     #"final_partn.csv",
-    "output2.csv",
-    "output4.csv",
-    "trial.csv",
+    "f2001_output.csv",
+    "f4001_output.csv",
+   # "trial.csv",
     #"final_partn4.csv",
     #"final_partn5.csv",
     #"final_part6.csv",
 ]
 
 # 📁 Output file
-output_file = "aerospace_final.csv"
+output_file = "f2k5k.csv"
 
 # ✅ Unified schema
 unified_columns = [

@@ -92,7 +92,7 @@ def rollup_embedding_columns(input_file, output_file, chunk_size=1000):
 
 if __name__ == "__main__":
     # --- Configuration ---
-    source_csv_file = 'f2000_unrolled.csv'
-    destination_csv_file = 'f2000.csv'
+    source_csv_file = 'cdkg_10k.csv'
+    destination_csv_file = 'cdkg_0k10k.csv'
     
     rollup_embedding_columns(source_csv_file, destination_csv_file)
