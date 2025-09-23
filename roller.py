@@ -28,7 +28,7 @@ def rollup_embedding_columns(input_file, output_file, chunk_size=1000):
     all_columns = header_df.columns.tolist()
 
     # Find all columns that match the 'embedding[...]' pattern
-    embedding_cols = [c for c in all_columns if c.startswith('embedding[')]
+    embedding_cols = [c for c in all_columns if c.startswith('embedding[')] or [c for c in all_columns if c.startswith('fullDescription_embedding[')]
     ai_embedding_cols = [c for c in all_columns if c.startswith('ai_embeddings[')]
 
     # This is crucial: sort the columns numerically to maintain the correct array order
@@ -92,7 +92,7 @@ def rollup_embedding_columns(input_file, output_file, chunk_size=1000):
 
 if __name__ == "__main__":
     # --- Configuration ---
-    source_csv_file = 'cdkg_10k.csv'
-    destination_csv_file = 'cdkg_0k10k.csv'
+    source_csv_file = 'biomimicry.csv'
+    destination_csv_file = 'biomimicry_final.csv'
     
     rollup_embedding_columns(source_csv_file, destination_csv_file)
