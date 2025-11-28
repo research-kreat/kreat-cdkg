@@ -7,7 +7,7 @@ from neo4j import GraphDatabase
 from tqdm import tqdm
 from dotenv import load_dotenv
 import re
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer  # <--- NEW IMPORT
 
 load_dotenv()
 
@@ -31,31 +31,26 @@ mongo_client = MongoClient(MONGO_URI)
 mongo_col = mongo_client[MONGO_DB][MONGO_COL]
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
-
 # --- HELPER FUNCTIONS ---
 def clean_list(value, delimiter=';'):
-    if isinstance(value, list):
-        return [str(x).strip() for x in value if x]
+    if isinstance(value, list): return [str(x).strip() for x in value if x]
     if isinstance(value, str) and value:
-        if delimiter in value:
-            return [x.strip() for x in value.split(delimiter) if x.strip()]
+        if delimiter in value: return [x.strip() for x in value.split(delimiter) if x.strip()]
         return [value.strip()]
     return []
 
-
 def extract_problems_from_text(text):
-    if not isinstance(text, str):
-        return []
+    if not isinstance(text, str): return []
     text = text.lower()
     patterns = [
-        r'\b(inefficiency|inefficient|slow|delay|bottleneck|latency|lag)\b',
-        r'\b(error|mistake|inaccuracy|unreliable|failure|fault|defect|bug)\b',
-        r'\b(expensive|costly|high cost|resource intensive|wasteful)\b',
-        r'\b(complex|complexity|difficult|challenging|cumbersome)\b',
-        r'\b(security|vulnerability|threat|breach|fraud|leak|attack)\b',
-        r'\b(scalability|scale|limitation|constraint|capacity)\b',
-        r'\b(manual|labor|time consuming|tedious)\b',
-        r'\b(outdated|legacy|obsolete|old|incompatible)\b',
+        r'\b(inefficiency|inefficient|slow|delay|bottleneck|latency|lag)\b', 
+        r'\b(error|mistake|inaccuracy|unreliable|failure|fault|defect|bug)\b', 
+        r'\b(expensive|costly|high cost|resource intensive|wasteful)\b', 
+        r'\b(complex|complexity|difficult|challenging|cumbersome)\b', 
+        r'\b(security|vulnerability|threat|breach|fraud|leak|attack)\b', 
+        r'\b(scalability|scale|limitation|constraint|capacity)\b', 
+        r'\b(manual|labor|time consuming|tedious)\b', 
+        r'\b(outdated|legacy|obsolete|old|incompatible)\b', 
         r'\b(waste|pollution|emission|sustainability|toxic|hazard)\b',
         r'\b(overheat|thermal|cooling|heat|dissipation)\b',
         r'\b(noise|vibration|interference|signal|attenuation)\b'
@@ -66,12 +61,11 @@ def extract_problems_from_text(text):
         problems.update(matches)
     return list(problems)
 
-
 def normalize_columns_v2(df):
     mappings = {
         'function_category': ['Function Category', 'Category', 'Func_Cat'],
         'specific_function': ['Specific Function', 'Source Function', 'Function Name'],
-        'universal_function': ['Universal Function Class', 'Universal Function', 'Universal Function Name'],
+        'universal_function': ['Universal Function Class', 'Universal Function'],
         'biology_mechanisms': ['Biology Mechanisms', 'Biological Mechanisms'],
         'physics_mechanisms': ['Physics/Engineering Mechanisms', 'Physics Mechanisms'],
         'cyber_physical_mechanisms': ['Cyber-Physical Mechanisms', 'Cyber Mechanisms'],
@@ -87,12 +81,11 @@ def normalize_columns_v2(df):
                 new_data[std_key] = df[cols_lower[v.lower()]]
                 found = True
                 break
-        if not found:
-            new_data[std_key] = pd.Series([""] * len(df))
+        if not found: new_data[std_key] = pd.Series([""] * len(df))
     return pd.concat([df, pd.DataFrame(new_data)], axis=1)
 
-
 # --- PHASE 1: WORLD BUILDER ---
+
 def build_industry_backbone(tx, row):
     q_core = """
     MERGE (s:Sector {name: $sector})
@@ -103,20 +96,13 @@ def build_industry_backbone(tx, row):
     MERGE (d)-[:BELONGS_TO_SECTOR]->(s)
     MERGE (sub)-[:BELONGS_TO_DOMAIN]->(d)
     """
-    tx.run(q_core,
-           sector=str(row.get('Sector', '')),
-           domain=str(row.get('Domain', '')),
-           sub_ind=str(row.get('Sub-Industry', '')),
-           naics=str(row.get('NAICS Code', '')),
-           classification=str(row.get('Classification', '')),
-           horiz=str(row.get('Horizontal Connection', '')))
+    tx.run(q_core, sector=str(row.get('Sector','')), domain=str(row.get('Domain','')), 
+           sub_ind=str(row.get('Sub-Industry','')), naics=str(row.get('NAICS Code','')),
+           classification=str(row.get('Classification','')), horiz=str(row.get('Horizontal Connection','')))
 
-    # Link Universal Function if present (try multiple possible keys)
-    univ = row.get('Universal Function') or row.get('universal_function') or row.get('Universal Function Name')
-    if univ:
-        tx.run(
-            "MATCH (sub:SubIndustry {name: $sub}) MERGE (u:UniversalFunction {name: $univ}) MERGE (sub)-[:PERFORMS]->(u)",
-            sub=row.get('Sub-Industry', ''), univ=univ)
+    if row.get('Universal Function'):
+        tx.run("MATCH (sub:SubIndustry {name: $sub}) MERGE (u:UniversalFunction {name: $univ}) MERGE (sub)-[:PERFORMS]->(u)", 
+               sub=row['Sub-Industry'], univ=row['Universal Function'])
 
     adj_configs = [
         ('Adjacent Domain 1', 'Adjacent Sub-Industry 1', 'Strength 1', 'IS_ADJACENT_TO'),
@@ -129,8 +115,7 @@ def build_industry_backbone(tx, row):
         tgt_dom = str(row.get(d_key, '')).strip()
         tgt_sub = str(row.get(s_key, '')).strip()
         score = row.get(score_key, 0)
-        if not tgt_dom and not tgt_sub:
-            continue
+        if not tgt_dom and not tgt_sub: continue
 
         if tgt_sub:
             q_rel = f"""
@@ -141,7 +126,7 @@ def build_industry_backbone(tx, row):
             MERGE (src)-[r:{rel}]->(tgt_s) SET r.weight = toFloat($score)
             MERGE (tgt_s)-[r2:{rel}]->(src) SET r2.weight = toFloat($score)
             """
-            tx.run(q_rel, src=row.get('Sub-Industry', ''), tgt_d=tgt_dom, tgt_s=tgt_sub, score=score)
+            tx.run(q_rel, src=row['Sub-Industry'], tgt_d=tgt_dom, tgt_s=tgt_sub, score=score)
         elif tgt_dom:
             q_rel = f"""
             MATCH (src:SubIndustry {{name: $src}})
@@ -149,88 +134,62 @@ def build_industry_backbone(tx, row):
             MERGE (src)-[r:{rel}]->(tgt_d) SET r.weight = toFloat($score)
             MERGE (tgt_d)-[r2:{rel}]->(src) SET r2.weight = toFloat($score)
             """
-            tx.run(q_rel, src=row.get('Sub-Industry', ''), tgt_d=tgt_dom, score=score)
-
+            tx.run(q_rel, src=row['Sub-Industry'], tgt_d=tgt_dom, score=score)
 
 def build_function_backbone(tx, row):
-    # Use normalized fields where available; fallback to raw column names
-    spec_name = str(row.get('specific_function') or row.get('Specific Function') or "").strip()
-    univ_name = str(row.get('universal_function') or row.get('Universal Function') or "").strip()
-    sector_name = str(row.get('Sector') or row.get('sector') or row.get('Domain') or "").strip()
-    domain_name = str(row.get('Domain') or row.get('domain') or "").strip()
+    spec_name = str(row.get('specific_function',''))
+    univ_name = str(row.get('universal_function',''))
+    
+    if not spec_name: return
 
-    if not spec_name:
-        return
-
-    # Build an embedding for the function (Function Name + Universal Function)
+    # --- NEW: GENERATE EMBEDDING FOR FUNCTION ---
+    # We embed "Function Name + Context" for better semantic matching
     text_to_embed = f"{spec_name} ({univ_name})"
-    try:
-        embedding = model.encode(text_to_embed).tolist()
-    except Exception:
-        # fallback: empty vector (shouldn't happen often)
-        embedding = []
+    embedding = model.encode(text_to_embed).tolist()
 
-    # Create/Update SpecificFunction node and set domain if present
     q_func = """
     MERGE (f:SpecificFunction {name: $spec})
-    SET f.embedding = $emb,
-        f.universal_function = $univ,
-        f.sector = $sector,
-        f.domain = $domain
+    SET f.embedding = $emb,  // Storing Vector!
+        f.universal_function = $univ
+    
     MERGE (u:UniversalFunction {name: $univ})
     MERGE (f)-[:HAS_UNIVERSAL_FUNCTION]->(u)
     MERGE (u)-[:INCLUDES_FUNCTION]->(f)
     MERGE (f)-[:CLASSIFIED_AS]->(u)
     """
-    tx.run(q_func, spec=spec_name, univ=univ_name, emb=embedding, sector=sector_name, domain=domain_name)
-
-    # Attach mechanisms (biological / physics / cyber-physical)
-    mechanisms = [
-        ('biology_mechanisms', 'BioMechanism', 'MIMICS'),
-        ('physics_mechanisms', 'PhyMechanism', 'UTILIZES'),
-        ('cyber_physical_mechanisms', 'CyberPhyMechanism', 'OPERATES_VIA')
-    ]
+    tx.run(q_func, spec=spec_name, univ=univ_name, emb=embedding)
+    mechanisms = [('biology_mechanisms', 'BioMechanism', 'MIMICS'), ('physics_mechanisms', 'PhyMechanism', 'UTILIZES'), ('cyber_physical_mechanisms', 'CyberPhyMechanism', 'OPERATES_VIA')]
     for col, label, rel in mechanisms:
-        items = clean_list(str(row.get(col, '')) or str(row.get(col.capitalize(), '')), '|')
+        items = clean_list(str(row.get(col, '')), '|')
         for item in items:
             name_part = item.split('(')[0].strip()
-            tx.run(
-                f"MATCH (f:SpecificFunction {{name: $spec}}) "
-                f"MERGE (m:{label} {{name: $name}}) "
-                f"SET m.full_text = $full "
-                f"MERGE (f)-[:{rel}]->(m)",
-                spec=spec_name, name=name_part, full=item
-            )
-
-    # Equivalent domain linking
-    equivalent_domain = row.get('Equivalent Domain') or row.get('equivalent_domain') or ""
-    if equivalent_domain:
+            tx.run(f"MATCH (f:SpecificFunction {{name: $spec}}) MERGE (m:{label} {{name: $name}}) SET m.full_text=$full MERGE (f)-[:{rel}]->(m)", 
+                   spec=spec_name, name=name_part, full=item)
+    
+    if row.get('Equivalent Domain'):
         tx.run("""
         MATCH (spec:SpecificFunction {name: $spec})
         MERGE (d:Domain {name: $dom})
         MERGE (spec)-[r:IS_EQUIVALENT_TO]->(d)
         MERGE (d)-[r2:HAS_EQUIVALENT_FUNCTION]->(spec)
         SET r.layer = $layer, r.evidence = $evidence
-        """, spec=spec_name, dom=equivalent_domain,
-               layer=row.get('Equivalence Layer', ''), evidence=row.get('transfer_evidence', ''))
+        """, spec=row['specific_function'], dom=row['Equivalent Domain'], layer=row.get('Equivalence Layer',''), evidence=row.get('transfer_evidence',''))
 
-    # Stakeholders
-    stakeholders_field = row.get('key_stakeholders') or row.get('Key Stakeholders') or ""
-    for sh in clean_list(str(stakeholders_field), '|'):
-        tx.run("MATCH (spec:SpecificFunction {name: $spec}) MERGE (s:Stakeholder {name: $name}) MERGE (s)-[:INVESTS_IN]->(spec)",
-               spec=spec_name, name=sh)
-
+    for sh in clean_list(str(row.get('key_stakeholders','')), '|'):
+        tx.run("MATCH (spec:SpecificFunction {name: $spec}) MERGE (s:Stakeholder {name: $name}) MERGE (s)-[:INVESTS_IN]->(spec)", 
+               spec=row['specific_function'], name=sh)
 
 # --- PHASE 2: PATENT POPULATOR ---
+
 def ingest_patent_dense(tx, doc):
     tax = doc.get('taxonomy_data', {})
     ind = tax.get('industry', {})
     func = tax.get('function', {})
-
+    
     domain_name = str(doc.get('domain', '')).strip() or str(ind.get('Domain', 'Unclassified')).strip()
-    func_name = str(func.get('Specific Function') or func.get('standard_specific_function') or "")
-
-    full_text = f"{doc.get('title', '')} {doc.get('abstract', '')}"
+    func_name = str(func.get('Specific Function') or func.get('standard_specific_function', ''))
+    
+    full_text = f"{doc.get('title','')} {doc.get('abstract','')}"
     extracted_problems = extract_problems_from_text(full_text)
 
     q_patent = """
@@ -239,13 +198,20 @@ def ingest_patent_dense(tx, doc):
         p.embedding = $embedding, p.num_claims = toInteger($num_claims), p.patent_type = $patent_type,
         p.domain = $domain
     """
+    
+    # Note: We don't generate new function embeddings here because functions
+    # should ideally come from the taxonomy. If a function is NEW (only in patent),
+    # we currently link it by name.
+    
     q_structure = """
     MATCH (p:Patent {id: $id})
     MERGE (d:Domain {name: $domain})
     MERGE (d)-[:HAS_PATENT]->(p)
     MERGE (p)-[:FOUND_IN_DOMAIN]->(d)
-
+    
     MERGE (f:SpecificFunction {name: $func})
+    // If creating new function node on the fly, we lack embedding :(
+    // But most should be caught by Phase 1
     MERGE (p)-[:USES_FUNCTION]->(f)
     MERGE (p)-[:IMPLEMENTS]->(f)
     MERGE (f)-[:IS_USED_BY]->(p)
@@ -261,31 +227,25 @@ def ingest_patent_dense(tx, doc):
     """
 
     params = {
-        'id': str(doc.get('_id', '')),
-        'title': doc.get('title', 'Untitled'),
-        'abstract': doc.get('abstract', ''),
-        'date': str(doc.get('publication_date', '')),
-        'embedding': doc.get('embedding') or doc.get('ai_embeddings'),
-        'num_claims': doc.get('num_claims', 0),
-        'patent_type': doc.get('patent_type', ''),
-        'domain': domain_name,
+        'id': str(doc['_id']), 'title': doc.get('title', 'Untitled'), 'abstract': doc.get('abstract', ''),
+        'date': str(doc.get('publication_date', '')), 'embedding': doc.get('embedding') or doc.get('ai_embeddings'),
+        'num_claims': doc.get('num_claims', 0), 'patent_type': doc.get('patent_type', ''),
+        'domain': domain_name, 
         'func': func_name,
-        'problems': extracted_problems,
-        'tech': clean_list(doc.get('technology_stack') or "", ','),
-        'keywords': clean_list(doc.get('keywords') or "", ','),
-        'assignees': clean_list(doc.get('assignee_org') or "", ',')
+        'problems': extracted_problems, 'tech': clean_list(doc.get('technology_stack'), ','),
+        'keywords': clean_list(doc.get('keywords'), ','), 'assignees': clean_list(doc.get('assignee_org'), ',')
     }
 
     tx.run(q_patent, **params)
-    if domain_name != 'Unclassified' and func_name:
+    if domain_name != 'Unclassified' and func_name: 
         tx.run(q_structure, **params)
     tx.run(q_entities, **params)
 
-
 # --- PHASE 3: DENSIFICATION ---
+
 def run_densification_protocols(session):
     print("🔗 Running Densification Protocols...")
-
+    
     print("   - Creating Semantic Wormholes...")
     session.run("""
     MATCH (p1:Patent) WHERE p1.embedding IS NOT NULL
@@ -310,33 +270,11 @@ def run_densification_protocols(session):
     ON CREATE SET r.count = 1 ON MATCH SET r.count = r.count + 1
     """)
 
-
-def create_function_similarity(session, score_threshold=0.85, batch_size=50, parallel=True):
-    """
-    Create FUNCTIONALLY_SIMILAR relationships between SpecificFunction nodes
-    using the `function_embeddings` vector index. This uses APOC periodic iterate
-    to avoid exploding memory usage.
-    """
-    print("🔁 Creating FUNCTIONALLY_SIMILAR relationships (batched)...")
-    apoc_query = f"""
-    CALL apoc.periodic.iterate(
-      "MATCH (f1:SpecificFunction) WHERE f1.embedding IS NOT NULL RETURN f1",
-      "CALL db.index.vector.queryNodes('function_embeddings', 10, f1.embedding) YIELD node AS f2, score
-       WHERE score > {score_threshold} AND elementId(f1) < elementId(f2) AND f1 <> f2
-       MERGE (f1)-[r:FUNCTIONALLY_SIMILAR]-(f2)
-       ON CREATE SET r.score = score, r.created_at = datetime()
-       ON MATCH SET r.score = CASE WHEN score > r.score THEN score ELSE r.score END",
-      {{batchSize: {batch_size}, parallel: {str(parallel).lower()}}}
-    );
-    """
-    session.run(apoc_query)
-
-
 # --- MAIN EXECUTION ---
 def main():
-    with driver.session() as session:
-        print("🧹 Optional: cleaning database disabled by default")
-        # session.run("MATCH (n) DETACH DELETE n")
+    with driver.session() as session: 
+        print("🧹 Cleaning Database (Optional)...")
+        # session.run("MATCH (n) DETACH DELETE n") 
 
     with driver.session() as session:
         print("🏗️  Building World (Taxonomy)...")
@@ -344,7 +282,7 @@ def main():
             df = pd.read_csv(INDUSTRY_CSV).replace({np.nan: ""})
             for _, row in tqdm(df.iterrows(), total=len(df)):
                 session.execute_write(build_industry_backbone, row)
-
+        
         print("🧬 Building Function Details (With Embeddings)...")
         files = glob.glob(FUNCTION_CSV_DIR)
         for f in files:
@@ -353,8 +291,7 @@ def main():
                 df = normalize_columns_v2(df)
                 for _, row in tqdm(df.iterrows(), total=len(df), leave=False):
                     session.execute_write(build_function_backbone, row)
-            except Exception as e:
-                print(f"Warning: failed to process {f}: {e}")
+            except: pass
 
         print("📐 Creating Indexes...")
         indexes = [
@@ -367,37 +304,22 @@ def main():
             # NEW FUNCTION INDEX
             "CREATE VECTOR INDEX function_embeddings IF NOT EXISTS FOR (f:SpecificFunction) ON (f.embedding) OPTIONS {indexConfig: {`vector.dimensions`: 384, `vector.similarity_function`: 'cosine'}}"
         ]
-        for idx in indexes:
-            try:
-                session.run(idx)
-            except Exception as e:
-                print(f"Index creation warning: {e}")
+        for idx in indexes: session.run(idx)
 
         print("🚀 Ingesting Patents...")
         cursor = mongo_col.find({"taxonomy_data": {"$exists": True}})
         total = mongo_col.count_documents({"taxonomy_data": {"$exists": True}})
-
+        
         for doc in tqdm(cursor, total=total):
             emb = doc.get('embedding') or doc.get('ai_embeddings')
-            if not emb:
-                continue
-            if hasattr(emb, 'tolist'):
-                doc['embedding'] = emb.tolist()
-            else:
-                doc['embedding'] = emb
+            if not emb: continue
+            if hasattr(emb, 'tolist'): doc['embedding'] = emb.tolist()
+            else: doc['embedding'] = emb
             session.execute_write(ingest_patent_dense, doc)
 
         run_densification_protocols(session)
 
-        # Create FUNCTIONALLY_SIMILAR edges (safe, batched)
-        try:
-            create_function_similarity(session, score_threshold=0.85, batch_size=50, parallel=True)
-        except Exception as e:
-            print(f"Function similarity job failed: {e}")
-            print("You can run create_function_similarity(...) manually after verifying the vector index is online.")
-
-    print("✅ Complete! Graph now has Function Embeddings and densification edges.")
-
+    print("✅ Complete! Graph now has Function Embeddings.")
 
 if __name__ == "__main__":
     main()
