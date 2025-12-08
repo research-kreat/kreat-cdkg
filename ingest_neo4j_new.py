@@ -2,7 +2,7 @@ import os
 import glob
 import pandas as pd
 import numpy as np
-from pymongo import MongoClient
+import ijson
 from neo4j import GraphDatabase
 from tqdm import tqdm
 from dotenv import load_dotenv
@@ -12,20 +12,20 @@ from sentence_transformers import SentenceTransformer
 load_dotenv()
 
 # --- CONFIGURATION ---
-MONGO_URI = os.getenv("MONGO_URI")
-MONGO_DB = os.getenv("MONGO_DB")
-MONGO_COL = "temp"
+# JSON File Path (Local)
+JSON_FILE_PATH = "KG.json" 
 
 NEO4J_URI = "bolt://localhost:7687"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "12345678"
 
-INDUSTRY_CSV = "/Users/admin/Downloads/MASTER_INDUSTRY_TAXONOMY_COMPLETE_989_Functions.csv"
-FUNCTION_CSV_DIR = "/Users/admin/Downloads/CDKG - DATA/*.csv"
+INDUSTRY_CSV = "/Users/user/Downloads/MASTER_INDUSTRY_TAXONOMY_COMPLETE_989_Functions.csv"
+FUNCTION_CSV_DIR = "/Users/user/Downloads/CDKG - DATA/*.csv"
 
 # Using MiniLM for speed/efficiency
 EMBEDDING_MODEL_NAME = 'all-MiniLM-L6-v2' 
 VECTOR_DIMENSIONS = 384
+BATCH_SIZE = 500  # Process patents in chunks of 500
 
 print(f"⏳ Loading Embedding Model ({EMBEDDING_MODEL_NAME})...")
 model = SentenceTransformer(EMBEDDING_MODEL_NAME)
@@ -33,8 +33,6 @@ model = SentenceTransformer(EMBEDDING_MODEL_NAME)
 # --- GLOBAL CACHE ---
 universal_embedding_cache = {}
 
-mongo_client = MongoClient(MONGO_URI)
-mongo_col = mongo_client[MONGO_DB][MONGO_COL]
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 
@@ -52,6 +50,32 @@ def clean_list(value, delimiter=None):
             
         return [x.strip() for x in value.split(delimiter) if x.strip()]
     return []
+
+def drop_all_indexes_and_constraints(session):
+    print("🧨 Dropping all Indexes and Constraints...")
+    
+    # 1. Drop Constraints First (Constraints depend on indexes)
+    constraints = session.run("SHOW CONSTRAINTS YIELD name").data()
+    for rec in constraints:
+        try:
+            session.run(f"DROP CONSTRAINT {rec['name']}")
+            print(f"   - Dropped constraint: {rec['name']}")
+        except Exception as e:
+            print(f"   ! Failed to drop constraint {rec['name']}: {e}")
+
+    # 2. Drop Explicit Indexes
+    indexes = session.run("SHOW INDEXES YIELD name, type").data()
+    for rec in indexes:
+        # Don't try to drop internal LOOKUP indexes
+        if rec['type'] == 'LOOKUP': 
+            continue
+            
+        try:
+            session.run(f"DROP INDEX {rec['name']}")
+            print(f"   - Dropped index: {rec['name']}")
+        except Exception as e:
+            print(f"   ! Failed to drop index {rec['name']}: {e}")
+
 
 def extract_problems_from_text(text):
     if not isinstance(text, str):
@@ -86,6 +110,13 @@ def extract_properties(text):
         clean_unit = unit.strip().replace('°', '')
         properties.append(f"{val}_{clean_unit}")
     return list(set(properties))
+
+def get_safe_mongo_value(field_value):
+    """Helper to handle MongoDB specific types like $oid or $date if they appear in JSON"""
+    if isinstance(field_value, dict):
+        if '$oid' in field_value: return str(field_value['$oid'])
+        if '$date' in field_value: return str(field_value['$date'])
+    return field_value
 
 def normalize_columns_v2(df):
     mappings = {
@@ -216,9 +247,8 @@ def build_industry_backbone(tx, row):
             """
             tx.run(q_rel, src=sub_ind, tgt_d=tgt_dom, tgt_s=tgt_sub, score=score)
         
-        # B. Domain Link (Broad) - If only Domain is known OR as a general aggregation
+        # B. Domain Link (Broad)
         if tgt_dom:
-            # 1. Link Sub-Industry to Target Domain
             q_rel_sub_dom = f"""
             MATCH (src:SubIndustry {{name: $src}})
             MERGE (tgt_d:Domain {{name: $tgt_d}})
@@ -234,6 +264,7 @@ def build_industry_backbone(tx, row):
                     SET r.source = 'Taxonomy_Aggregation'
                     """
                     tx.run(q_domain_highway, src_d=domain, tgt_d=tgt_dom)
+
 def build_function_backbone(tx, row):
     # 1. Normalization
     spec_name = str(row.get('specific_function') or row.get('Specific Function') or "").strip()
@@ -335,124 +366,177 @@ def build_function_backbone(tx, row):
                spec=spec_name, name=sh)
 
 
-# --- PHASE 2: PATENT POPULATOR (REVERTED TO OLD LOGIC) ---
+# --- PHASE 2: PATENT BATCH INGESTOR (Replaces ingest_patent_dense) ---
 
-def ingest_patent_dense(tx, doc):
-    # 1. EXTRACT DATA
-    tax = doc.get('taxonomy_data', {})
-    ind = tax.get('industry', {})
-    func = tax.get('function', {})
+# Cypher Query for Batch Processing
+BATCH_INGEST_QUERY = """
+UNWIND $batch AS row
+MERGE (p:Patent {id: row.id})
+SET p.title = row.title, 
+    p.abstract = row.abstract, 
+    p.publication_date = row.date,
+    p.embedding = row.embedding, 
+    p.num_claims = toInteger(row.num_claims), 
+    p.patent_type = row.patent_type,
+    p.patent_id_str = row.patent_id_str,
+    p.sector = row.sector,  
+    p.domain = row.domain,
+    p.function_category = row.cat,
+    p.country = row.country,
+    p.pdf_link = row.pdf_link,
+    p.url = row.url,
+    p.relevance_score = toFloat(row.relevance_score),
+    p.quality_score = toFloat(row.quality_score),
+    p.ipc_classifications = row.ipc_list,
+    p.cpc_classifications = row.cpc_list
 
-    pid = str(doc.get('_id', '') or doc.get('patent_id', ''))
-    
-    # --- CRITICAL: SECTOR EXTRACTION ---
-    # We grab the Sector directly from the taxonomy object.
-    sector_name = str(ind.get('Sector') or 'Unclassified').strip()
-    domain_name = str(ind.get('Domain') or doc.get('domain') or 'Unclassified').strip()
-    
-    # Extract Function Info
-    func_name = str(func.get('Specific Function') or func.get('standard_specific_function') or "").strip()
-    cat_name = str(func.get('Function Category') or func.get('category') or "").strip()
-    univ_name = str(func.get('Universal Function Class') or func.get('Universal Function') or "").strip()
-    
-    # 2. PREPARE TEXT
-    abstract_text = doc.get('abstract') or doc.get('summary') or doc.get('ai_generated_abstract') or ""
-    full_text = f"{doc.get('title', '')} {abstract_text}"
-    
-    extracted_problems = extract_problems_from_text(full_text)
-    extracted_properties = extract_properties(full_text)
-    
-    # List Cleaning
-    inventors = clean_list(doc.get('inventors'), ',')
-    assignees = clean_list(doc.get('assignee_org') or doc.get('assignee_names'), ',')
-    cpc_group_title = clean_list(doc.get('cpc_group_title'))
-    cpc_subclass_title = clean_list(doc.get('cpc_subclass_title'))
-    use_cases = clean_list(doc.get('use_case_examples'), ';')
-    trends = clean_list(doc.get('market_trends'), ';')
-    references = clean_list(doc.get('references'), ',')
+// --- LINK TO SECTOR (Layer 1 Entry Point) ---
+FOREACH (_ IN CASE WHEN row.sector <> 'Unclassified' THEN [1] ELSE [] END |
+    MERGE (s:Sector {name: row.sector})
+    MERGE (s)-[:HAS_PATENT]->(p)
+    MERGE (p)-[:BELONGS_TO_SECTOR]->(s)
+)
 
-    # 3. CREATE PATENT NODE (With Explicit Sector Property)
-    q_patent = """
-    MERGE (p:Patent {id: $id})
-    SET p.title = $title, 
-        p.abstract = $abstract, 
-        p.publication_date = $date,
-        p.embedding = $embedding, 
-        p.num_claims = toInteger($num_claims), 
-        p.patent_type = $patent_type,
-        p.sector = $sector,   // <--- NEW: Explicit Key for Sector
-        p.domain = $domain,   // Keep Domain for granularity
-        p.function_category = $cat,
-        p.country = $country,
-        p.pdf_link = $pdf_link,
-        p.url = $url,
-        p.relevance_score = toFloat($relevance_score),
-        p.quality_score = toFloat($quality_score)
-    """
-    
-    # 4. STRUCTURE LINKS (The Bi-Directional Magic)
-    q_structure = """
-    MATCH (p:Patent {id: $id})
-    
-    // --- LINK TO SECTOR (Layer 1 Entry Point) ---
-    MERGE (s:Sector {name: $sector})
-    MERGE (s)-[:HAS_PATENT]->(p)        // Downward
-    MERGE (p)-[:BELONGS_TO_SECTOR]->(s) // Upward
-
-    // --- LINK TO DOMAIN (Layer 1.5 Entry Point) ---
-    MERGE (d:Domain {name: $domain})
+// --- LINK TO DOMAIN (Layer 1.5 Entry Point) ---
+FOREACH (_ IN CASE WHEN row.domain <> 'Unclassified' THEN [1] ELSE [] END |
+    MERGE (d:Domain {name: row.domain})
     MERGE (d)-[:HAS_PATENT]->(p)
     MERGE (p)-[:FOUND_IN_DOMAIN]->(d)
-    
     // Ensure Sector -> Domain exists
-    MERGE (s)-[:CONTAINS]->(d)
+    FOREACH (_2 IN CASE WHEN row.sector <> 'Unclassified' THEN [1] ELSE [] END |
+        MERGE (s2:Sector {name: row.sector})
+        MERGE (s2)-[:CONTAINS]->(d)
+    )
+)
 
-    // --- LINK TO FUNCTION ---
-    MERGE (f:SpecificFunction {name: $func})
+// --- LINK TO FUNCTION ---
+FOREACH (_ IN CASE WHEN row.func <> '' THEN [1] ELSE [] END |
+    MERGE (f:SpecificFunction {name: row.func})
     MERGE (p)-[:USES_FUNCTION]->(f)
     MERGE (p)-[:IMPLEMENTS]->(f)
-    """
+)
 
-    q_entities = """
-    MATCH (p:Patent {id: $id})
-    FOREACH (n IN $problems | MERGE (pr:Problem {name: n}) MERGE (p)-[:ADDRESSES_PROBLEM]->(pr))
-    FOREACH (n IN $tech | MERGE (t:Technology {name: n}) MERGE (p)-[:USES_TECHNOLOGY]->(t))
-    FOREACH (n IN $keywords | MERGE (k:Keyword {name: n}) MERGE (p)-[:HAS_KEYWORD]->(k))
-    FOREACH (n IN $assignees | MERGE (o:Organization {name: n}) MERGE (p)-[:ASSIGNED_TO]->(o))
-    FOREACH (n IN $properties | MERGE (prop:Property {name: n}) MERGE (p)-[:HAS_PARAMETER]->(prop))
-    FOREACH (n IN $inventors | MERGE (i:Inventor {name: n}) MERGE (i)-[:INVENTED]->(p))
-    FOREACH (n IN $use_cases | MERGE (uc:UseCase {name: n}) MERGE (p)-[:APPLIED_IN]->(uc))
-    FOREACH (n IN $trends | MERGE (mt:MarketTrend {name: n}) MERGE (p)-[:ALIGNS_WITH_TREND]->(mt))
-    FOREACH (n IN $cpc_groups | MERGE (cg:CPCGroup {name: n}) MERGE (p)-[:CLASSIFIED_AS]->(cg))
-    FOREACH (n IN $cpc_subclasses | MERGE (cs:CPCSubclass {name: n}) MERGE (p)-[:IN_SUBCLASS]->(cs))
+// --- LINK ENTITIES ---
+FOREACH (n IN row.problems | MERGE (pr:Problem {name: n}) MERGE (p)-[:ADDRESSES_PROBLEM]->(pr))
+FOREACH (n IN row.tech | MERGE (t:Technology {name: n}) MERGE (p)-[:USES_TECHNOLOGY]->(t))
+FOREACH (n IN row.keywords | MERGE (k:Keyword {name: n}) MERGE (p)-[:HAS_KEYWORD]->(k))
+FOREACH (n IN row.assignees | MERGE (o:Organization {name: n}) MERGE (p)-[:ASSIGNED_TO]->(o))
+FOREACH (n IN row.properties | MERGE (prop:Property {name: n}) MERGE (p)-[:HAS_PARAMETER]->(prop))
+FOREACH (n IN row.inventors | MERGE (i:Inventor {name: n}) MERGE (i)-[:INVENTED]->(p))
+FOREACH (n IN row.use_cases | MERGE (uc:UseCase {name: n}) MERGE (p)-[:APPLIED_IN]->(uc))
+FOREACH (n IN row.trends | MERGE (mt:MarketTrend {name: n}) MERGE (p)-[:ALIGNS_WITH_TREND]->(mt))
+FOREACH (n IN row.cpc_groups | MERGE (cg:CPCGroup {name: n}) MERGE (p)-[:CLASSIFIED_AS]->(cg))
+FOREACH (n IN row.cpc_subclasses | MERGE (cs:CPCSubclass {name: n}) MERGE (p)-[:IN_SUBCLASS]->(cs))
+"""
+
+def process_patent_batch(session, batch_docs):
     """
+    Extracts data from a list of JSON docs and runs a single UNWIND transaction.
+    Includes Type Casting to fix 'Decimal' errors from ijson.
+    """
+    clean_batch = []
     
-    params = {
-        'id': pid, 'title': doc.get('title', 'Untitled'), 'abstract': abstract_text,
-        'date': str(doc.get('publication_date', '')), 'embedding': doc.get('embedding') or doc.get('ai_embeddings'),
-        'num_claims': doc.get('num_claims', 0), 'patent_type': doc.get('patent_type', ''),
-        'sector': sector_name, # <--- Correct Key
-        'domain': domain_name,
-        'country': doc.get('country', ''), 'pdf_link': doc.get('pdf_link', ''),
-        'url': doc.get('source_url', ''), 'relevance_score': doc.get('relevance_score', 0),
-        'quality_score': doc.get('data_quality_score', 0), 
-        'func': func_name, 'cat': cat_name, 'univ': univ_name,
-        'problems': extracted_problems, 'properties': extracted_properties, 
-        'tech': clean_list(doc.get('technology_stack') or "", ','),
-        'keywords': clean_list(doc.get('keywords') or "", ','),
-        'assignees': assignees, 'inventors': inventors,
-        'use_cases': use_cases, 'trends': trends,
-        'cpc_groups': cpc_group_title, 'cpc_subclasses': cpc_subclass_title,
-        'refs': references
-    }
+    for doc in batch_docs:
+        # 1. EXTRACT DATA
+        tax = doc.get('taxonomy_data', {})
+        ind = tax.get('industry', {})
+        func = tax.get('function', {})
 
-    tx.run(q_patent, **params)
-    # Only link structure if we have valid classifiers
-    if sector_name != 'Unclassified' and func_name:
-        tx.run(q_structure, **params)
-    tx.run(q_entities, **params)
+        # --- SWAP LOGIC ---
+        raw_sector_value = str(ind.get('Sector') or 'Unclassified').strip()
+        raw_domain_value = str(ind.get('Domain') or doc.get('domain') or 'Unclassified').strip()
+        
+        sector_name = raw_domain_value  # Swapped
+        domain_name = raw_sector_value  # Swapped
 
+        # IDs and Dates
+        pid = get_safe_mongo_value(doc.get('_id')) or str(doc.get('patent_id', ''))
+        patent_id_str = str(doc.get('patent_id', ''))
+        pub_date = get_safe_mongo_value(doc.get('publication_date'))
 
+        # Extract Function Info
+        func_name = str(func.get('Specific Function') or func.get('standard_specific_function') or "").strip()
+        cat_name = str(func.get('Function Category') or func.get('category') or "").strip()
+        
+        # Text Processing
+        abstract_text = doc.get('abstract') or doc.get('summary') or doc.get('ai_generated_abstract') or ""
+        full_text = f"{doc.get('title', '')} {abstract_text} {doc.get('full_text', '')}"
+        
+        extracted_problems = extract_problems_from_text(full_text)
+        extracted_properties = extract_properties(full_text)
+        
+        # --- TYPE CASTING FIX (Decimal -> Float/Int) ---
+        
+        # 1. Embeddings: Convert list of Decimals to list of Floats
+        raw_emb = doc.get('embedding') or doc.get('ai_embeddings')
+        if raw_emb and hasattr(raw_emb, '__iter__'):
+             # This list comprehension forces conversion of every element to float
+             emb_list = [float(x) for x in raw_emb]
+        else:
+             emb_list = []
+
+        # 2. Scalar Scores: Explicit conversion
+        try:
+            rel_score = float(doc.get('relevance_score', 0) or 0)
+        except: rel_score = 0.0
+            
+        try:
+            qual_score = float(doc.get('data_quality_score', 0) or 0)
+        except: qual_score = 0.0
+
+        try:
+            n_claims = int(doc.get('num_claims', 0) or 0)
+        except: n_claims = 0
+
+        # Skip if embedding is missing or invalid dimension
+        if not emb_list or len(emb_list) != VECTOR_DIMENSIONS:
+            continue
+        
+        # Lists
+        ipc_list = clean_list(doc.get('ipc_classifications'), ',')
+        cpc_list = clean_list(doc.get('cpc_classifications'), ',')
+        
+        # Prepare item dictionary
+        item = {
+            'id': pid, 
+            'patent_id_str': patent_id_str,
+            'title': doc.get('title', 'Untitled'), 
+            'abstract': abstract_text[:5000], 
+            'date': str(pub_date), 
+            'embedding': emb_list,  # <--- Now strictly floats
+            'num_claims': n_claims, # <--- Now strictly int
+            'patent_type': doc.get('patent_type', ''),
+            'sector': sector_name, 
+            'domain': domain_name,
+            'country': doc.get('country', ''), 
+            'pdf_link': doc.get('pdf_link', ''),
+            'url': doc.get('source_url', ''), 
+            'relevance_score': rel_score, # <--- Now strictly float
+            'quality_score': qual_score,  # <--- Now strictly float
+            'func': func_name, 
+            'cat': cat_name,
+            'ipc_list': ipc_list,
+            'cpc_list': cpc_list,
+            'problems': extracted_problems, 
+            'properties': extracted_properties, 
+            'tech': clean_list(doc.get('technology_stack') or "", ','),
+            'keywords': clean_list(doc.get('keywords') or "", ','),
+            'assignees': clean_list(doc.get('assignee_org') or doc.get('assignee_names'), ','), 
+            'inventors': clean_list(doc.get('inventors'), ','),
+            'use_cases': clean_list(doc.get('use_case_examples'), ';'), 
+            'trends': clean_list(doc.get('market_trends'), ';'),
+            'cpc_groups': clean_list(doc.get('cpc_group_title')), 
+            'cpc_subclasses': clean_list(doc.get('cpc_subclass_title'))
+        }
+
+        clean_batch.append(item)
+
+    # Execute Batch
+    if clean_batch:
+        try:
+            session.run(BATCH_INGEST_QUERY, batch=clean_batch)
+        except Exception as e:
+            print(f"⚠️ Batch Error: {e}")
 # --- PHASE 3: DENSIFICATION ---
 
 def run_densification_protocols(session):
@@ -497,10 +581,27 @@ def create_function_similarity(session, score_threshold=0.85, batch_size=50, par
 
 # --- MAIN EXECUTION ---
 def main():
-    # with driver.session() as session:
-    #     session.run("MATCH (n) DETACH DELETE n")
-
     with driver.session() as session:
+        drop_all_indexes_and_constraints(session)
+        # 1. SETUP & INDEXES
+        print("📐 Creating Indexes & Constraints...")
+        indexes = [
+            "CREATE CONSTRAINT IF NOT EXISTS FOR (n:Domain) REQUIRE n.name IS UNIQUE",
+            "CREATE CONSTRAINT IF NOT EXISTS FOR (n:Sector) REQUIRE n.name IS UNIQUE",
+            "CREATE CONSTRAINT IF NOT EXISTS FOR (n:SpecificFunction) REQUIRE n.name IS UNIQUE",
+            "CREATE CONSTRAINT IF NOT EXISTS FOR (n:Patent) REQUIRE n.id IS UNIQUE", 
+            "CREATE INDEX IF NOT EXISTS FOR (n:FunctionCategory) ON (n.name)",
+            f"CREATE VECTOR INDEX patent_embeddings IF NOT EXISTS FOR (p:Patent) ON (p.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}",
+            f"CREATE VECTOR INDEX function_embeddings IF NOT EXISTS FOR (f:SpecificFunction) ON (f.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}",
+            f"CREATE VECTOR INDEX universal_embeddings IF NOT EXISTS FOR (u:UniversalFunction) ON (u.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}"
+        ]
+        for idx in indexes:
+            try:
+                session.run(idx)
+            except Exception as e:
+                print(f"Index creation warning: {e}")
+
+        # 2. WORLD BUILDER
         print("🏗️  Building World (Taxonomy)...")
         if os.path.exists(INDUSTRY_CSV):
             df = pd.read_csv(INDUSTRY_CSV).replace({np.nan: ""})
@@ -518,38 +619,45 @@ def main():
             except Exception as e:
                 print(f"Warning: failed to process {f}: {e}")
 
-        print("📐 Creating Indexes...")
-        indexes = [
-            "CREATE INDEX IF NOT EXISTS FOR (n:Domain) ON (n.name)",
-            "CREATE INDEX IF NOT EXISTS FOR (n:SpecificFunction) ON (n.name)",
-            "CREATE INDEX IF NOT EXISTS FOR (n:Patent) ON (n.id)",
-            "CREATE INDEX IF NOT EXISTS FOR (n:FunctionCategory) ON (n.name)",
-            f"CREATE VECTOR INDEX patent_embeddings IF NOT EXISTS FOR (p:Patent) ON (p.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}",
-            f"CREATE VECTOR INDEX function_embeddings IF NOT EXISTS FOR (f:SpecificFunction) ON (f.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}",
-            f"CREATE VECTOR INDEX universal_embeddings IF NOT EXISTS FOR (u:UniversalFunction) ON (u.embedding) OPTIONS {{indexConfig: {{`vector.dimensions`: {VECTOR_DIMENSIONS}, `vector.similarity_function`: 'cosine'}}}}"
-        ]
-        for idx in indexes:
-            try:
-                session.run(idx)
-            except Exception as e:
-                print(f"Index creation warning: {e}")
+        # 3. JSON STREAMING INGESTION
+        print(f"🚀 Streaming Patents from {JSON_FILE_PATH} (Low RAM Mode)...")
+        if not os.path.exists(JSON_FILE_PATH):
+            print(f"❌ Error: File {JSON_FILE_PATH} not found.")
+            return
 
-        print("🚀 Ingesting Patents...")
-        cursor = mongo_col.find({"taxonomy_data": {"$exists": True}})
-        total = mongo_col.count_documents({"taxonomy_data": {"$exists": True}})
+        batch_buffer = []
+        total_ingested = 0
 
-        for doc in tqdm(cursor, total=total):
-            emb = doc.get('embedding') or doc.get('ai_embeddings')
-            if not emb:
-                continue
-            if hasattr(emb, 'tolist'):
-                doc['embedding'] = emb.tolist()
-            else:
-                doc['embedding'] = emb
-            
-            if len(doc['embedding']) == VECTOR_DIMENSIONS:
-                session.execute_write(ingest_patent_dense, doc)
+        # Open JSON file as a stream
+        try:
+            with open(JSON_FILE_PATH, 'rb') as f:
+                # ijson.items yields one object at a time from the JSON array
+                parser = ijson.items(f, 'item')
+                
+                for doc in tqdm(parser, desc="Ingesting Patents"):
+                    # Basic Validation
+                    if "taxonomy_data" not in doc:
+                        continue
+                        
+                    batch_buffer.append(doc)
 
+                    # When buffer fills, flush to Neo4j
+                    if len(batch_buffer) >= BATCH_SIZE:
+                        process_patent_batch(session, batch_buffer)
+                        total_ingested += len(batch_buffer)
+                        batch_buffer = [] # Clear RAM
+
+                # Process remaining items in buffer
+                if batch_buffer:
+                    process_patent_batch(session, batch_buffer)
+                    total_ingested += len(batch_buffer)
+                    
+        except Exception as e:
+            print(f"❌ JSON Reading Error: {e}")
+
+        print(f"✅ Ingestion Complete. Total Processed: {total_ingested}")
+
+        # 4. DENSIFICATION
         run_densification_protocols(session)
 
         try:
@@ -561,4 +669,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()  
+    main()
