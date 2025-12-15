@@ -15,9 +15,9 @@ load_dotenv()
 # JSON File Path (Local)
 JSON_FILE_PATH = "KG.json" 
 
-NEO4J_URI = "bolt://localhost:7687"
+NEO4J_URI = "bolt://135.235.170.159:7687"
 NEO4J_USER = "neo4j"
-NEO4J_PASSWORD = "12345678"
+NEO4J_PASSWORD = "cHRE3FjhhxvkGNH"
 
 INDUSTRY_CSV = "/Users/user/Downloads/MASTER_INDUSTRY_TAXONOMY_COMPLETE_989_Functions.csv"
 FUNCTION_CSV_DIR = "/Users/user/Downloads/CDKG - DATA/*.csv"
